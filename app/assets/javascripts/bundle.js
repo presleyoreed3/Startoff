@@ -52,6 +52,26 @@ var Root = function Root() {
 
 /***/ }),
 
+/***/ "./frontend/utils/user_api_util.js":
+/*!*****************************************!*\
+  !*** ./frontend/utils/user_api_util.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchUsers": () => (/* binding */ fetchUsers)
+/* harmony export */ });
+var fetchUsers = function fetchUsers() {
+  return $.ajax({
+    method: "GET",
+    url: "/api/users"
+  });
+};
+
+/***/ }),
+
 /***/ "./node_modules/history/index.js":
 /*!***************************************!*\
   !*** ./node_modules/history/index.js ***!
@@ -34808,13 +34828,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _utils_user_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/user_api_util */ "./frontend/utils/user_api_util.js");
+
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('root'); // const store = configureStore()
   //Testing
-  //Testing
+
+  window.fetchUsers = _utils_user_api_util__WEBPACK_IMPORTED_MODULE_3__.fetchUsers; //Testing
 
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], null), root);
 });
