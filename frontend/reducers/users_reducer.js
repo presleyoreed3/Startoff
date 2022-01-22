@@ -1,0 +1,1 @@
+import {RECEIVE_ALL_USERS } from '../actions/users_actions'
