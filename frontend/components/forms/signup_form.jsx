@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class SignupForm extends React.Component{
 
@@ -26,6 +26,9 @@ class SignupForm extends React.Component{
 	render(){
 		return(
 			<div>
+				<div id="login-question">
+					<p>Have an Account? <Link to="/login">Log in</Link></p>
+				</div>
 				<h2>Sign Up</h2>
 				<form onSubmit={this.handleSubmit}>
 					<label>Full Name: 
