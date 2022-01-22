@@ -38,8 +38,8 @@ var logoutCurrentUser = function logoutCurrentUser() {
 
 var receiveErrors = function receiveErrors(errors) {
   return {
-    type: RECEIVE_CURRENT_USER,
-    user: user
+    type: RECEIVE_ERRORS,
+    errors: errors
   };
 };
 
@@ -325,7 +325,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Full Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         value: this.state.name,
@@ -341,7 +341,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('password')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "submit"
-      }, "Log In")));
+      }, "Sign Up")));
     }
   }]);
 
@@ -404,7 +404,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/cjs/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./frontend/components/App.jsx");
 
 
@@ -646,7 +646,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AuthRoute": () => (/* binding */ AuthRoute)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/cjs/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
@@ -32079,62 +32079,54 @@ function warning(message) {
 
 /***/ }),
 
-/***/ "./node_modules/react-router-dom/cjs/react-router-dom.js":
+/***/ "./node_modules/react-router-dom/esm/react-router-dom.js":
 /*!***************************************************************!*\
-  !*** ./node_modules/react-router-dom/cjs/react-router-dom.js ***!
+  !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MemoryRouter": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.MemoryRouter),
+/* harmony export */   "Prompt": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.Prompt),
+/* harmony export */   "Redirect": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.Redirect),
+/* harmony export */   "Route": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.Route),
+/* harmony export */   "Router": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.Router),
+/* harmony export */   "StaticRouter": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.StaticRouter),
+/* harmony export */   "Switch": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.Switch),
+/* harmony export */   "generatePath": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.generatePath),
+/* harmony export */   "matchPath": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.matchPath),
+/* harmony export */   "useHistory": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.useHistory),
+/* harmony export */   "useLocation": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.useLocation),
+/* harmony export */   "useParams": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.useParams),
+/* harmony export */   "useRouteMatch": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.useRouteMatch),
+/* harmony export */   "withRouter": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_0__.withRouter),
+/* harmony export */   "BrowserRouter": () => (/* binding */ BrowserRouter),
+/* harmony export */   "HashRouter": () => (/* binding */ HashRouter),
+/* harmony export */   "Link": () => (/* binding */ Link),
+/* harmony export */   "NavLink": () => (/* binding */ NavLink)
+/* harmony export */ });
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! history */ "./node_modules/history/esm/history.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var tiny_warning__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tiny-warning */ "./node_modules/tiny-warning/dist/tiny-warning.esm.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var tiny_invariant__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tiny-invariant */ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js");
 
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var reactRouter = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
-var React = _interopDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var history = __webpack_require__(/*! history */ "./node_modules/history/esm/history.js");
-var PropTypes = _interopDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
-var warning = _interopDefault(__webpack_require__(/*! tiny-warning */ "./node_modules/tiny-warning/dist/tiny-warning.esm.js"));
-var invariant = _interopDefault(__webpack_require__(/*! tiny-invariant */ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js"));
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
 
-    return target;
-  };
 
-  return _extends.apply(this, arguments);
-}
 
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
 
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
 
 /**
  * The public API for a <Router> that uses HTML5 history.
@@ -32143,7 +32135,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 var BrowserRouter =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(BrowserRouter, _React$Component);
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(BrowserRouter, _React$Component);
 
   function BrowserRouter() {
     var _this;
@@ -32153,33 +32145,33 @@ function (_React$Component) {
     }
 
     _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-    _this.history = history.createBrowserHistory(_this.props);
+    _this.history = (0,history__WEBPACK_IMPORTED_MODULE_5__.createBrowserHistory)(_this.props);
     return _this;
   }
 
   var _proto = BrowserRouter.prototype;
 
   _proto.render = function render() {
-    return React.createElement(reactRouter.Router, {
+    return react__WEBPACK_IMPORTED_MODULE_2__.createElement(react_router__WEBPACK_IMPORTED_MODULE_0__.Router, {
       history: this.history,
       children: this.props.children
     });
   };
 
   return BrowserRouter;
-}(React.Component);
+}(react__WEBPACK_IMPORTED_MODULE_2__.Component);
 
-{
+if (true) {
   BrowserRouter.propTypes = {
-    basename: PropTypes.string,
-    children: PropTypes.node,
-    forceRefresh: PropTypes.bool,
-    getUserConfirmation: PropTypes.func,
-    keyLength: PropTypes.number
+    basename: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+    children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+    forceRefresh: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
+    getUserConfirmation: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().func),
+    keyLength: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().number)
   };
 
   BrowserRouter.prototype.componentDidMount = function () {
-     warning(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { BrowserRouter as Router }`.") ;
+     true ? (0,tiny_warning__WEBPACK_IMPORTED_MODULE_7__["default"])(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { BrowserRouter as Router }`.") : 0;
   };
 }
 
@@ -32190,7 +32182,7 @@ function (_React$Component) {
 var HashRouter =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(HashRouter, _React$Component);
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(HashRouter, _React$Component);
 
   function HashRouter() {
     var _this;
@@ -32200,32 +32192,32 @@ function (_React$Component) {
     }
 
     _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-    _this.history = history.createHashHistory(_this.props);
+    _this.history = (0,history__WEBPACK_IMPORTED_MODULE_5__.createHashHistory)(_this.props);
     return _this;
   }
 
   var _proto = HashRouter.prototype;
 
   _proto.render = function render() {
-    return React.createElement(reactRouter.Router, {
+    return react__WEBPACK_IMPORTED_MODULE_2__.createElement(react_router__WEBPACK_IMPORTED_MODULE_0__.Router, {
       history: this.history,
       children: this.props.children
     });
   };
 
   return HashRouter;
-}(React.Component);
+}(react__WEBPACK_IMPORTED_MODULE_2__.Component);
 
-{
+if (true) {
   HashRouter.propTypes = {
-    basename: PropTypes.string,
-    children: PropTypes.node,
-    getUserConfirmation: PropTypes.func,
-    hashType: PropTypes.oneOf(["hashbang", "noslash", "slash"])
+    basename: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+    children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+    getUserConfirmation: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().func),
+    hashType: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf(["hashbang", "noslash", "slash"])
   };
 
   HashRouter.prototype.componentDidMount = function () {
-     warning(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { HashRouter as Router }`.") ;
+     true ? (0,tiny_warning__WEBPACK_IMPORTED_MODULE_7__["default"])(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { HashRouter as Router }`.") : 0;
   };
 }
 
@@ -32233,14 +32225,14 @@ var resolveToLocation = function resolveToLocation(to, currentLocation) {
   return typeof to === "function" ? to(currentLocation) : to;
 };
 var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
-  return typeof to === "string" ? history.createLocation(to, null, null, currentLocation) : to;
+  return typeof to === "string" ? (0,history__WEBPACK_IMPORTED_MODULE_5__.createLocation)(to, null, null, currentLocation) : to;
 };
 
 var forwardRefShim = function forwardRefShim(C) {
   return C;
 };
 
-var forwardRef = React.forwardRef;
+var forwardRef = react__WEBPACK_IMPORTED_MODULE_2__.forwardRef;
 
 if (typeof forwardRef === "undefined") {
   forwardRef = forwardRefShim;
@@ -32254,11 +32246,11 @@ var LinkAnchor = forwardRef(function (_ref, forwardedRef) {
   var innerRef = _ref.innerRef,
       navigate = _ref.navigate,
       _onClick = _ref.onClick,
-      rest = _objectWithoutPropertiesLoose(_ref, ["innerRef", "navigate", "onClick"]);
+      rest = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref, ["innerRef", "navigate", "onClick"]);
 
   var target = rest.target;
 
-  var props = _extends({}, rest, {
+  var props = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, rest, {
     onClick: function onClick(event) {
       try {
         if (_onClick) _onClick(event);
@@ -32287,10 +32279,10 @@ var LinkAnchor = forwardRef(function (_ref, forwardedRef) {
   /* eslint-disable-next-line jsx-a11y/anchor-has-content */
 
 
-  return React.createElement("a", props);
+  return react__WEBPACK_IMPORTED_MODULE_2__.createElement("a", props);
 });
 
-{
+if (true) {
   LinkAnchor.displayName = "LinkAnchor";
 }
 /**
@@ -32304,15 +32296,15 @@ var Link = forwardRef(function (_ref2, forwardedRef) {
       replace = _ref2.replace,
       to = _ref2.to,
       innerRef = _ref2.innerRef,
-      rest = _objectWithoutPropertiesLoose(_ref2, ["component", "replace", "to", "innerRef"]);
+      rest = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, ["component", "replace", "to", "innerRef"]);
 
-  return React.createElement(reactRouter.__RouterContext.Consumer, null, function (context) {
-    !context ?  invariant(false, "You should not use <Link> outside a <Router>")  : void 0;
+  return react__WEBPACK_IMPORTED_MODULE_2__.createElement(react_router__WEBPACK_IMPORTED_MODULE_0__.__RouterContext.Consumer, null, function (context) {
+    !context ?  true ? (0,tiny_invariant__WEBPACK_IMPORTED_MODULE_8__["default"])(false, "You should not use <Link> outside a <Router>") : 0 : void 0;
     var history = context.history;
     var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
     var href = location ? history.createHref(location) : "";
 
-    var props = _extends({}, rest, {
+    var props = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, rest, {
       href: href,
       navigate: function navigate() {
         var location = resolveToLocation(to, context.location);
@@ -32328,21 +32320,21 @@ var Link = forwardRef(function (_ref2, forwardedRef) {
       props.innerRef = innerRef;
     }
 
-    return React.createElement(component, props);
+    return react__WEBPACK_IMPORTED_MODULE_2__.createElement(component, props);
   });
 });
 
-{
-  var toType = PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func]);
-  var refType = PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.shape({
-    current: PropTypes.any
+if (true) {
+  var toType = prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_6___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_6___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_6___default().func)]);
+  var refType = prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_6___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_6___default().func), prop_types__WEBPACK_IMPORTED_MODULE_6___default().shape({
+    current: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().any)
   })]);
   Link.displayName = "Link";
   Link.propTypes = {
     innerRef: refType,
-    onClick: PropTypes.func,
-    replace: PropTypes.bool,
-    target: PropTypes.string,
+    onClick: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().func),
+    replace: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
+    target: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
     to: toType.isRequired
   };
 }
@@ -32351,7 +32343,7 @@ var forwardRefShim$1 = function forwardRefShim(C) {
   return C;
 };
 
-var forwardRef$1 = React.forwardRef;
+var forwardRef$1 = react__WEBPACK_IMPORTED_MODULE_2__.forwardRef;
 
 if (typeof forwardRef$1 === "undefined") {
   forwardRef$1 = forwardRefShim$1;
@@ -32386,16 +32378,16 @@ var NavLink = forwardRef$1(function (_ref, forwardedRef) {
       styleProp = _ref.style,
       to = _ref.to,
       innerRef = _ref.innerRef,
-      rest = _objectWithoutPropertiesLoose(_ref, ["aria-current", "activeClassName", "activeStyle", "className", "exact", "isActive", "location", "sensitive", "strict", "style", "to", "innerRef"]);
+      rest = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref, ["aria-current", "activeClassName", "activeStyle", "className", "exact", "isActive", "location", "sensitive", "strict", "style", "to", "innerRef"]);
 
-  return React.createElement(reactRouter.__RouterContext.Consumer, null, function (context) {
-    !context ?  invariant(false, "You should not use <NavLink> outside a <Router>")  : void 0;
+  return react__WEBPACK_IMPORTED_MODULE_2__.createElement(react_router__WEBPACK_IMPORTED_MODULE_0__.__RouterContext.Consumer, null, function (context) {
+    !context ?  true ? (0,tiny_invariant__WEBPACK_IMPORTED_MODULE_8__["default"])(false, "You should not use <NavLink> outside a <Router>") : 0 : void 0;
     var currentLocation = locationProp || context.location;
     var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
     var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
 
     var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
-    var match = escapedPath ? reactRouter.matchPath(currentLocation.pathname, {
+    var match = escapedPath ? (0,react_router__WEBPACK_IMPORTED_MODULE_0__.matchPath)(currentLocation.pathname, {
       path: escapedPath,
       exact: exact,
       sensitive: sensitive,
@@ -32403,9 +32395,9 @@ var NavLink = forwardRef$1(function (_ref, forwardedRef) {
     }) : null;
     var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
     var className = isActive ? joinClassnames(classNameProp, activeClassName) : classNameProp;
-    var style = isActive ? _extends({}, styleProp, {}, activeStyle) : styleProp;
+    var style = isActive ? (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, styleProp, {}, activeStyle) : styleProp;
 
-    var props = _extends({
+    var props = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({
       "aria-current": isActive && ariaCurrent || null,
       className: className,
       style: style,
@@ -32419,115 +32411,28 @@ var NavLink = forwardRef$1(function (_ref, forwardedRef) {
       props.innerRef = innerRef;
     }
 
-    return React.createElement(Link, props);
+    return react__WEBPACK_IMPORTED_MODULE_2__.createElement(Link, props);
   });
 });
 
-{
+if (true) {
   NavLink.displayName = "NavLink";
-  var ariaCurrentType = PropTypes.oneOf(["page", "step", "location", "date", "time", "true"]);
-  NavLink.propTypes = _extends({}, Link.propTypes, {
+  var ariaCurrentType = prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf(["page", "step", "location", "date", "time", "true"]);
+  NavLink.propTypes = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, Link.propTypes, {
     "aria-current": ariaCurrentType,
-    activeClassName: PropTypes.string,
-    activeStyle: PropTypes.object,
-    className: PropTypes.string,
-    exact: PropTypes.bool,
-    isActive: PropTypes.func,
-    location: PropTypes.object,
-    sensitive: PropTypes.bool,
-    strict: PropTypes.bool,
-    style: PropTypes.object
+    activeClassName: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+    activeStyle: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().object),
+    className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+    exact: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
+    isActive: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().func),
+    location: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().object),
+    sensitive: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
+    strict: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
+    style: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().object)
   });
 }
 
-Object.defineProperty(exports, "MemoryRouter", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.MemoryRouter;
-  }
-}));
-Object.defineProperty(exports, "Prompt", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.Prompt;
-  }
-}));
-Object.defineProperty(exports, "Redirect", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.Redirect;
-  }
-}));
-Object.defineProperty(exports, "Route", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.Route;
-  }
-}));
-Object.defineProperty(exports, "Router", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.Router;
-  }
-}));
-Object.defineProperty(exports, "StaticRouter", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.StaticRouter;
-  }
-}));
-Object.defineProperty(exports, "Switch", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.Switch;
-  }
-}));
-Object.defineProperty(exports, "generatePath", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.generatePath;
-  }
-}));
-Object.defineProperty(exports, "matchPath", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.matchPath;
-  }
-}));
-Object.defineProperty(exports, "useHistory", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.useHistory;
-  }
-}));
-Object.defineProperty(exports, "useLocation", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.useLocation;
-  }
-}));
-Object.defineProperty(exports, "useParams", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.useParams;
-  }
-}));
-Object.defineProperty(exports, "useRouteMatch", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.useRouteMatch;
-  }
-}));
-Object.defineProperty(exports, "withRouter", ({
-  enumerable: true,
-  get: function () {
-    return reactRouter.withRouter;
-  }
-}));
-exports.BrowserRouter = BrowserRouter;
-exports.HashRouter = HashRouter;
-exports.Link = Link;
-exports.NavLink = NavLink;
+
 //# sourceMappingURL=react-router-dom.js.map
 
 

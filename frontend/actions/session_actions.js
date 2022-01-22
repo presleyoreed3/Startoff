@@ -14,8 +14,8 @@ const logoutCurrentUser = () => ({
 })
 
 const receiveErrors = errors => ({
-	type: RECEIVE_CURRENT_USER,
-	user
+	type: RECEIVE_ERRORS,
+	errors
 })
 
 export const login = user => dispatch => {

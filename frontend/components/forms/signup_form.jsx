@@ -26,7 +26,7 @@ class SignupForm extends React.Component{
 	render(){
 		return(
 			<div>
-				<h2>Log In</h2>
+				<h2>Sign Up</h2>
 				<form onSubmit={this.handleSubmit}>
 					<label>Full Name: 
 						<input 
@@ -52,7 +52,7 @@ class SignupForm extends React.Component{
 						/>
 					</label>
 					<br></br>
-					<button type="submit">Log In</button>
+					<button type="submit">Sign Up</button>
 				</form>
 			</div>
 		)
