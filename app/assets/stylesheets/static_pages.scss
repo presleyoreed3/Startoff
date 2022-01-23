@@ -1,3 +1,104 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+header{
+	display: flex;
+	justify-content: space-between;
+	width: 100vw;
+	padding: 0px;
+	background-color: white;
+}
+
+body{
+	height: 100vh;
+	width: 100vw;
+	background-color: #F7F7F7;
+}
+
+img{
+	height: 100px;
+}
+
+#startoff-logo{
+	position: absolute;
+	left:  50%;
+}
+
+h1{
+	font-size: 60px;
+	color: #282828;
+}
+
+h2{
+	font-size: 32px;
+	font-family: 'Montserrat', sans-serif;
+/*	margin: 10px;*/
+	margin-bottom: 20px;
+	font-weight: 500;
+	color: #282828;
+}
+
+form{
+	text-decoration-color: #282828;
+	width: 400px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	background: white;
+	border-color: #F1EEEA;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 2px;
+}
+
+#login-div{
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+
+
+}
+
+#login-form{
+	display: block;
+	flex-direction: column;
+	padding: 30px;
+}
+
+#login-form input{
+	border: 1px solid #DCDEDD;
+	height: 42px;
+	width: 100%;
+	font-size:  14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 30px;
+	padding-left: 10px;
+}
+
+#login-form button{
+	width: 100%;
+	justify-content: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #028857;
+	color: white;
+	border: 1px solid #028857;
+	height: 40px;
+}
+
+#login-form button:hover{
+	background-color: #015738;
+	color: white;
+	border: 1px solid #028857;
+}
+
+#left-nav{
+	margin: 30px;
+}
+
+#right-nav{
+	margin: 30px;
+}

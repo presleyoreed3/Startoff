@@ -24,28 +24,34 @@ class LoginForm extends React.Component{
 
 	render(){
 		return(
-			<div id="login-form">
-				<h2>Log In</h2>
-				<form onSubmit={this.handleSubmit}>
-					<label>Email: 
-						<input 
+			<div id="login-div">
+				<form id="login-form" onSubmit={this.handleSubmit}>
+					<h2>Log In</h2>
+					<label>
+						<input
+							placeholder="Email"
 							value={this.state.email}
 							type="text"
 							onChange={this.update('email')}
+							required
 						/>
 					</label>
 					<br />
-					<label>Password: 
+					<label>
 						<input 
+							placeholder="Password"
 							value={this.state.password}
 							type="password"
 							onChange={this.update('password')}
+							required
 						/>
 					</label>
 					<br />
 					<button type="submit">Log In</button>
+					<div id="signup-question">
+						<p >New to Startoff? <Link to="/signup">Sign up</Link></p>
+					</div>
 				</form>
-				<Link to="/signup"><button>Sign Up</button></Link>
 			</div>
 		)
 
