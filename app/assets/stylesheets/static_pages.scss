@@ -24,7 +24,7 @@ img{
 #startoff-logo{
 	position: absolute;
 	left: 50%;
-	top: 5%;
+	top: 4.5%;
 	transform: translate(-50%, -50%);
 }
 
@@ -52,47 +52,6 @@ form{
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 2px;
-}
-
-#login-div{
-	display: flex;
-	justify-content: center;
-	margin-top: 50px;
-
-
-}
-
-#login-form{
-	display: block;
-	flex-direction: column;
-	padding: 30px;
-}
-
-#login-form input{
-	border: 1px solid #DCDEDD;
-	height: 42px;
-	width: 100%;
-	font-size:  14px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding-left: 10px;
-}
-
-#login-form button{
-	width: 100%;
-	justify-content: center;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	background-color: #028857;
-	color: white;
-	border: 1px solid #028857;
-	height: 40px;
-}
-
-#login-form button:hover{
-	background-color: #015738;
-	color: white;
-	border: 1px solid #028857;
 }
 
 #left-nav{
