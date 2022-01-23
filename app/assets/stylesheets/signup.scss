@@ -1,7 +1,7 @@
 #signup-div{
 	display: flex;
 	justify-content: center;
-	margin-top: 50px;
+	margin-top: 75px;
 }
 
 #signup-form{
@@ -29,12 +29,14 @@
 	color: white;
 	border: 1px solid #028857;
 	height: 40px;
+	font-size: 14px;
 }
 
 #signup-form button:hover{
 	background-color: #015738;
 	color: white;
 	border: 1px solid #028857;
+	cursor: pointer;
 }
 
 #login-question {
@@ -42,5 +44,9 @@
 	margin-bottom: 20px;
 	text-align: center;
 	background-color: #FCFCFC;
-	
+
+}
+
+#confirm-password {
+	display: none;
 }

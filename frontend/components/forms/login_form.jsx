@@ -22,6 +22,15 @@ class LoginForm extends React.Component{
 		return e => this.setState({[field]: e.currentTarget.value})
 	}
 
+	signInDemo(){
+		const demoObject = {
+			email: 'demo@startoff.com',
+			password: 'demo-user'
+		}
+		const user = Object.assign({}, this.state, demoObject)
+		this.props.processForm(user)
+	}
+
 	render(){
 		return(
 			<div id="login-div">
@@ -49,7 +58,10 @@ class LoginForm extends React.Component{
 					<br />
 					<button type="submit">Log In</button>
 					<div id="signup-question">
-						<p >New to Startoff? <Link to="/signup">Sign up</Link></p>
+						<p>New to Startoff? <Link to="/signup">Sign up</Link></p>
+					</div>
+					<div id="demo-user">
+						<p onClick={() => this.signInDemo()}>Demo User</p>
 					</div>
 				</form>
 			</div>

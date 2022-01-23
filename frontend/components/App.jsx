@@ -13,11 +13,13 @@ const App = () => {
 		<div>
 			<header>
 				<div id="left-nav">
-					<NavLink to="#">Discover </NavLink>
-					<NavLink to="#">Start a Project</NavLink>
+					<NavLink id="header-links" to="#">Discover </NavLink>
+					<NavLink id="header-links" to="#">Start a Project</NavLink>
 				</div>
-				<img id='startoff-logo' src={logo}></img>
-				<NavLink id='right-nav' to="/login" >Log In</NavLink>
+				<Link id='logo-click' to='/login'><img id='startoff-logo' src={logo}></img></Link>
+				<div id="right-nav">
+					<NavLink id="header-links" to="/login">Log In</NavLink>
+				</div>
 			</header>
 	
 			<AuthRoute path="/login" component={LoginFormContainer}/>

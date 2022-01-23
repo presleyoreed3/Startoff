@@ -14,17 +14,29 @@ header{
 body{
 	height: 100vh;
 	width: 100vw;
-	background-color: #F7F7F7;
+	background-color: #F0F0F1;
 }
 
 img{
 	height: 100px;
 }
 
+#header-links{
+	text-decoration: none;
+	color: #28282A;
+	padding: 10px;
+}
+
+#header-links:hover{
+	text-decoration: none;
+	color: #028857;
+	padding: 10px;
+}
+
 #startoff-logo{
 	position: absolute;
 	left: 50%;
-	top: 4.5%;
+	top: 40px;
 	transform: translate(-50%, -50%);
 }
 
@@ -44,7 +56,7 @@ h2{
 form{
 	text-decoration-color: #282828;
 	width: 400px;
-	height: 500px;
+	height: 120%;
 	display: flex;
 	flex-direction: column;
 	background: white;

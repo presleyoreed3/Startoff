@@ -1,7 +1,7 @@
 #login-div{
 	display: flex;
 	justify-content: center;
-	margin-top: 50px;
+	margin-top: 75px;
 }
 
 #login-form{
@@ -21,6 +21,7 @@
 }
 
 #login-form button{
+	font-size: 14px;
 	width: 100%;
 	justify-content: center;
 	margin-top: 20px;
@@ -35,4 +36,15 @@
 	background-color: #015738;
 	color: white;
 	border: 1px solid #028857;
+	cursor: pointer;
+}
+
+#demo-user {
+	text-decoration: underline;
+}
+
+#demo-user p:hover {
+	cursor: pointer;
+	color: #015738;
+
 }

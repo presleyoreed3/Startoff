@@ -31,6 +31,14 @@ class SignupForm extends React.Component{
 		}
 	}
 
+	renderConfirm(){
+		
+	}
+	
+	confirmPassword(){
+
+	}
+
 	render(){
 		return(
 			<div id="signup-div">
@@ -39,34 +47,35 @@ class SignupForm extends React.Component{
 						Have an Account? <Link to="/login">Log in</Link>
 					</div>
 					<h2>Sign Up</h2>
-					<label>
-						<input 
-							placeholder="Full Name"
-							value={this.state.name}
-							type="text"
-							onChange={this.update('name')}
-						/>
-					</label>
-					<br></br>
-					<label>
-						<input 
-							placeholder="Email"
-							value={this.state.email}
-							type="text"
-							onChange={this.update('email')}
-						/>
-					</label>
-					<br></br>
-					<label>
-						<input 
-							placeholder="Password"
-							value={this.state.password}
-							type="password"
-							onChange={this.update('password')}
-						/>
-					</label>
-					<br></br>
+					<input 
+						placeholder="Full Name"
+						value={this.state.name}
+						type="text"
+						onChange={this.update('name')}
+					/>
+					<br />
+					<input 
+						placeholder="Email"
+						value={this.state.email}
+						type="text"
+						onChange={this.update('email')}
+					/>
+					<br />
+					<input 
+						placeholder="Password"
+						type="password"
+						onChange={this.update('password')}
+						onClick={this.renderConfirm()}
+					/>
+					<input 
+						id="confirm-password"
+						placeholder="Re-enter password"
+						type="password"
+						onChange={this.update('password-confirm')}
+					/>
+					<br />
 					<button type="submit">Sign Up</button>
+					{this.confirmPassword()}
 					{this.renderErrors()}
 				</form>
 			</div>
