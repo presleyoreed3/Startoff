@@ -65,7 +65,7 @@ class LoginForm extends React.Component{
 
 					<div id="secondary-form">
 					<div id="signup-question">
-						<button><Link to="/signup">Sign up</Link></button>
+						<button><Link to="/signup"></Link>Sign up</button>
 					</div>
 					<div id="demo-user">
 						<button onClick={() => this.signInDemo()}>Demo User</button>

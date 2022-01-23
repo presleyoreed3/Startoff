@@ -21,7 +21,6 @@
 	display: flex;
 	align-items: center;
 	width: 100%;
-	margin-top: 10px;
 }
 
 #or-divider p {
@@ -49,8 +48,8 @@
 	font-size: 14px;
 	width: 100%;
 	justify-content: center;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-bottom: 	10px;
 	background-color: #028857;
 	color: white;
 	border: 1px solid #028857;
@@ -69,6 +68,10 @@
 	color: white;
 	border: 1px solid #028857;
 	cursor: pointer;
+}
+
+#secondary-form button {
+	color: white;
 }
 
 
