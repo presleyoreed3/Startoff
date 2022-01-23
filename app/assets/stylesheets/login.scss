@@ -39,6 +39,13 @@
 	cursor: pointer;
 }
 
+#login-form button:hover:active{
+	background-color: #013523;
+	color: white;
+	border: 1px solid #028857;
+	cursor: pointer;
+}
+
 #demo-user {
 	text-decoration: underline;
 }

@@ -6,6 +6,7 @@ import { NavLink, Link } from 'react-router-dom'
 import logo from '../../app/assets/images/startoff-logo.png';
 import LoginFormContainer from './forms/login_form_container'
 import SignupFormContainer from './forms/signup_form_container'
+import Footer from './footer/footer'
 
 
 const App = () => {
@@ -21,9 +22,11 @@ const App = () => {
 					<NavLink id="header-links" to="/login">Log In</NavLink>
 				</div>
 			</header>
-	
+			
 			<AuthRoute path="/login" component={LoginFormContainer}/>
 			<AuthRoute path="/signup" component={SignupFormContainer}/>
+
+			<Footer />
 		</div>	
 	)
 }
