@@ -352,6 +352,17 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      if (this.props.errors.length) {
+        return this.props.errors.map(function (error, idx) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+            key: idx
+          }, error);
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -380,7 +391,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('password')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "submit"
-      }, "Sign Up")));
+      }, "Sign Up"), this.renderErrors()));
     }
   }]);
 

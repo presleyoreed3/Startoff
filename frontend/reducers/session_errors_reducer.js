@@ -6,11 +6,11 @@ const sessionErrorsReducer = (oldState = [], action) => {
 	Object.freeze(oldState);
 	switch(action.type){
 		case RECEIVE_CURRENT_USER:
-			return []
+			return [];
 		case RECEIVE_ERRORS:
-			return action.errors
+			return action.errors;
 		default:
-			return oldState
+			return oldState;
 	}
 }
 

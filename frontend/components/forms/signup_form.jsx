@@ -23,6 +23,14 @@ class SignupForm extends React.Component{
 		return e => this.setState({[field]: e.currentTarget.value})
 	}
 
+	renderErrors(){
+		if (this.props.errors.length){
+			return (this.props.errors.map((error, idx) => {
+				return(<p key={idx}>{error}</p>)
+			}))
+		}
+	}
+
 	render(){
 		return(
 			<div id="signup-div">
@@ -59,6 +67,7 @@ class SignupForm extends React.Component{
 					</label>
 					<br></br>
 					<button type="submit">Sign Up</button>
+					{this.renderErrors()}
 				</form>
 			</div>
 		)
