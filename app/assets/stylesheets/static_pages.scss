@@ -23,7 +23,9 @@ img{
 
 #startoff-logo{
 	position: absolute;
-	left:  50%;
+	left: 50%;
+	top: 5%;
+	transform: translate(-50%, -50%);
 }
 
 h1{
@@ -34,7 +36,6 @@ h1{
 h2{
 	font-size: 32px;
 	font-family: 'Montserrat', sans-serif;
-/*	margin: 10px;*/
 	margin-bottom: 20px;
 	font-weight: 500;
 	color: #282828;
@@ -74,7 +75,6 @@ form{
 	font-size:  14px;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	margin-right: 30px;
 	padding-left: 10px;
 }
 
