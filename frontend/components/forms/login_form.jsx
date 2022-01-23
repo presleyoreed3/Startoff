@@ -57,12 +57,20 @@ class LoginForm extends React.Component{
 					</label>
 					<br />
 					<button type="submit">Log In</button>
+					<div id='or-divider'>
+						<div className="or"></div>
+						<p> or </p>
+						<div className="or"></div>
+					</div>
+
+					<div id="secondary-form">
 					<div id="signup-question">
-						<p>New to Startoff? <Link to="/signup">Sign up</Link></p>
+						<button><Link to="/signup">Sign up</Link></button>
 					</div>
 					<div id="demo-user">
-						<p onClick={() => this.signInDemo()}>Demo User</p>
+						<button onClick={() => this.signInDemo()}>Demo User</button>
 					</div>
+				</div>
 				</form>
 			</div>
 		)

@@ -10,7 +10,7 @@ class Footer extends React.Component {
 
 				</div>
 				<div id='footer-info'>
-					<label>About</label>
+					<h3>About</h3>
 					<a href="https://github.com/presleyoreed3">GitHub</a>
 					<a href="https://www.linkedin.com/in/presleyoreed3/">LinkedIn</a>
 					<a href="www.presleyoreed.com">Personal Site</a>

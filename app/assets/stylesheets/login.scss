@@ -1,6 +1,7 @@
 #login-div{
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	margin-top: 75px;
 }
 
@@ -10,7 +11,31 @@
 	padding: 30px;
 }
 
+#secondary-form{
+
+	display: block;
+	flex-direction: column;
+}
+
+#or-divider{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin-top: 10px;
+}
+
+#or-divider p {
+	margin: 10px;
+}
+
+.or{
+	height: 1px;
+	flex-grow: 1;
+	background-color: black;
+}
+
 #login-form input{
+	box-sizing: border-box;
 	border: 1px solid #DCDEDD;
 	height: 42px;
 	width: 100%;
@@ -45,6 +70,7 @@
 	border: 1px solid #028857;
 	cursor: pointer;
 }
+
 
 #demo-user {
 	text-decoration: underline;

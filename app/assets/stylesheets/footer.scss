@@ -5,6 +5,8 @@ footer{
 	position: fixed;
 	bottom: 0;
 	background-color: white;
+	display: flex;
+	justify-content: center;
 }
 
 #footer-info{
@@ -12,7 +14,7 @@ footer{
 	display: flex;
 	flex-direction: column;
 	margin: 20px;
-	padding: 10px
+	padding: 10px;
 }
 
 
@@ -22,6 +24,6 @@ footer{
 }
 
 #footer-info a{
-	margin-bottom: 10px;
-	margin-top: 10px
+	margin-bottom: 7px;
+	margin-top: 7px
 }
