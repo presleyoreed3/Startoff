@@ -6,6 +6,8 @@ footer{
 	bottom: 0;
 	background-color: white;
 	display: flex;
+	flex-direction: column;
+	align-content:  center;
 	justify-content: center;
 }
 
@@ -13,17 +15,22 @@ footer{
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	align-content: center;
 	margin: 20px;
 	padding: 10px;
 }
 
 
 #footer-info label{
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 	text-transform: bold;
 }
 
 #footer-info a{
 	margin-bottom: 7px;
 	margin-top: 7px
+}
+
+#footer-info a:hover{
+	color: #028857;
 }
