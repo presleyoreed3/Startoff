@@ -20,7 +20,7 @@ class SignupForm extends React.Component{
 		e.preventDefault();
 		if (this.confirmPassword()){
 			const user = Object.assign({}, this.state)
-			this.props.processForm(user);
+			this.props.processForm(user).fail(() => this.setState({errors: this.props.errors}));;
 		} else {
 			this.setState({errors: ["Your passwords did not match"]})
 			this.renderErrors();
@@ -33,18 +33,16 @@ class SignupForm extends React.Component{
 	}
 
 	renderErrors(){
-		if (this.props.errors.length){
-			return (this.props.errors.map((error, idx) => {
+		if (this.state.errors.length){
+			return (this.state.errors.map((error, idx) => {
 				return(<p key={idx}>{error}</p>)
 			}))
 		}
 	}
 
 	frontendErrors(){
-		if (this.state.errors.length){
-			return (this.state.errors.map((error, idx) => {
-				return(<p key={idx}>{error}</p>)
-			}))
+		if (this.state.errors.includes("Your passwords did not match")){
+			return("Your passwords did not match")
 		}
 	}
 
@@ -67,7 +65,7 @@ class SignupForm extends React.Component{
 					<h2>Sign Up</h2>
 					<div id="validation">
 						{this.renderErrors()}
-						{this.frontendErrors()}
+						
 					</div>
 					<input 
 						placeholder="Full Name"

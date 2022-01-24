@@ -7,7 +7,8 @@ class LoginForm extends React.Component{
 		super(props)
 		this.state = {
 			email: '',
-			password: ''
+			password: '',
+			errors: []
 		};
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
@@ -23,8 +24,8 @@ class LoginForm extends React.Component{
 	}
 
 	renderErrors(){
-		if (this.props.errors.length){
-			return (this.props.errors.map((error, idx) => {
+		if (this.state.errors.length){
+			return (this.state.errors.map((error, idx) => {
 				return(<p key={idx}>{error}</p>)
 			}))
 		}

@@ -10174,7 +10174,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       email: '',
-      password: ''
+      password: '',
+      errors: []
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -10205,8 +10206,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      if (this.props.errors.length) {
-        return this.props.errors.map(function (error, idx) {
+      if (this.state.errors.length) {
+        return this.state.errors.map(function (error, idx) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
             key: idx
           }, error);
@@ -10382,11 +10383,18 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   _createClass(SignupForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
 
       if (this.confirmPassword()) {
         var user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).fail(function () {
+          return _this2.setState({
+            errors: _this2.props.errors
+          });
+        });
+        ;
       } else {
         this.setState({
           errors: ["Your passwords did not match"]
@@ -10397,17 +10405,17 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "update",
     value: function update(field) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      if (this.props.errors.length) {
-        return this.props.errors.map(function (error, idx) {
+      if (this.state.errors.length) {
+        return this.state.errors.map(function (error, idx) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
             key: idx
           }, error);
@@ -10417,12 +10425,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "frontendErrors",
     value: function frontendErrors() {
-      if (this.state.errors.length) {
-        return this.state.errors.map(function (error, idx) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-            key: idx
-          }, error);
-        });
+      if (this.state.errors.includes("Your passwords did not match")) {
+        return "Your passwords did not match";
       }
     }
   }, {
@@ -10439,7 +10443,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "signup-div"
@@ -10452,7 +10456,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         to: "/login"
       }, "Log in")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "validation"
-      }, this.renderErrors(), this.frontendErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, this.renderErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         placeholder: "Full Name",
         value: this.state.name,
         type: "text",
@@ -10467,7 +10471,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "password",
         onChange: this.update('password'),
         onSelect: function onSelect(e) {
-          return _this3.renderConfirm();
+          return _this4.renderConfirm();
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         id: "confirm-password",
