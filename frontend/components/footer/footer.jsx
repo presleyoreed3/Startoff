@@ -19,7 +19,7 @@ class Footer extends React.Component {
 				</div>
 				<div id="footer-nav">
 					<div id="footer-logo">
-						<img src={logo} id="img-logo"></img>
+						<img src={window.logoURL} id="img-logo"></img>
 						<p>&#169; Presley Reed III 2022</p>
 					</div>
 					
