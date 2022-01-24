@@ -168,6 +168,24 @@ var Footer = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "footer-category"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, "Arts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, "Comics & Illustration"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, "Design & Tech"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, "Film"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, "Food & Craft"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, "Games"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, "Music"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "#"
+      }, "Publishing")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "footer-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "footer-logo"
@@ -175,8 +193,6 @@ var Footer = /*#__PURE__*/function (_React$Component) {
         src: _app_assets_images_startoff_logo_png__WEBPACK_IMPORTED_MODULE_1__,
         id: "img-logo"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\xA9 Presley Reed III 2022")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "footer-category"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "footer-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "About"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         href: "https://github.com/presleyoreed3"
@@ -271,7 +287,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
-    }
+    } //Signs in a demo user for testing/displaying
+
   }, {
     key: "signInDemo",
     value: function signInDemo() {
@@ -604,7 +621,8 @@ var Header = /*#__PURE__*/function (_React$Component) {
 
   _createClass(Header, [{
     key: "showSearch",
-    value: function showSearch() {}
+    value: function showSearch() {//Method to populate the search modal
+    }
   }, {
     key: "render",
     value: function render() {
@@ -38438,10 +38456,10 @@ document.addEventListener("DOMContentLoaded", function () {
   } //Testing
 
 
-  window.getState = store.getState; // window.dispatch = store.dispatch
-  // window.fetchUsers = fetchUsers
-  // window.fetchUser = fetchUser
-  //Testing
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.fetchUsers = _utils_user_api_util__WEBPACK_IMPORTED_MODULE_4__.fetchUsers;
+  window.fetchUser = _utils_user_api_util__WEBPACK_IMPORTED_MODULE_4__.fetchUser; //Testing
 
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store

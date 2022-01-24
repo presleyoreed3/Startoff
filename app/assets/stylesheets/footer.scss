@@ -10,6 +10,16 @@ footer{
 	align-content:  center;
 }
 
+#footer-category{
+	height: 30px;
+	padding: 20px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	border: 1px solid #DCDEDD;
+
+}
+
 #footer-nav{
 	justify-content: space-evenly;
 	height: 100%;

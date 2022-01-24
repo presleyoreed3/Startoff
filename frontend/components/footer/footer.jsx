@@ -7,13 +7,20 @@ class Footer extends React.Component {
 	render(){
 		return(
 			<footer>
+				<div id='footer-category'>
+					<a href="#">Arts</a>
+					<a href="#">Comics & Illustration</a>
+					<a href="#">Design & Tech</a>
+					<a href="#">Film</a>
+					<a href="#">Food & Craft</a>
+					<a href="#">Games</a>
+					<a href="#">Music</a>
+					<a href="#">Publishing</a>
+				</div>
 				<div id="footer-nav">
 					<div id="footer-logo">
 						<img src={logo} id="img-logo"></img>
 						<p>&#169; Presley Reed III 2022</p>
-					</div>
-					<div id='footer-category'>
-	
 					</div>
 					
 					<div id='footer-info'>

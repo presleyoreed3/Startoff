@@ -9,7 +9,7 @@ class Header extends React.Component {
 	}
 
 	showSearch(){
-		
+		//Method to populate the search modal
 	}
 
 	render(){

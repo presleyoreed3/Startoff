@@ -22,6 +22,7 @@ class LoginForm extends React.Component{
 		return e => this.setState({[field]: e.currentTarget.value})
 	}
 
+	//Signs in a demo user for testing/displaying
 	signInDemo(){
 		const demoObject = {
 			email: 'demo@startoff.com',
