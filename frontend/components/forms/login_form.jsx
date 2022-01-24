@@ -15,12 +15,21 @@ class LoginForm extends React.Component{
 	handleSubmit(e){
 		e.preventDefault();
 		const user = Object.assign({}, this.state)
-		this.props.processForm(user);
+		this.props.processForm(user).fail(() => this.setState({errors: this.props.errors}));
 	}
 
 	update(field){
 		return e => this.setState({[field]: e.currentTarget.value})
 	}
+
+	renderErrors(){
+		if (this.props.errors.length){
+			return (this.props.errors.map((error, idx) => {
+				return(<p key={idx}>{error}</p>)
+			}))
+		}
+	}
+
 
 	//Signs in a demo user for testing/displaying
 	signInDemo(){
@@ -37,6 +46,7 @@ class LoginForm extends React.Component{
 			<div id="login-div">
 				<form id="login-form" onSubmit={this.handleSubmit}>
 					<h2>Log In</h2>
+					<div id="validation">{this.renderErrors()}</div>
 					<label>
 						<input
 							placeholder="Email"

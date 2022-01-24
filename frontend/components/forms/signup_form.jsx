@@ -47,6 +47,9 @@ class SignupForm extends React.Component{
 						Have an Account? <Link to="/login">Log in</Link>
 					</div>
 					<h2>Sign Up</h2>
+					<div id="validation">
+						{this.renderErrors()}
+					</div>
 					<input 
 						placeholder="Full Name"
 						value={this.state.name}
@@ -76,7 +79,7 @@ class SignupForm extends React.Component{
 					<br />
 					<button type="submit">Sign Up</button>
 					{this.confirmPassword()}
-					{this.renderErrors()}
+					
 				</form>
 			</div>
 		)
