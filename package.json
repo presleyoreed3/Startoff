@@ -31,7 +31,8 @@
   "devDependencies": {},
   "scripts": {
     "start": "webpack --watch --mode=development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -43,5 +44,9 @@
   "bugs": {
     "url": "https://github.com/presleyoreed3/Startoff/issues"
   },
-  "homepage": "https://github.com/presleyoreed3/Startoff#readme"
+  "homepage": "https://github.com/presleyoreed3/Startoff#readme",
+  "engines": {
+    "node": "14.18.2",
+    "npm": "6.14.15"
+  }
 }
