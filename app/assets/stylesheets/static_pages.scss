@@ -21,25 +21,6 @@ img{
 	height: 100px;
 }
 
-#header-links{
-	text-decoration: none;
-	color: #28282A;
-	padding: 10px;
-}
-
-#header-links:hover{
-	text-decoration: none;
-	color: #028857;
-	padding: 10px;
-}
-
-#startoff-logo{
-	position: absolute;
-	left: 50%;
-	top: 40px;
-	transform: translate(-50%, -50%);
-}
-
 h1{
 	font-size: 60px;
 	color: #282828;
@@ -71,12 +52,4 @@ form{
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 2px;
-}
-
-#left-nav{
-	margin: 30px;
-}
-
-#right-nav{
-	margin: 30px;
 }

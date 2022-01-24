@@ -8,6 +8,10 @@ class Header extends React.Component {
 		super(props)
 	}
 
+	showSearch(){
+		
+	}
+
 	render(){
 		console.log(this.props)
 		let text;
@@ -24,6 +28,7 @@ class Header extends React.Component {
 				</div>
 				<Link id='logo-click' to='/login'><img id='startoff-logo' src={logo}></img></Link>
 				<div id="right-nav">
+					<NavLink id="header-links" to="#" onClick={this.showSearch()}>Search</NavLink>
 					<NavLink id="header-links" to="/login">{text}</NavLink>
 				</div>
 			</header>

@@ -8,6 +8,8 @@ import {fetchUsers, fetchUser} from './utils/user_api_util'
 
 document.addEventListener("DOMContentLoaded", () => {
 	const root = document.getElementById('root');
+	
+	//Bootstrap the user
 	let store;
 	if (window.currentUser) {
 	  const preloadedState = {
@@ -24,9 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	//Testing
 	window.getState = store.getState
-	window.dispatch = store.dispatch
-	window.fetchUsers = fetchUsers
-	window.fetchUser = fetchUser
+	// window.dispatch = store.dispatch
+	// window.fetchUsers = fetchUsers
+	// window.fetchUser = fetchUser
 	//Testing
 
 	ReactDOM.render(<Root store={store}/>, root)
