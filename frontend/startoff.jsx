@@ -8,7 +8,7 @@ import {fetchUsers, fetchUser} from './utils/user_api_util'
 
 document.addEventListener("DOMContentLoaded", () => {
 	const root = document.getElementById('root');
-	
+
 	//Bootstrap the user
 	let store;
 	if (window.currentUser) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	    entities: {
 	      users: { [window.currentUser.id]: window.currentUser }
 	    },
-	    session: { id: window.currentUser.id }
+	    session: { currentUser: window.currentUser.id }
 	  };
 	  store = configureStore(preloadedState);
 	  delete window.currentUser;
