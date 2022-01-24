@@ -10466,7 +10466,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Password",
         type: "password",
         onChange: this.update('password'),
-        onClick: function onClick(e) {
+        onSelect: function onSelect(e) {
           return _this3.renderConfirm();
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {

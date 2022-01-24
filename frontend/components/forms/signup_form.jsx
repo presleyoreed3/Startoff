@@ -87,7 +87,7 @@ class SignupForm extends React.Component{
 						placeholder="Password"
 						type="password"
 						onChange={this.update('password')}
-						onClick={e => this.renderConfirm()}
+						onSelect={e => this.renderConfirm()}
 					/>
 					<input 
 						id="confirm-password"
