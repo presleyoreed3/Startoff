@@ -10240,14 +10240,12 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Email",
         value: this.state.email,
         type: "text",
-        onChange: this.update('email'),
-        required: true
+        onChange: this.update('email')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         placeholder: "Password",
         value: this.state.password,
         type: "password",
-        onChange: this.update('password'),
-        required: true
+        onChange: this.update('password')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "submit"
       }, "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -10372,9 +10370,12 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      passwordConfirm: '',
+      errors: []
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.renderConfirm = _this.renderConfirm.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -10382,8 +10383,16 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+
+      if (this.confirmPassword()) {
+        var user = Object.assign({}, this.state);
+        this.props.processForm(user);
+      } else {
+        this.setState({
+          errors: ["Your passwords did not match"]
+        });
+        this.renderErrors();
+      }
     }
   }, {
     key: "update",
@@ -10406,14 +10415,32 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "frontendErrors",
+    value: function frontendErrors() {
+      if (this.state.errors.length) {
+        return this.state.errors.map(function (error, idx) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+            key: idx
+          }, error);
+        });
+      }
+    }
+  }, {
     key: "renderConfirm",
-    value: function renderConfirm() {}
+    value: function renderConfirm() {
+      var confirm = document.getElementById("confirm-password");
+      confirm.style.display = "block";
+    }
   }, {
     key: "confirmPassword",
-    value: function confirmPassword() {}
+    value: function confirmPassword() {
+      return this.state.password === this.state.passwordConfirm;
+    }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "signup-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
@@ -10425,7 +10452,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         to: "/login"
       }, "Log in")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "validation"
-      }, this.renderErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, this.renderErrors(), this.frontendErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         placeholder: "Full Name",
         value: this.state.name,
         type: "text",
@@ -10439,12 +10466,14 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Password",
         type: "password",
         onChange: this.update('password'),
-        onClick: this.renderConfirm()
+        onClick: function onClick(e) {
+          return _this3.renderConfirm();
+        }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         id: "confirm-password",
         placeholder: "Re-enter password",
         type: "password",
-        onChange: this.update('password-confirm')
+        onChange: this.update('passwordConfirm')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "submit"
       }, "Sign Up"), this.confirmPassword()));

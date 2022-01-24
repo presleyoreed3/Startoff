@@ -53,7 +53,7 @@ class LoginForm extends React.Component{
 							value={this.state.email}
 							type="text"
 							onChange={this.update('email')}
-							required
+							
 						/>
 					</label>
 					<br />
@@ -63,7 +63,7 @@ class LoginForm extends React.Component{
 							value={this.state.password}
 							type="password"
 							onChange={this.update('password')}
-							required
+							
 						/>
 					</label>
 					<br />

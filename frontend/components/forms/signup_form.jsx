@@ -8,15 +8,24 @@ class SignupForm extends React.Component{
 		this.state = {
 			name: '',
 			email: '',
-			password: ''
+			password: '',
+			passwordConfirm: '',
+			errors: []
 		};
 		this.handleSubmit = this.handleSubmit.bind(this)
+		this.renderConfirm = this.renderConfirm.bind(this)
 	}
 
 	handleSubmit(e){
 		e.preventDefault();
-		const user = Object.assign({}, this.state)
-		this.props.processForm(user);
+		if (this.confirmPassword()){
+			const user = Object.assign({}, this.state)
+			this.props.processForm(user);
+		} else {
+			this.setState({errors: ["Your passwords did not match"]})
+			this.renderErrors();
+		}
+		
 	}
 
 	update(field){
@@ -31,12 +40,21 @@ class SignupForm extends React.Component{
 		}
 	}
 
+	frontendErrors(){
+		if (this.state.errors.length){
+			return (this.state.errors.map((error, idx) => {
+				return(<p key={idx}>{error}</p>)
+			}))
+		}
+	}
+
 	renderConfirm(){
-		
+		const confirm = document.getElementById("confirm-password")
+		confirm.style.display = "block"
 	}
 	
 	confirmPassword(){
-
+		return this.state.password === this.state.passwordConfirm
 	}
 
 	render(){
@@ -49,6 +67,7 @@ class SignupForm extends React.Component{
 					<h2>Sign Up</h2>
 					<div id="validation">
 						{this.renderErrors()}
+						{this.frontendErrors()}
 					</div>
 					<input 
 						placeholder="Full Name"
@@ -68,13 +87,13 @@ class SignupForm extends React.Component{
 						placeholder="Password"
 						type="password"
 						onChange={this.update('password')}
-						onClick={this.renderConfirm()}
+						onClick={e => this.renderConfirm()}
 					/>
 					<input 
 						id="confirm-password"
 						placeholder="Re-enter password"
 						type="password"
-						onChange={this.update('password-confirm')}
+						onChange={this.update('passwordConfirm')}
 					/>
 					<br />
 					<button type="submit">Sign Up</button>
