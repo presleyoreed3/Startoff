@@ -1,0 +1,90 @@
+#login-div{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 75px;
+}
+
+#login-form{
+	display: block;
+	flex-direction: column;
+	padding: 30px;
+}
+
+#secondary-form{
+
+	display: block;
+	flex-direction: column;
+}
+
+#or-divider{
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+#or-divider p {
+	margin: 10px;
+}
+
+.or{
+	height: 1px;
+	flex-grow: 1;
+	background-color: black;
+}
+
+#login-form input{
+	box-sizing: border-box;
+	border: 1px solid #DCDEDD;
+	height: 42px;
+	width: 100%;
+	font-size:  14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+
+#login-form button{
+	font-size: 14px;
+	width: 100%;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 	10px;
+	background-color: #028857;
+	color: white;
+	border: 1px solid #028857;
+	height: 40px;
+}
+
+#login-form button:hover{
+	background-color: #015738;
+	color: white;
+	border: 1px solid #028857;
+	cursor: pointer;
+}
+
+#login-form button:hover:active{
+	background-color: #013523;
+	color: white;
+	border: 1px solid #028857;
+	cursor: pointer;
+}
+
+#secondary-form button {
+	color: white;
+}
+
+
+#demo-user {
+	text-decoration: underline;
+}
+
+#demo-user p:hover {
+	cursor: pointer;
+	color: #015738;
+}
+
+#validation p{
+	color: red;
+	font-weight:500;
+}
