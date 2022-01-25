@@ -4,10 +4,22 @@
 	display: grid;
 	grid-template-columns: auto auto auto;
 	padding: 10px;
-
 }
 
 #project-div{
-	border: 1px solid rgba(0, 0, 0, 0.8);
-	padding: 20px;
+	box-sizing: border-box;
+	border: 1px solid #DCDEDD;
+	background-color: white;
+	margin: 20px;
+}
+
+#top-image{
+	width: 100%;
+	height: 300px;
+}
+
+#top-image img{
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
 }
