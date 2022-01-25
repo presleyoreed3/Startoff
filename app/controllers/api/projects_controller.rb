@@ -6,7 +6,8 @@ class Api::ProjectsController < ApplicationController
 	end
 
 	def show
-
+		@project = Project.find_by(params: [:id])
+		render :show
 	end
 
 	def create
