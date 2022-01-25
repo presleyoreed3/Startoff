@@ -10668,7 +10668,9 @@ var Header = /*#__PURE__*/function (_React$Component) {
         action = '/login';
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
+        className: "header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "left-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         id: "header-links",
@@ -10875,13 +10877,17 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "project-index"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "project-counter"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Explore ", this.props.projects.length, " Projects")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "projects-index"
       }, this.props.projects.map(function (project) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_project_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           project: project,
           key: project.id
         });
-      }));
+      })));
     }
   }]);
 

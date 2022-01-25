@@ -33,7 +33,7 @@ class Header extends React.Component {
 			action = '/login'
 		}
 		return (
-			<header>
+			<header className="header">
 				<div id="left-nav">
 					<NavLink id="header-links" to="#">Discover </NavLink>
 					<NavLink id="header-links" to="#">Start a Project</NavLink>
