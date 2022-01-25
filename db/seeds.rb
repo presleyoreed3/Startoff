@@ -68,8 +68,8 @@ projects = Project.create([
 
 ])
 
-# project1 = Project.find(1)
-# project1.photo.attach(io: open("https://startoff-dev.s3.us-west-2.amazonaws.com/film.jpg"), filename: 'film.jpg')
+project1 = Project.find(1)
+project1.photo.attach(io: open("https://startoff-dev.s3.us-west-2.amazonaws.com/film.jpg"), filename: 'film.jpg')
 project2 = Project.find(2)
 project2.photo.attach(io: open("https://startoff-dev.s3.us-west-2.amazonaws.com/comix.jpg"), filename: 'comix.jpg')
 project3 = Project.find(3)

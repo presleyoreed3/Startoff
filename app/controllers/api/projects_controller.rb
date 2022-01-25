@@ -10,17 +10,17 @@ class Api::ProjectsController < ApplicationController
 		render :show
 	end
 
-	def create
+	# def create
 
-	end
+	# end
 
-	def destroy
+	# def destroy
 
-	end
+	# end
 
-	def update
+	# def update
 
-	end
+	# end
 
 	private
 	def project_params
