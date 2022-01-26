@@ -9,6 +9,7 @@ class ProjectsIndex extends React.Component {
 	}
 
 	render(){
+		if (!this.props.projects) return null;
 		return(
 			<div className="project-index">
 				<div id="project-counter">
