@@ -16,6 +16,10 @@
 
 }
 
+#count{
+	color: #028857;
+}
+
 #projects-index{
 	margin: 0 auto;
 	margin-top: 30px;
@@ -52,16 +56,44 @@
 #description h2{
 	cursor: pointer;
 	font-size: 24px;
-	font-weight: 300;
+	font-weight: 200;
+	height: 50px;
+
 }
 
 #description:hover h2{
 	text-decoration: underline;
 	font-size: 24px;
-	font-weight: 300;
+	font-weight: 200;
+	
 }
 
 #description p{
 	font-size: 18px;
+	font-weight: 300;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	        line-clamp: 2; 
+	-webkit-box-orient: vertical;
+}
+
+#creator{
+	padding: 18px;
+}
+
+#creator p{
 	font-weight: 400;
 }
+
+#creator-name{
+	font-size: 18px;
+	font-weight: 500;
+}
+
+#creator-name:hover{
+	text-decoration: underline;
+	cursor: pointer
+}
+

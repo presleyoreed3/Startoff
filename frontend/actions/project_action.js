@@ -14,7 +14,6 @@ const receiveProject = project => ({
 })
 
 export const fetchProjects = () => dispatch => {
-	console.log("dispatching")
 	return (
 		ApiUtils.fetchProjects()
 			.then(projects => dispatch(receiveProjects(projects)))

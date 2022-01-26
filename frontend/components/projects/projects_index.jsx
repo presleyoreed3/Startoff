@@ -5,7 +5,6 @@ import ProjectsIndexItem from './project_index_item'
 class ProjectsIndex extends React.Component {
 
 	componentDidMount(){
-		console.log("making the api call")
 		this.props.fetchProjects()
 	}
 
@@ -13,7 +12,7 @@ class ProjectsIndex extends React.Component {
 		return(
 			<div className="project-index">
 				<div id="project-counter">
-					<h1>Explore {this.props.projects.length} Projects</h1>
+					<h1>Explore <span id="count">{this.props.projects.length} Projects</span></h1>
 				</div>
 				<div id="projects-index">
 					{this.props.projects.map(project => (

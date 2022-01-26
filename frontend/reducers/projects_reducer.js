@@ -3,7 +3,6 @@ import { RECEIVE_PROJECTS, RECEIVE_PROJECT } from '../actions/project_action'
 const ProjectsReducer = (oldState = {}, action) => {
 	Object.freeze(oldState);
 	const nextState = Object.assign({}, oldState);
-	console.log(action.projects)
 	switch(action.type){
 		case RECEIVE_PROJECTS:
 			return Object.assign({}, oldState, action.projects)

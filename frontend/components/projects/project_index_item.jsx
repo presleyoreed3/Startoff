@@ -13,7 +13,10 @@ class ProjectsIndexItem extends React.Component {
 					<h2>{this.props.project.project_name}</h2>
 					<p>{this.props.project.description}</p>
 				</div>
-			</div>
+				<div id="creator">
+					<p>by <span id="creator-name">{this.props.project.creator}</span></p>
+				</div>
+			</div>	
 		)
 	}
 

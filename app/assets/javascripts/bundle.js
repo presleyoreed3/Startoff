@@ -9944,7 +9944,6 @@ var receiveProject = function receiveProject(project) {
 
 var fetchProjects = function fetchProjects() {
   return function (dispatch) {
-    console.log("dispatching");
     return _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchProjects().then(function (projects) {
       return dispatch(receiveProjects(projects));
     });
@@ -10806,7 +10805,11 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
         src: this.props.project.photoUrl
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "description"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.project.project_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.description)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.project.project_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "creator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "by ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        id: "creator-name"
+      }, this.props.project.creator))));
     }
   }]);
 
@@ -10870,7 +10873,6 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ProjectsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log("making the api call");
       this.props.fetchProjects();
     }
   }, {
@@ -10880,7 +10882,9 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
         className: "project-index"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-counter"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Explore ", this.props.projects.length, " Projects")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Explore ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        id: "count"
+      }, this.props.projects.length, " Projects"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "projects-index"
       }, this.props.projects.map(function (project) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_project_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -11035,7 +11039,6 @@ var ProjectsReducer = function ProjectsReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(oldState);
   var nextState = Object.assign({}, oldState);
-  console.log(action.projects);
 
   switch (action.type) {
     case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PROJECTS:
