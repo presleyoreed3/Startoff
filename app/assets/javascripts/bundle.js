@@ -10788,13 +10788,24 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(ProjectsIndexItem);
 
-  function ProjectsIndexItem() {
+  function ProjectsIndexItem(props) {
+    var _this;
+
     _classCallCheck(this, ProjectsIndexItem);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.calcPecentage = _this.calcPecentage.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ProjectsIndexItem, [{
+    key: "calcPecentage",
+    value: function calcPecentage() {
+      var currentAmount = this.props.project.current_funding;
+      var goalAmount = this.props.project.goal_amount;
+      return Math.floor(currentAmount / goalAmount * 100);
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -10804,12 +10815,20 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: this.props.project.photoUrl
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "description"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.project.project_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "creator"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "by ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: "creator-name"
-      }, this.props.project.creator))));
+      }, this.props.project.creator))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "progress-bar"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "funding"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "$", this.props.project.current_funding, " pledged"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.calcPecentage(), "% funded")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "category"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.category))));
     }
   }]);
 
