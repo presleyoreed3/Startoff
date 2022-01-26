@@ -15,6 +15,7 @@ class ProjectsIndexItem extends React.Component {
 	}
 
 	render(){
+		let progressPercentage = `${this.calcPecentage()}%`
 		return(
 			<div id="project-div">
 				<div id="top-image">
@@ -28,7 +29,7 @@ class ProjectsIndexItem extends React.Component {
 					<div id="creator">
 						<p>by <span id="creator-name">{this.props.project.creator}</span></p>
 					</div>
-					<div id="progress-bar"></div>
+					<div id="progress-bar"><div id="progress" style={{width: progressPercentage}}></div></div>
 					<div id="funding">
 						<p>${this.props.project.current_funding} pledged</p>
 						<p>{this.calcPecentage()}% funded</p>

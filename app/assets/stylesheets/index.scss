@@ -8,12 +8,10 @@
 	margin: 0 auto;
 	padding: 30px;
 	margin-bottom: 0px;
-
 }
 
 #project-counter h1{
 	font-size: 36px;
-
 }
 
 #count{
@@ -80,7 +78,6 @@
 	-webkit-box-orient: vertical;
 }
 
-
 #creator p{
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -96,4 +93,25 @@
 	text-decoration: underline;
 	cursor: pointer
 }
+
+#progress-bar{
+	margin-top: 40px;
+	margin-bottom: 10px;
+	height: 5px;
+	background-color: #E8E8E9;
+}
+
+#progress{
+	height: 5px;
+	background-color: #028857;
+	max-width: 100%;
+}
+
+
+
+
+
+
+
+
 
