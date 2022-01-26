@@ -20,21 +20,19 @@ class ProjectsIndexItem extends React.Component {
 		const currentDay = Date.now();
 		let seconds = (endDay - currentDay)/1000;
 		let hours = seconds/3600;
-		let days = hours/24
-		return Math.floor(days);
+		let days = Math.floor(hours/24)
+		let daysLeft;
+		if (days < 1){
+			daysLeft = "Campaign is over"
+		}else{
+			daysLeft = `${days} days to go`
+		}
+		return daysLeft;
 	}
 
 	render(){
 		let progressPercentage = `${this.calcPecentage()}%`
-		let overCheck = false;
-		let daysLeft;
-		if (this.calcDays() < 1){
-			overCheck = true;
-			daysLeft = "Campaign is over"
-		}else{
-			daysLeft = `${this.calcDays()} days to go`
-		}
-
+		let daysLeft = this.calcDays();
 		return(
 			<div id="project-div">
 				<div id="top-image">

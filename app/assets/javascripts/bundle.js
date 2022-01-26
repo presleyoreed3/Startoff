@@ -10813,23 +10813,22 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
       var currentDay = Date.now();
       var seconds = (endDay - currentDay) / 1000;
       var hours = seconds / 3600;
-      var days = hours / 24;
-      return Math.floor(days);
+      var days = Math.floor(hours / 24);
+      var daysLeft;
+
+      if (days < 1) {
+        daysLeft = "Campaign is over";
+      } else {
+        daysLeft = "".concat(days, " days to go");
+      }
+
+      return daysLeft;
     }
   }, {
     key: "render",
     value: function render() {
       var progressPercentage = "".concat(this.calcPecentage(), "%");
-      var overCheck = false;
-      var daysLeft;
-
-      if (this.calcDays() < 1) {
-        overCheck = true;
-        daysLeft = "Campaign is over";
-      } else {
-        daysLeft = "".concat(this.calcDays(), " days to go");
-      }
-
+      var daysLeft = this.calcDays();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
