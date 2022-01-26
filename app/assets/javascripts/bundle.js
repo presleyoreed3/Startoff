@@ -10795,6 +10795,7 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.calcPecentage = _this.calcPecentage.bind(_assertThisInitialized(_this));
+    _this.calcDays = _this.calcDays.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -10806,9 +10807,29 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
       return Math.floor(currentAmount / goalAmount * 100);
     }
   }, {
+    key: "calcDays",
+    value: function calcDays() {
+      var endDay = Date.parse(this.props.project.deadline);
+      var currentDay = Date.now();
+      var seconds = (endDay - currentDay) / 1000;
+      var hours = seconds / 3600;
+      var days = hours / 24;
+      return Math.floor(days);
+    }
+  }, {
     key: "render",
     value: function render() {
       var progressPercentage = "".concat(this.calcPecentage(), "%");
+      var overCheck = false;
+      var daysLeft;
+
+      if (this.calcDays() < 1) {
+        overCheck = true;
+        daysLeft = "Campaign is over";
+      } else {
+        daysLeft = "".concat(this.calcDays(), " days to go");
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -10832,7 +10853,13 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "funding"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "$", this.props.project.current_funding, " pledged"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.calcPecentage(), "% funded")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        id: "dollar"
+      }, "$", this.props.project.current_funding, " pledged"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        id: "percentage"
+      }, this.calcPecentage(), "% funded"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        id: "days-left"
+      }, daysLeft)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "category"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.category))));
     }

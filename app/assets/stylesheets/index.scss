@@ -34,7 +34,8 @@
 	background-color: white;
 	margin: 30px;
 	margin-bottom: 50px;
-	max-width: 450px
+	max-width: 400px;
+	min-width: 220px;
 }
 
 #top-image{
@@ -99,17 +100,37 @@
 	margin-bottom: 10px;
 	height: 5px;
 	background-color: #E8E8E9;
+	margin-bottom: 10px;
 }
 
 #progress{
 	height: 5px;
 	background-color: #028857;
 	max-width: 100%;
+	margin-bottom: 10px;
 }
 
+#funding p{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
+#dollar{
+	color:#028857;
+}
 
+#category p{
+	margin-top: 20px;
+	text-decoration: underline;
+	cursor: pointer;
+	color: #6C6C6C;
+}
 
+#category:hover p{
+	text-decoration: underline;
+	cursor: pointer;
+	color: #282828;
+}
 
 
 
