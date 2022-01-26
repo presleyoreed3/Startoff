@@ -10927,9 +10927,16 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(ProjectShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchProject(this.props.match.params.projectId);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "project-show-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null));
     }
   }]);
 
@@ -10961,11 +10968,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  return {};
+  return {
+    project: state.entities.projects[ownProps.match.params.projectId]
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    fetchProject: function fetchProject(projectId) {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_2__.fetchProject)(projectId));
+    }
+  };
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_project_show__WEBPACK_IMPORTED_MODULE_3__["default"]));
