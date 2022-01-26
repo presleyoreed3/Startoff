@@ -4,14 +4,71 @@
 	width: 100vw;
 }
 
-#project-info{
-	max-width: 1500px;
+#project-header{
+	max-width: 1000px;
 	margin: 0 auto;
 	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
-#project-info h1{
+#project-name h1{
 	font-size: 36px;
 	font-weight: 400;
 	text-align: center;
+	margin: 20px;
 }
+#project-description p{
+	max-width: 700;
+	text-align: center;
+	text-size: 24px
+}
+
+#sub-show{
+	margin: 0 auto;
+	max-width: 100vw;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#sub-show img{
+	margin: 20px;
+	margin-left: 50px;
+	width: 900px;
+	height: 650px;
+	object-fit: cover;
+
+}
+
+#funding-counter{
+	margin: 20px;
+	margin-right: 50px;
+	width: 350px;
+}
+
+#progress-bar{
+	margin-bottom: 50px;
+}
+
+#funding div{
+	font-weight: 600;
+	font-size: 36px;
+	margin-bottom: 50px;
+}
+
+#funding p{
+	font-weight: 300;
+	font-size: 20px;
+}
+
+#sub-show button{
+	font-size: 18px;
+	width: 100%;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 	10px;
+	background-color: #028857;
+	color: white;
+	border: 1px solid #028857;
+	height: 60px;
+}
+

@@ -4,7 +4,8 @@ import { fetchProject } from '../../actions/project_action'
 import ProjectShow from './project_show'
 
 const mapStateToProps = (state, ownProps) => ({
-	project: state.entities.projects[ownProps.match.params.projectId]
+	project: state.entities.projects[ownProps.match.params.projectId],
+	currentUser: state.entities.users[state.session.currentUser]
 })
 
 const mapDispatchToProps = dispatch => ({

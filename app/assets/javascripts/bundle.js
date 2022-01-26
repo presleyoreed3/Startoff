@@ -10808,8 +10808,8 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ProjectsIndexItem, [{
     key: "calcPecentage",
     value: function calcPecentage() {
-      var currentAmount = this.props.project.current_funding;
-      var goalAmount = this.props.project.goal_amount;
+      var currentAmount = this.props.project.currentFunding;
+      var goalAmount = this.props.project.goalAmount;
       return Math.floor(currentAmount / goalAmount * 100);
     }
   }, {
@@ -10846,7 +10846,7 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
         id: "info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "description"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.project.project_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.project.projectName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "creator"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "by ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: "creator-name"
@@ -10861,7 +10861,7 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
         id: "funding"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         id: "dollar"
-      }, "$", this.props.project.current_funding, " pledged"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, "$", this.props.project.currentFunding, " pledged"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         id: "percentage"
       }, this.calcPecentage(), "% funded"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         id: "days-left"
@@ -10927,6 +10927,8 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = _this.props.project;
+    _this.calcPecentage = _this.calcPecentage.bind(_assertThisInitialized(_this));
+    _this.calcDays = _this.calcDays.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -10936,18 +10938,76 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
       this.props.fetchProject(this.props.match.params.projectId);
     }
   }, {
+    key: "calcPecentage",
+    value: function calcPecentage() {
+      var currentAmount = this.props.project.currentFunding;
+      var goalAmount = this.props.project.goalAmount;
+      return Math.floor(currentAmount / goalAmount * 100);
+    }
+  }, {
+    key: "calcDays",
+    value: function calcDays() {
+      var endDay = Date.parse(this.props.project.deadline);
+      var currentDay = Date.now();
+      var seconds = (endDay - currentDay) / 1000;
+      var hours = seconds / 3600;
+      var days = Math.floor(hours / 24);
+      var daysLeft;
+
+      if (days < 1) {
+        daysLeft = "Campaign is over";
+      } else {
+        daysLeft = "".concat(days);
+      }
+
+      return daysLeft;
+    }
+  }, {
+    key: "checkSignIn",
+    value: function checkSignIn() {
+      if (!this.props.currentUser) {
+        return "Sign in to Staroff";
+      } else {
+        return "Staroff this project";
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       if (!this.props.project) return null;
+      var progressPercentage = "".concat(this.calcPecentage(), "%");
+      var daysLeft = this.calcDays();
+      var renderButton = this.checkSignIn();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-show-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "project-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.project.projectName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        id: "project-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "project-name"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.project.projectName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "project-description"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.project.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "sub-show"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: this.props.project.photoUrl
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "funding-counter"
-      }));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "progress-bar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "progress",
+        style: {
+          width: progressPercentage
+        }
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "funding"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "dollar"
+      }, "$", this.props.project.currentFunding, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "pledged of the $", this.props.project.goalAmount, " goal")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "backer-count"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "days-left"
+      }, daysLeft, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, " days to go"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, renderButton))));
     }
   }]);
 
@@ -10980,7 +11040,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    project: state.entities.projects[ownProps.match.params.projectId]
+    project: state.entities.projects[ownProps.match.params.projectId],
+    currentUser: state.entities.users[state.session.currentUser]
   };
 };
 
@@ -11222,7 +11283,7 @@ var ProjectsReducer = function ProjectsReducer() {
       return Object.assign({}, oldState, action.projects);
 
     case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PROJECT:
-      return Object.assign({}, oldState, _defineProperty({}, action.project.id, action.project));
+      return Object.assign({}, _defineProperty({}, action.project.id, action.project));
 
     default:
       return oldState;

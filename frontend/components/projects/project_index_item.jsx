@@ -10,8 +10,8 @@ class ProjectsIndexItem extends React.Component {
 	}
 
 	calcPecentage(){
-		let currentAmount = this.props.project.current_funding;
-		let goalAmount = this.props.project.goal_amount;
+		let currentAmount = this.props.project.currentFunding;
+		let goalAmount = this.props.project.goalAmount;
 		return Math.floor((currentAmount/goalAmount) * 100);
 	}
 
@@ -40,7 +40,7 @@ class ProjectsIndexItem extends React.Component {
 				</div>
 				<div id="info">
 					<div id="description">
-						<h2>{this.props.project.project_name}</h2>
+						<h2>{this.props.project.projectName}</h2>
 						<p>{this.props.project.description}</p>
 					</div>
 					<div id="creator">
@@ -48,7 +48,7 @@ class ProjectsIndexItem extends React.Component {
 					</div>
 					<div id="progress-bar"><div id="progress" style={{width: progressPercentage}}></div></div>
 					<div id="funding">
-						<p id="dollar">${this.props.project.current_funding} pledged</p>
+						<p id="dollar">${this.props.project.currentFunding} pledged</p>
 						<p id="percentage">{this.calcPecentage()}% funded</p>
 						<p id="days-left">{daysLeft}</p>
 					</div>
