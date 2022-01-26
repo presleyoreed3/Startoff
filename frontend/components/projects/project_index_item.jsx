@@ -34,7 +34,7 @@ class ProjectsIndexItem extends React.Component {
 		let progressPercentage = `${this.calcPecentage()}%`
 		let daysLeft = this.calcDays();
 		return(
-			<div id="project-div">
+			<Link to={`/projects/${this.props.project.id}`} id="project-div">
 				<div id="top-image">
 					<img src={this.props.project.photoUrl}></img>
 				</div>
@@ -56,7 +56,7 @@ class ProjectsIndexItem extends React.Component {
 						<p>{this.props.project.category}</p>
 					</div>
 				</div>
-			</div>	
+			</Link>	
 		)
 	}
 
