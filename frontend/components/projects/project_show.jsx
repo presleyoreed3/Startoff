@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import ProjectWarning from './projects_warning'
+import Rewards from './rewards'
 
 class ProjectShow extends React.Component{
 
@@ -50,6 +51,7 @@ class ProjectShow extends React.Component{
 		let progressPercentage = `${this.calcPecentage()}%`
 		let daysLeft = this.calcDays()
 		let renderButton = this.checkSignIn();
+		console.log(this.props.project)
 		return(
 			<div id="project-show-div">
 				<div id="project-header">
@@ -79,6 +81,9 @@ class ProjectShow extends React.Component{
 					</div>
 				</div>
 				<ProjectWarning />
+				<Rewards 
+					rewards={this.props.project.projectRewards}
+				/>
 			</div>
 		)
 	}
