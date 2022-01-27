@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import ProjectWarning from './projects_warning'
 
 class ProjectShow extends React.Component{
 
@@ -76,7 +77,7 @@ class ProjectShow extends React.Component{
 						<button>{renderButton}</button>
 					</div>
 				</div>
-
+				<ProjectWarning />
 			</div>
 		)
 	}

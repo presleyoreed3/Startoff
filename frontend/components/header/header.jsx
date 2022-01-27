@@ -38,7 +38,7 @@ class Header extends React.Component {
 					<NavLink id="header-links" to="#">Discover </NavLink>
 					<NavLink id="header-links" to="#">Start a Project</NavLink>
 				</div>
-				<Link id='logo-click' to='/login'><img id='startoff-logo' src={window.logoURL}></img></Link>
+				<Link id='logo-click' to='/projects'><img id='startoff-logo' src={window.logoURL}></img></Link>
 				<div id="right-nav">
 					<NavLink id="header-links" to="#" onClick={this.showSearch()}>Search <FontAwesomeIcon icon={faSearch}/></NavLink>
 					<NavLink id="header-links" to={action} onClick={e => this.logoutUser(text)}>{text}</NavLink>
