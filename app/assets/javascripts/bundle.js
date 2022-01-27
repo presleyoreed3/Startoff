@@ -10937,6 +10937,7 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
   _createClass(ProjectShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      window.scrollTo(0, 0);
       this.props.fetchProject(this.props.match.params.projectId);
     }
   }, {
