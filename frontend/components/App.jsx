@@ -13,7 +13,7 @@ import Footer from './footer/footer'
 
 const App = () => {
 	return(
-		<div>
+		<div className="root-div">
 			<Header />
 			<Switch>
 				<AuthRoute path="/login" component={LoginFormContainer}/>

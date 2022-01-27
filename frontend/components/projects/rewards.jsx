@@ -1,5 +1,6 @@
 import React from 'react'
 import RewardItem from './reward_item'
+import BackingWarning from './backing_warning'
 
 class Rewards extends React.Component {
 
@@ -10,12 +11,20 @@ class Rewards extends React.Component {
 	render(){
 		return(
 			<div id="rewards-div">
-				{this.props.rewards.map(reward => (
-					<RewardItem 
-						key={reward.id}
-						reward={reward}
-					/>
-				))}
+				<div id="rewards">
+					<div id="rewards-header">
+						<h3>Select your reward</h3>
+						<p>Select an option below</p>
+					</div>
+					{this.props.rewards.map((reward, idx) => (
+						<RewardItem 
+							key={reward.id}
+							reward={reward}
+							className={idx}
+						/>
+					))}
+				</div>
+				{/*<BackingWarning />*/}
 			</div>
 		)
 	}

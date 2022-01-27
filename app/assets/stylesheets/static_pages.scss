@@ -35,10 +35,22 @@ h2{
 }
 
 h3{
-	font-size: 24px;
+	font-size: 28px;
 	font-family: 'Montserrat', sans-serif;
 	margin-bottom: 10px;
 	font-weight: 400;
+}
+
+h4{
+	font-size: 22px;
+	font-family: 'Montserrat', sans-serif;
+	margin-bottom: 10px;
+}
+
+h5{
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	margin-bottom: 10px;
 }
 
 form{
@@ -52,4 +64,20 @@ form{
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 2px;
+}
+
+main{
+	position: relative;
+	min-height: 100vh;
+}
+
+.root-div{
+	padding-bottom: 2.5rem;
+}
+
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
 }

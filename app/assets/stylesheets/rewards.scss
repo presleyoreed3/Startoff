@@ -1,5 +1,34 @@
-#rewards-div{
+#rewards{
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	margin: 0 auto;
 }
+
+#rewards-header{
+	max-width: 1200px;
+	min-width: 800px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+#rewards div:nth-child(2){
+	border-left-color: #09CE78;
+	border-left-width: 7px;
+}
+
+#rewards div:nth-child(3){
+	border-left-color: #CD7F32;
+	border-left-width: 7px;
+}
+
+#rewards div:nth-child(4){
+	border-left-color: #C0C0C0;
+	border-left-width: 7px;
+}
+
+#rewards div:nth-child(5){
+	border-left-color: #FFD700;
+	border-left-width: 7px;
+}
+
