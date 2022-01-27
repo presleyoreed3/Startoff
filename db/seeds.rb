@@ -197,7 +197,7 @@ rewards = Reward.create([
 	{project_id: 19, tier_name: "Tip", price: 1, reward: "My eternal gratitude", reward_description: "Thank you so much for helping in any way"},
 	{project_id: 19, tier_name: "Baby Set", price: 35, reward: "1 Pin and 1 Ball", reward_description: ""},
 	{project_id: 19, tier_name: "Adult's Set", price: 85, reward: "6 Pins and 1 Ball", reward_description: "Full set of 6 pins and 1 ball. Use with your friends in the park and see who can get the most pins in a single bowl"},
-	{project_id: 19, tier_name: "Champion's Set", price: , reward: "10 Pins and 2 Balls", reward_description: "A jumbo set for the true giant bowlers among you. Can you get a strike? How about a turkey? Next would the a perfect game? Good luck!"},
+	{project_id: 19, tier_name: "Champion's Set", price: 200, reward: "10 Pins and 2 Balls", reward_description: "A jumbo set for the true giant bowlers among you. Can you get a strike? How about a turkey? Next would the a perfect game? Good luck!"},
 	{project_id: 20, tier_name: "Tip", price: 1, reward: "My eternal gratitude", reward_description: "Thank you so much for helping in any way"},
 	{project_id: 20, tier_name: "Thank you Acknowledgment", price: 50, reward: "Credits Acknowledgment", reward_description: "Get a thank you in the credits of our game (we will make them unskippable so that everyone sees your contribution)"},
 	{project_id: 20, tier_name: "Copy of Game(digital)", price: 60, reward: "1 Digital Download Code", reward_description: "A digital copy of this hit game plus the bonus fingerprint in-game pistol that one-shots everyone in the game."},
