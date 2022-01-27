@@ -15,11 +15,19 @@
 #
 class Project < ApplicationRecord
 
+	validates :project_name, presence: true, uniqueness: true
+	validates :description, presence: true
+	validates :category, presence: true
+	validates :goal_amount, presence: true
+	validates :deadline, presence: true
+
 	has_one_attached :photo
 
 	belongs_to :creator,
 		foreign_key: :creator_id,
 		class_name: :User
 
-	
+	has_many :rewards,
+		foreign_key: :project_id,
+		class_name: :Reward
 end
