@@ -1,3 +1,7 @@
+$button-color: #028857;
+$button-hover: #015738;
+$button-click: #013523;
+
 #login-div{
 	display: flex;
 	align-items: center;
@@ -9,10 +13,10 @@
 	display: block;
 	flex-direction: column;
 	padding: 30px;
+	margin-bottom: 30vh;
 }
 
 #secondary-form{
-
 	display: block;
 	flex-direction: column;
 }
@@ -50,30 +54,23 @@
 	justify-content: center;
 	margin-top: 10px;
 	margin-bottom: 	10px;
-	background-color: #028857;
+	background-color: $button-color;
 	color: white;
-	border: 1px solid #028857;
+	border: 1px solid $button-color;
 	height: 40px;
 }
 
 #login-form button:hover{
-	background-color: #015738;
-	color: white;
-	border: 1px solid #028857;
-	cursor: pointer;
+	background-color: $button-hover;
 }
 
 #login-form button:hover:active{
-	background-color: #013523;
-	color: white;
-	border: 1px solid #028857;
-	cursor: pointer;
+	background-color: $button-click;
 }
 
 #secondary-form button {
 	color: white;
 }
-
 
 #demo-user {
 	text-decoration: underline;
@@ -81,7 +78,7 @@
 
 #demo-user p:hover {
 	cursor: pointer;
-	color: #015738;
+	color: $button-hover;
 }
 
 #validation p{

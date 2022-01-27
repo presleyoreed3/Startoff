@@ -1,0 +1,91 @@
+$button-color: #028857;
+$button-hover: #015738;
+$button-click: #013523;
+
+
+#project-show-div{
+	height: 100vh;
+	width: 100vw;
+}
+
+#project-header{
+	max-width: 1000px;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	line-height: 1.3;
+}
+
+#project-name h1{
+	font-size: 36px;
+	font-weight: 400;
+	text-align: center;
+	margin: 20px;
+}
+
+#project-description p{
+	max-width: 700;
+	text-align: center;
+	text-size: 24px
+}
+
+#sub-show{
+	margin: 0 auto;
+	max-width: 100vw;
+	display: flex;
+	justify-content: space-evenly;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding: 20px;
+}
+
+#sub-show img{
+	margin-left: 50px;
+	margin-right: 20px;
+	width: 900px;
+	height: 650px;
+	object-fit: cover;
+}
+
+#funding-counter{
+	margin-left: 20px;
+	margin-top: -40px;
+	width: 500px;
+}
+
+#progress-bar{
+	margin-bottom: 50px;
+}
+
+#funding div{
+	font-weight: 600;
+	font-size: 36px;
+	margin-bottom: 50px;
+
+}
+
+#funding p{
+	font-weight: 300;
+	font-size: 20px;
+}
+
+#sub-show button{
+	font-size: 18px;
+	width: 100%;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 	10px;
+	background-color: $button-color;
+	color: white;
+	border: 1px solid $button-color;
+	height: 60px;
+}
+
+#sub-show button:hover{
+	background-color: $button-hover;
+}
+
+#sub-show button:active{
+	background-color: $button-click;
+}
+
