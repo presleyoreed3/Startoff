@@ -6,8 +6,8 @@ import { NavLink, Link, Switch} from 'react-router-dom'
 import Header from './header/header_container'
 import LoginFormContainer from './forms/login_form_container'
 import SignupFormContainer from './forms/signup_form_container'
-import ProjectsIndexContainer from './projects/projects_index_container'
-import ProjectShowContainer from './projects/project_show_container'
+import ProjectsIndexContainer from './projects/index_project/projects_index_container'
+import ProjectShowContainer from './projects/show_project/project_show_container'
 import Footer from './footer/footer'
 
 

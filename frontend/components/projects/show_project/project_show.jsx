@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import ProjectWarning from './projects_warning'
+import ProjectWarning from '../projects_warning'
 import Rewards from './rewards'
 
 class ProjectShow extends React.Component{

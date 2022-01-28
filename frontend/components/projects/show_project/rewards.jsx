@@ -1,6 +1,6 @@
 import React from 'react'
 import RewardItem from './reward_item'
-import BackingWarning from './backing_warning'
+import BackingWarning from '../backing_warning'
 
 class Rewards extends React.Component {
 

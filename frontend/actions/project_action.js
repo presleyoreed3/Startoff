@@ -24,3 +24,8 @@ export const fetchProject = projectId => dispatch => (
 	ApiUtils.fetchProject(projectId)
 		.then(project => dispatch(receiveProject(project)))
 )
+
+export const createProject = project => dispatch => (
+	ApiUtils.createProject(project)
+		.then(project => dispatch(receiveProject(project)))
+)
