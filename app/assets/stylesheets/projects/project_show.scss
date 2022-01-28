@@ -4,7 +4,7 @@ $button-click: #013523;
 
 
 #project-show-div{
-	height: 100vh;
+	height: auto;
 	width: 100vw;
 }
 
@@ -70,6 +70,7 @@ $button-click: #013523;
 }
 
 #sub-show button{
+	cursor: pointer;
 	font-size: 18px;
 	width: 100%;
 	justify-content: center;

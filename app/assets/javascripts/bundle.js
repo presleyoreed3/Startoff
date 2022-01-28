@@ -10605,6 +10605,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _app_assets_images_startoff_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../app/assets/images/startoff-logo.png */ "./app/assets/images/startoff-logo.png");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
@@ -10642,9 +10643,14 @@ var Header = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Header);
 
   function Header(props) {
+    var _this;
+
     _classCallCheck(this, Header);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    console.log(_this.props);
+    _this.loginCheck = _this.loginCheck.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Header, [{
@@ -10659,9 +10665,17 @@ var Header = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "loginCheck",
+    value: function loginCheck(e) {
+      if (this.props.currentUser) {// alert("project form")
+      } else {
+        this.props.history.push("/login");
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       var text;
       var action;
@@ -10681,9 +10695,11 @@ var Header = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         id: "header-links",
         to: "/projects"
-      }, "Discover "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
+      }, "Discover "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         id: "header-links",
-        to: "#"
+        onClick: function onClick(e) {
+          return _this2.loginCheck(e);
+        }
       }, "Start a Project")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
         id: "logo-click",
         to: "/projects"
@@ -10702,7 +10718,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         id: "header-links",
         to: action,
         onClick: function onClick(e) {
-          return _this.logoutUser(text);
+          return _this2.logoutUser(text);
         }
       }, text)));
     }
@@ -10711,7 +10727,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
   return Header;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.withRouter)(Header));
 
 /***/ }),
 
