@@ -11085,7 +11085,8 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
       }, daysLeft, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, " days to go"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
         to: "/login"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, renderButton)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_warning__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rewards__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        rewards: this.props.project.projectRewards
+        rewards: this.props.project.projectRewards,
+        currentUser: this.props.currentUser
       }));
     }
   }]);
@@ -11399,15 +11400,16 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
   _createClass(RewardItem, [{
     key: "handleClick",
     value: function handleClick(e) {
-      e.preventDefault();
+      console.log(this.props.currentUser);
 
       if (!this.props.currentUser) {
         this.setState({
           errors: this.renderErrors()
         });
+        setTimeout(this.clearErrors, 3000);
+      } else {//Add ability to increment the total funding count
+        //Also have the association that you are backing the project
       }
-
-      setTimeout(this.clearErrors, 3000);
     }
   }, {
     key: "clearErrors",
@@ -11507,6 +11509,8 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
   _createClass(Rewards, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "rewards-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -11517,7 +11521,8 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: reward.id,
           reward: reward,
-          index: idx
+          index: idx,
+          currentUser: _this.props.currentUser
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_backing_warning__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }

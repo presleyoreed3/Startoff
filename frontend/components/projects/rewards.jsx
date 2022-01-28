@@ -21,6 +21,7 @@ class Rewards extends React.Component {
 							key={reward.id}
 							reward={reward}
 							index={idx}
+							currentUser={this.props.currentUser}
 						/>
 					))}
 				</div>

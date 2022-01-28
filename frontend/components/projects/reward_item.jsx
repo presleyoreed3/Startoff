@@ -12,11 +12,15 @@ class RewardItem extends React.Component{
 	}
 
 	handleClick(e){
-		e.preventDefault()
+		console.log(this.props.currentUser)
 		if (!this.props.currentUser){
 			this.setState({errors: this.renderErrors()})
+			setTimeout(this.clearErrors, 3000)
+		}else{
+			//Add ability to increment the total funding count
+			//Also have the association that you are backing the project
 		}
-		setTimeout(this.clearErrors, 3000)
+		
 	}
 
 	clearErrors(){
