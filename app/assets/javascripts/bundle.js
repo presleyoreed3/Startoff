@@ -10648,7 +10648,6 @@ var Header = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Header);
 
     _this = _super.call(this, props);
-    console.log(_this.props);
     _this.loginCheck = _this.loginCheck.bind(_assertThisInitialized(_this));
     return _this;
   }
