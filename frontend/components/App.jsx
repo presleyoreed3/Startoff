@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom'
-import {AuthRoute} from '../utils/route_util'
+import {AuthRoute, ProtectedRoute} from '../utils/route_util'
 import { NavLink, Link, Switch} from 'react-router-dom'
 
 import Header from './header/header_container'
@@ -13,9 +13,10 @@ import Footer from './footer/footer'
 
 const App = () => {
 	return(
-		<div>
+		<div className="root-div">
 			<Header />
 			<Switch>
+				
 				<AuthRoute path="/login" component={LoginFormContainer}/>
 				<AuthRoute path="/signup" component={SignupFormContainer}/>
 				<Route path="/projects/:projectId" component={ProjectShowContainer}/>

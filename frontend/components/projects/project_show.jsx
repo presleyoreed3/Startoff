@@ -1,14 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import ProjectWarning from './projects_warning'
+import Rewards from './rewards'
 
 class ProjectShow extends React.Component{
 
 	constructor(props){
 		super(props)
-		this.state = this.props.project
+		this.state = {
+			errors: ''
+		}
 		this.calcPecentage = this.calcPecentage.bind(this)
 		this.calcDays = this.calcDays.bind(this)
+		this.startoff = this.startoff.bind(this)
+		this.clearErrors = this.clearErrors.bind(this)
 	}
 
 	componentDidMount(){
@@ -37,19 +42,24 @@ class ProjectShow extends React.Component{
 		return daysLeft;
 	}
 
-	checkSignIn(){
+	startoff(e){
 		if (!this.props.currentUser){
-			return "Sign in to Staroff"
+			this.setState({errors: "You must be logged in to back a project"})
+			setTimeout(this.clearErrors, 3000)
 		} else{
-			return "Staroff this project"
+			document.getElementById("rewards-div").scrollIntoView()
 		}
+	}
+
+	clearErrors(){
+		let empty = ""
+		this.setState({errors: empty})
 	}
 
 	render(){
 		if (!this.props.project) return null;
 		let progressPercentage = `${this.calcPecentage()}%`
 		let daysLeft = this.calcDays()
-		let renderButton = this.checkSignIn();
 		return(
 			<div id="project-show-div">
 				<div id="project-header">
@@ -75,10 +85,15 @@ class ProjectShow extends React.Component{
 								<p> days to go</p>
 							</div>
 						</div>
-						<button>{renderButton}</button>
+						<button onClick={e => this.startoff(e)}>Startoff this project</button>
+						<p id="errors">{this.state.errors}</p>
 					</div>
 				</div>
 				<ProjectWarning />
+				<Rewards 
+					rewards={this.props.project.projectRewards}
+					currentUser={this.props.currentUser}
+				/>
 			</div>
 		)
 	}

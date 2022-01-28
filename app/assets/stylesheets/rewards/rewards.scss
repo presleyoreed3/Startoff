@@ -1,0 +1,54 @@
+#rewards-div{
+	display:  flex;
+	justify-content: space-evenly;
+}
+
+#rewards{
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+#rewards-header{
+	max-width: 70%;
+	margin-left: 10%;
+	margin-bottom: 20px;
+}
+
+#rewards div:nth-child(2){
+	border-left-color: #09CE78;
+	border-left-width: 7px;
+}
+
+#rewards div:nth-child(3){
+	border-left-color: #CD7F32;
+	border-left-width: 7px;
+}
+
+#rewards div:nth-child(4){
+	border-left-color: #C0C0C0;
+	border-left-width: 7px;
+}
+
+#rewards div:nth-child(5){
+	border-left-color: #FFD700;
+	border-left-width: 7px;
+}
+
+#backing-warning{
+	align-items: center;
+	width: 30%;
+	margin: 20px;
+	margin-right: 100px;
+}
+
+#backing-warning img{
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+#backing-warning p{
+	line-height: 25px;
+}
