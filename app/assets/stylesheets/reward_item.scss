@@ -1,3 +1,6 @@
+$button-color: #028857;
+$button-hover: #015738;
+$button-click: #013523;
 
 #reward-tile{
 	max-width: 1200px;
@@ -11,13 +14,44 @@
 	padding: 20px;
 	transition: transform .3s;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 }
+
+#reward-info{
+	display: flex;
+	justify-content: space-between;
+}
+
+#pledge-dropdown{
+	padding: 15px;
+}
+
+#pledge-dropdown button{
+	font-size: 18px;
+	width: 20%;
+	margin-top: 10px;
+	margin-bottom: 	10px;
+	background-color: $button-color;
+	color: white;
+	border: 1px solid $button-color;
+	height: 50px;
+}
+
+#pledge-dropdown button:hover{
+	background-color: $button-hover;
+}
+
+#pledge-dropdown button:active{
+	background-color: $button-click;
+}
+
 
 #reward-tile:hover{
 	transform: scale(1.1);
 	cursor: pointer;
 }
+
 
 #reward-tile p{
 	width: 500px;

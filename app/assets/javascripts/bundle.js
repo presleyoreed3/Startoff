@@ -10077,7 +10077,7 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "/projects",
     component: _projects_projects_index_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+  })));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -10805,9 +10805,11 @@ var BackingWarning = /*#__PURE__*/function (_React$Component) {
   _createClass(BackingWarning, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "backing-warning"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: _app_assets_images_warnings_no_guarantee_png__WEBPACK_IMPORTED_MODULE_1__
-      }));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Your pledge will support an ambitious creative project that has yet to be developed. There\u2019s a risk that, despite a creator\u2019s best efforts, your reward will not be fulfilled, and we urge you to consider this risk prior to pledging. Startoff is not responsible for project claims or reward fulfillment."));
     }
   }]);
 
@@ -11392,9 +11394,13 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "reward-tile",
         className: this.props.className
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "reward-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Pledge ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "$", this.props.reward.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         id: "tier-name"
-      }, this.props.reward.tierName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, this.props.reward.reward), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.reward.rewardDescription)));
+      }, this.props.reward.tierName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, this.props.reward.reward), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.reward.rewardDescription))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "pledge-dropdown"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Pledge $", this.props.reward.price)));
     }
   }]);
 
@@ -11469,9 +11475,9 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: reward.id,
           reward: reward,
-          className: idx
+          index: idx
         });
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_backing_warning__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 

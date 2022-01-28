@@ -20,11 +20,11 @@ class Rewards extends React.Component {
 						<RewardItem 
 							key={reward.id}
 							reward={reward}
-							className={idx}
+							index={idx}
 						/>
 					))}
 				</div>
-				{/*<BackingWarning />*/}
+				<BackingWarning />
 			</div>
 		)
 	}
