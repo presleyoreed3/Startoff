@@ -51,6 +51,7 @@ class ProjectShow extends React.Component{
 		let progressPercentage = `${this.calcPecentage()}%`
 		let daysLeft = this.calcDays()
 		let renderButton = this.checkSignIn();
+		
 		return(
 			<div id="project-show-div">
 				<div id="project-header">

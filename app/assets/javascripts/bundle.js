@@ -11383,14 +11383,52 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(RewardItem);
 
   function RewardItem(props) {
+    var _this;
+
     _classCallCheck(this, RewardItem);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      errors: ""
+    };
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.clearErrors = _this.clearErrors.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(RewardItem, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+
+      if (!this.props.currentUser) {
+        this.setState({
+          errors: this.renderErrors()
+        });
+      }
+
+      setTimeout(this.clearErrors, 3000);
+    }
+  }, {
+    key: "clearErrors",
+    value: function clearErrors() {
+      var empty = "";
+      this.setState({
+        errors: empty
+      });
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        id: "errors"
+      }, "Must be logged in to pledge");
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "reward-tile",
         className: this.props.className
@@ -11400,7 +11438,11 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
         id: "tier-name"
       }, this.props.reward.tierName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, this.props.reward.reward), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.reward.rewardDescription))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "pledge-dropdown"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Pledge $", this.props.reward.price)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick(e) {
+          return _this2.handleClick(e);
+        }
+      }, "Pledge $", this.props.reward.price), this.state.errors));
     }
   }]);
 

@@ -4,6 +4,28 @@ class RewardItem extends React.Component{
 
 	constructor(props){
 		super(props)
+		this.state = {
+			errors: ""
+		}
+		this.handleClick = this.handleClick.bind(this)
+		this.clearErrors = this.clearErrors.bind(this)
+	}
+
+	handleClick(e){
+		e.preventDefault()
+		if (!this.props.currentUser){
+			this.setState({errors: this.renderErrors()})
+		}
+		setTimeout(this.clearErrors, 3000)
+	}
+
+	clearErrors(){
+		let empty = ""
+		this.setState({errors: empty})
+	}
+
+	renderErrors(){
+		return (<p id="errors">Must be logged in to pledge</p>)
 	}
 
 	render(){
@@ -20,7 +42,8 @@ class RewardItem extends React.Component{
 					</div>
 				</div>
 				<div id="pledge-dropdown">
-					<button>Pledge ${this.props.reward.price}</button>
+					<button onClick={e => this.handleClick(e)}>Pledge ${this.props.reward.price}</button>
+					{this.state.errors}
 				</div>
 			</div>
 		)

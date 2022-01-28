@@ -3,6 +3,7 @@ import React from 'react'
 import Rewards from './rewards'
 
 const mapStateToProps = (state) => ({
+	errors: state.errors.session,
 })
 
 const mapDispatchToProps = dispatch => ({
