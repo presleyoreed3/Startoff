@@ -10999,10 +10999,13 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ProjectShow);
 
     _this = _super.call(this, props);
-    _this.state = _this.props.project;
+    _this.state = {
+      errors: ''
+    };
     _this.calcPecentage = _this.calcPecentage.bind(_assertThisInitialized(_this));
     _this.calcDays = _this.calcDays.bind(_assertThisInitialized(_this));
-    _this.checkSignIn = _this.checkSignIn.bind(_assertThisInitialized(_this));
+    _this.startoff = _this.startoff.bind(_assertThisInitialized(_this));
+    _this.clearErrors = _this.clearErrors.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -11011,9 +11014,6 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       window.scrollTo(0, 0);
       this.props.fetchProject(this.props.match.params.projectId);
-      this.setState({
-        errors: ""
-      });
     }
   }, {
     key: "calcPecentage",
@@ -11041,14 +11041,22 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
       return daysLeft;
     }
   }, {
-    key: "checkSignIn",
-    value: function checkSignIn() {
+    key: "startoff",
+    value: function startoff(e) {
       if (!this.props.currentUser) {
         this.setState({
-          errors: this.renderErrors()
+          errors: "You must be logged in to back a project"
         });
         setTimeout(this.clearErrors, 3000);
-      } else {}
+      }
+    }
+  }, {
+    key: "clearErrors",
+    value: function clearErrors() {
+      var empty = "";
+      this.setState({
+        errors: empty
+      });
     }
   }, {
     key: "render",
@@ -11057,8 +11065,8 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
 
       if (!this.props.project) return null;
       var progressPercentage = "".concat(this.calcPecentage(), "%");
-      var daysLeft = this.calcDays();
-      var renderButton = this.checkSignIn();
+      var daysLeft = this.calcDays(); // let renderButton = this.checkSignIn();
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-show-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -11090,9 +11098,11 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
         id: "days-left"
       }, daysLeft, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, " days to go"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick(e) {
-          return _this2.checkSignIn(e);
+          return _this2.startoff(e);
         }
-      }, "Startoff this project"), this.state.errors)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_warning__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rewards__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, "Startoff this project"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        id: "errors"
+      }, this.state.errors))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_warning__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rewards__WEBPACK_IMPORTED_MODULE_2__["default"], {
         rewards: this.props.project.projectRewards,
         currentUser: this.props.currentUser
       }));
@@ -11129,7 +11139,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
-    currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.entities.users[state.session.currentUser],
+    errors: state.errors.session
   };
 };
 
