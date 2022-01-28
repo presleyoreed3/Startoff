@@ -21,7 +21,7 @@ const App = () => {
 				<Route path="/projects/:projectId" component={ProjectShowContainer}/>
 				<Route path='/projects' component={ProjectsIndexContainer}/>
 			</Switch>
-			{/*<Footer />*/}
+			<Footer />
 		</div>	
 	)
 }
