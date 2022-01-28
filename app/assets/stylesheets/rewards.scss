@@ -39,9 +39,12 @@
 #backing-warning{
 	align-items: center;
 	width: 30%;
+	margin: 20px;
 	margin-right: 100px;
 }
 
 #backing-warning img{
+	object-fit: cover;
 	width: 100%;
+	height: auto;
 }
