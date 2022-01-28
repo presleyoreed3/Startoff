@@ -11048,6 +11048,8 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
           errors: "You must be logged in to back a project"
         });
         setTimeout(this.clearErrors, 3000);
+      } else {
+        document.getElementById("rewards-div").scrollIntoView();
       }
     }
   }, {
@@ -11065,8 +11067,7 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
 
       if (!this.props.project) return null;
       var progressPercentage = "".concat(this.calcPecentage(), "%");
-      var daysLeft = this.calcDays(); // let renderButton = this.checkSignIn();
-
+      var daysLeft = this.calcDays();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-show-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

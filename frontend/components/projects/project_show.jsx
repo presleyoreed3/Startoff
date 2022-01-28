@@ -46,6 +46,8 @@ class ProjectShow extends React.Component{
 		if (!this.props.currentUser){
 			this.setState({errors: "You must be logged in to back a project"})
 			setTimeout(this.clearErrors, 3000)
+		} else{
+			document.getElementById("rewards-div").scrollIntoView()
 		}
 	}
 
@@ -58,7 +60,6 @@ class ProjectShow extends React.Component{
 		if (!this.props.project) return null;
 		let progressPercentage = `${this.calcPecentage()}%`
 		let daysLeft = this.calcDays()
-		// let renderButton = this.checkSignIn();
 		return(
 			<div id="project-show-div">
 				<div id="project-header">
