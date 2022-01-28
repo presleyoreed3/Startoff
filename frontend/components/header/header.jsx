@@ -35,7 +35,7 @@ class Header extends React.Component {
 		return (
 			<header className="header">
 				<div id="left-nav">
-					<NavLink id="header-links" to="#">Discover </NavLink>
+					<NavLink id="header-links" to="/projects">Discover </NavLink>
 					<NavLink id="header-links" to="#">Start a Project</NavLink>
 				</div>
 				<Link id='logo-click' to='/projects'><img id='startoff-logo' src={window.logoURL}></img></Link>

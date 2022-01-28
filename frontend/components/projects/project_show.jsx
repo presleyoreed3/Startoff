@@ -10,11 +10,13 @@ class ProjectShow extends React.Component{
 		this.state = this.props.project
 		this.calcPecentage = this.calcPecentage.bind(this)
 		this.calcDays = this.calcDays.bind(this)
+		this.checkSignIn = this.checkSignIn.bind(this)
 	}
 
 	componentDidMount(){
   		window.scrollTo(0, 0);
 		this.props.fetchProject(this.props.match.params.projectId)
+		this.setState({errors: ""})
 	}
 
 	calcPecentage(){
@@ -40,18 +42,19 @@ class ProjectShow extends React.Component{
 
 	checkSignIn(){
 		if (!this.props.currentUser){
-			return "Sign in to Staroff"
-		} else{
-			return "Staroff this project"
+			this.setState({errors: this.renderErrors()})
+			setTimeout(this.clearErrors, 3000)
+		}else{
+			
 		}
 	}
+
 
 	render(){
 		if (!this.props.project) return null;
 		let progressPercentage = `${this.calcPecentage()}%`
 		let daysLeft = this.calcDays()
 		let renderButton = this.checkSignIn();
-
 		return(
 			<div id="project-show-div">
 				<div id="project-header">
@@ -77,7 +80,8 @@ class ProjectShow extends React.Component{
 								<p> days to go</p>
 							</div>
 						</div>
-						<Link to="/login" ><button>{renderButton}</button></Link>
+						<button onClick={e => this.checkSignIn(e)}>Startoff this project</button>
+						{this.state.errors}
 					</div>
 				</div>
 				<ProjectWarning />

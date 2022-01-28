@@ -10680,7 +10680,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         id: "left-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         id: "header-links",
-        to: "#"
+        to: "/projects"
       }, "Discover "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         id: "header-links",
         to: "#"
@@ -10959,7 +10959,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _projects_warning__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects_warning */ "./frontend/components/projects/projects_warning.jsx");
 /* harmony import */ var _rewards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rewards */ "./frontend/components/projects/rewards.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -11003,6 +11002,7 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
     _this.state = _this.props.project;
     _this.calcPecentage = _this.calcPecentage.bind(_assertThisInitialized(_this));
     _this.calcDays = _this.calcDays.bind(_assertThisInitialized(_this));
+    _this.checkSignIn = _this.checkSignIn.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -11011,6 +11011,9 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       window.scrollTo(0, 0);
       this.props.fetchProject(this.props.match.params.projectId);
+      this.setState({
+        errors: ""
+      });
     }
   }, {
     key: "calcPecentage",
@@ -11041,14 +11044,17 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
     key: "checkSignIn",
     value: function checkSignIn() {
       if (!this.props.currentUser) {
-        return "Sign in to Staroff";
-      } else {
-        return "Staroff this project";
-      }
+        this.setState({
+          errors: this.renderErrors()
+        });
+        setTimeout(this.clearErrors, 3000);
+      } else {}
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       if (!this.props.project) return null;
       var progressPercentage = "".concat(this.calcPecentage(), "%");
       var daysLeft = this.calcDays();
@@ -11082,9 +11088,11 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
         id: "backer-count"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "days-left"
-      }, daysLeft, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, " days to go"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-        to: "/login"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, renderButton)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_warning__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rewards__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, daysLeft, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, " days to go"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick(e) {
+          return _this2.checkSignIn(e);
+        }
+      }, "Startoff this project"), this.state.errors)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_warning__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rewards__WEBPACK_IMPORTED_MODULE_2__["default"], {
         rewards: this.props.project.projectRewards,
         currentUser: this.props.currentUser
       }));
@@ -11400,8 +11408,6 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
   _createClass(RewardItem, [{
     key: "handleClick",
     value: function handleClick(e) {
-      console.log(this.props.currentUser);
-
       if (!this.props.currentUser) {
         this.setState({
           errors: this.renderErrors()

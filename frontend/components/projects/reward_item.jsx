@@ -12,7 +12,6 @@ class RewardItem extends React.Component{
 	}
 
 	handleClick(e){
-		console.log(this.props.currentUser)
 		if (!this.props.currentUser){
 			this.setState({errors: this.renderErrors()})
 			setTimeout(this.clearErrors, 3000)
