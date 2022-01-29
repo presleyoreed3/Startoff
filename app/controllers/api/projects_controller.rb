@@ -33,7 +33,6 @@ class Api::ProjectsController < ApplicationController
 
 	def destroy
 		Project.find(params[:id]).destroy
-		render :index
 	end
 
 	private

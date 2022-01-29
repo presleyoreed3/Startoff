@@ -15,6 +15,8 @@ class ProjectShow extends React.Component{
 		this.startoff = this.startoff.bind(this)
 		this.clearErrors = this.clearErrors.bind(this)
 		this.checkCreator = this.checkCreator.bind(this)
+		this.confirmDelete = this.confirmDelete.bind(this)
+		console.log(this.props)
 	}
 
 	componentDidMount(){
@@ -59,8 +61,23 @@ class ProjectShow extends React.Component{
 
 	checkCreator(){
 		if (this.props.currentUser.id === this.props.project.creatorId){
+			return (
+				<div id="user-edits">
+					<button onClick={() => this.props.history.push(`/projects/${this.props.project.id}/edit`)}>
+						Edit this project
+					</button>
+					<button onClick={this.confirmDelete}>
+						Delete this project
+					</button>
+				</div>
+			)
+		}
+	}
 
-			return (<button onClick={() => this.props.history.push(`/projects/${this.props.project.id}/edit`)}>Edit this project</button>)
+	confirmDelete(){
+		if (confirm("Are you sure you want to delete this project? \nThis action cannot be undone.")){
+			this.props.deleteProject(this.props.project.id)
+				.then(this.props.history.push("/projects"))
 		}
 	}
 

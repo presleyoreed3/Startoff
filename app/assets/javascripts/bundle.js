@@ -9920,15 +9920,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RECEIVE_PROJECTS": () => (/* binding */ RECEIVE_PROJECTS),
 /* harmony export */   "RECEIVE_PROJECT": () => (/* binding */ RECEIVE_PROJECT),
+/* harmony export */   "REMOVE_PROJECT": () => (/* binding */ REMOVE_PROJECT),
 /* harmony export */   "fetchProjects": () => (/* binding */ fetchProjects),
 /* harmony export */   "fetchProject": () => (/* binding */ fetchProject),
 /* harmony export */   "createProject": () => (/* binding */ createProject),
-/* harmony export */   "updateProject": () => (/* binding */ updateProject)
+/* harmony export */   "updateProject": () => (/* binding */ updateProject),
+/* harmony export */   "deleteProject": () => (/* binding */ deleteProject)
 /* harmony export */ });
 /* harmony import */ var _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/project_api_util */ "./frontend/utils/project_api_util.js");
 
 var RECEIVE_PROJECTS = "RECEIVE_PROJECTS";
 var RECEIVE_PROJECT = "RECEIVE_PROJECT";
+var REMOVE_PROJECT = "REMOVE_PROJECT";
 
 var receiveProjects = function receiveProjects(projects) {
   return {
@@ -9941,6 +9944,13 @@ var receiveProject = function receiveProject(project) {
   return {
     type: RECEIVE_PROJECT,
     project: project
+  };
+};
+
+var removeProject = function removeProject(projectId) {
+  return {
+    type: REMOVE_PROJECT,
+    projectId: projectId
   };
 };
 
@@ -9969,6 +9979,13 @@ var updateProject = function updateProject(project) {
   return function (dispatch) {
     return _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__.updateProject(project).then(function (project) {
       return dispatch(receiveProject(project));
+    });
+  };
+};
+var deleteProject = function deleteProject(projectId) {
+  return function (dispatch) {
+    return _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__.deleteProject(projectId).then(function () {
+      return dispatch(removeProject(projectId));
     });
   };
 };
@@ -11600,6 +11617,8 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
     _this.startoff = _this.startoff.bind(_assertThisInitialized(_this));
     _this.clearErrors = _this.clearErrors.bind(_assertThisInitialized(_this));
     _this.checkCreator = _this.checkCreator.bind(_assertThisInitialized(_this));
+    _this.confirmDelete = _this.confirmDelete.bind(_assertThisInitialized(_this));
+    console.log(_this.props);
     return _this;
   }
 
@@ -11660,11 +11679,22 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       if (this.props.currentUser.id === this.props.project.creatorId) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          id: "user-edits"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           onClick: function onClick() {
             return _this2.props.history.push("/projects/".concat(_this2.props.project.id, "/edit"));
           }
-        }, "Edit this project");
+        }, "Edit this project"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          onClick: this.confirmDelete
+        }, "Delete this project"));
+      }
+    }
+  }, {
+    key: "confirmDelete",
+    value: function confirmDelete() {
+      if (confirm("Are you sure you want to delete this project? \nThis action cannot be undone.")) {
+        this.props.deleteProject(this.props.project.id).then(this.props.history.push("/projects"));
       }
     }
   }, {
@@ -11756,6 +11786,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchProject: function fetchProject(projectId) {
       return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_2__.fetchProject)(projectId));
+    },
+    deleteProject: function deleteProject(projectId) {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_2__.deleteProject)(projectId));
     }
   };
 };
@@ -12062,6 +12095,10 @@ var ProjectsReducer = function ProjectsReducer() {
     case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PROJECT:
       return Object.assign({}, _defineProperty({}, action.project.id, action.project));
 
+    case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.REMOVE_PROJECT:
+      nextState[action.projectId];
+      return nextState;
+
     default:
       return oldState;
   }
@@ -12252,7 +12289,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "fetchProjects": () => (/* binding */ fetchProjects),
 /* harmony export */   "fetchProject": () => (/* binding */ fetchProject),
 /* harmony export */   "createProject": () => (/* binding */ createProject),
-/* harmony export */   "updateProject": () => (/* binding */ updateProject)
+/* harmony export */   "updateProject": () => (/* binding */ updateProject),
+/* harmony export */   "deleteProject": () => (/* binding */ deleteProject)
 /* harmony export */ });
 var fetchProjects = function fetchProjects() {
   return $.ajax({
@@ -12282,6 +12320,12 @@ var updateProject = function updateProject(project) {
     data: project,
     contentType: false,
     processData: false
+  });
+};
+var deleteProject = function deleteProject(projectId) {
+  return $.ajax({
+    method: "DELETE",
+    url: "/api/projects/".concat(projectId)
   });
 };
 

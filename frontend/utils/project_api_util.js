@@ -32,3 +32,10 @@ export const updateProject = project => (
 		processData: false,
 	})
 )
+
+export const deleteProject = projectId => (
+	$.ajax({
+		method: "DELETE",
+		url: `/api/projects/${projectId}`
+	})
+)
