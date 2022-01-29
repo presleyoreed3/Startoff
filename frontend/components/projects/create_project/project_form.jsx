@@ -10,6 +10,12 @@ class ProjectForm extends React.Component{
 		this.formatDate = this.formatDate.bind(this)
 	}
 
+	componentDidMount(){
+		this.setState(this.props.fetchProject(this.props.match.params.projectId))
+		console.log(this.state)
+
+	}
+
 	update(field){
 		return e => this.setState({[field]: e.currentTarget.value})
 	}
@@ -36,6 +42,7 @@ class ProjectForm extends React.Component{
 	handleSubmit(e){
 		e.preventDefault();
 		const formData = new FormData();
+		formData.append('project[id]', this.state.id)
 		formData.append('project[project_name]', this.state.projectName)
 		formData.append('project[description]', this.state.description)
 		formData.append('project[goal_amount]', this.state.goalAmount)
@@ -49,6 +56,7 @@ class ProjectForm extends React.Component{
 	}
 
 	render(){
+		if (!this.props.project) return null
 		return(
 			<div id="project-form">
 				<div id="form-type"><h2>{this.props.formType}</h2></div>

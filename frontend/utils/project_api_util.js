@@ -22,3 +22,13 @@ export const createProject = project => (
 		processData: false
 	})
 )
+
+export const updateProject = project => (
+	$.ajax({
+		method: "PATCH",
+		url: `/api/projects/${project.id}`,
+		data: project,
+		contentType: false,
+		processData: false,
+	})
+)

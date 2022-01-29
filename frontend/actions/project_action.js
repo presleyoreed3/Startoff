@@ -31,3 +31,8 @@ export const createProject = project => dispatch =>{
 			.then(project => dispatch(receiveProject(project)))
 	)
 } 
+
+export const updateProject = project => dispatch => (
+	ApiUtils.updateProject(project)
+		.then(project => dispatch(receiveProject(project)))
+)

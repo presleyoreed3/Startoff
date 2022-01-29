@@ -14,6 +14,7 @@ class ProjectShow extends React.Component{
 		this.calcDays = this.calcDays.bind(this)
 		this.startoff = this.startoff.bind(this)
 		this.clearErrors = this.clearErrors.bind(this)
+		this.checkCreator = this.checkCreator.bind(this)
 	}
 
 	componentDidMount(){
@@ -46,7 +47,7 @@ class ProjectShow extends React.Component{
 		if (!this.props.currentUser){
 			this.setState({errors: "You must be logged in to back a project"})
 			setTimeout(this.clearErrors, 3000)
-		} else{
+		}else{
 			document.getElementById("rewards-div").scrollIntoView()
 		}
 	}
@@ -54,6 +55,13 @@ class ProjectShow extends React.Component{
 	clearErrors(){
 		let empty = ""
 		this.setState({errors: empty})
+	}
+
+	checkCreator(){
+		if (this.props.currentUser.id === this.props.project.creatorId){
+
+			return (<button onClick={() => this.props.history.push(`/projects/${this.props.project.id}/edit`)}>Edit this project</button>)
+		}
 	}
 
 	render(){
@@ -86,6 +94,7 @@ class ProjectShow extends React.Component{
 							</div>
 						</div>
 						<button onClick={e => this.startoff(e)}>Startoff this project</button>
+						{this.checkCreator()}
 						<p id="errors">{this.state.errors}</p>
 					</div>
 				</div>
