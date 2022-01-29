@@ -10872,7 +10872,7 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     project: {
       projectName: '',
-      creator_id: "".concat(state.session.currentUser),
+      creatorId: "".concat(state.session.currentUser),
       description: '',
       category: '',
       goalAmount: '',
@@ -10947,6 +10947,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
     _this.state = _this.props.project;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.formatDate = _this.formatDate.bind(_assertThisInitialized(_this));
+    console.log(_this.state);
     return _this;
   }
 
@@ -10996,7 +10997,8 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       formData.append('project[deadline]', this.state.deadline);
       formData.append('project[category]', this.state.category);
       formData.append('project[photo]', this.state.photoFile);
-      this.props.action(formData);
+      formData.append('project[creator_id]', this.state.creatorId);
+      this.props.action(formData).then();
     }
   }, {
     key: "render",
@@ -11012,20 +11014,24 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
         id: "form",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Project Name", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        required: true,
         placeholder: "Project Name",
         type: "text",
         onChange: this.update('projectName'),
         value: this.state.projectName
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Description", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+        required: true,
         placeholder: "Brief Description",
         onChange: this.update('description'),
         value: this.state.description
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Goal Amount", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        required: true,
         placeholder: "Goal Amount",
         type: "text",
         onChange: this.update('goalAmount'),
         value: this.state.goalAmount
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "End Date", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        required: true,
         type: "date",
         min: this.formatDate(),
         onChange: this.update('deadline'),
@@ -11033,8 +11039,9 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Category", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
         onChange: this.update('category')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+        selected: true,
         disabled: true,
-        "default": true
+        defaultValue: "Arts"
       }, "Select a category:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "Arts"
       }, "Arts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
@@ -12115,9 +12122,7 @@ var createProject = function createProject(project) {
   return $.ajax({
     method: "POST",
     url: "/api/projects",
-    data: {
-      project: project
-    },
+    data: project,
     contentType: false,
     processData: false
   });

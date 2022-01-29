@@ -12,6 +12,7 @@ class Api::ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
+		@project.current_funding = 0
 		if @project.save
 			render :show
 		else

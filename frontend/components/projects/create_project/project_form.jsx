@@ -7,6 +7,7 @@ class ProjectForm extends React.Component{
 		this.state = this.props.project
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.formatDate = this.formatDate.bind(this)
+		console.log(this.state)
 	}
 
 	update(field){
@@ -41,7 +42,9 @@ class ProjectForm extends React.Component{
 		formData.append('project[deadline]', this.state.deadline)
 		formData.append('project[category]', this.state.category)
 		formData.append('project[photo]', this.state.photoFile)
+		formData.append('project[creator_id]', this.state.creatorId)
 		this.props.action(formData)
+			.then()
 	}
 
 	render(){
@@ -52,28 +55,28 @@ class ProjectForm extends React.Component{
 				<div id="form-container">
 					<form id="form" onSubmit={this.handleSubmit}>
 						<label>Project Name<br />
-							<input 
+							<input required
 								placeholder="Project Name" 
 								type="text" 
 								onChange={this.update('projectName')}
 								value={this.state.projectName}/>
 						</label>
 						<label>Description<br />
-							<textarea 
+							<textarea required
 								placeholder="Brief Description" 
 								onChange={this.update('description')} 
 								value={this.state.description}/>
 						</label>
 						
 						<label>Goal Amount<br />
-							<input 
+							<input required
 								placeholder="Goal Amount" 
 								type="text" 
 								onChange={this.update('goalAmount')}
 								value={this.state.goalAmount}/>
 						</label>
 						<label>End Date<br />
-							<input 
+							<input required
 								type="date" 
 								min={this.formatDate()} 
 								onChange={this.update('deadline')}
@@ -81,7 +84,7 @@ class ProjectForm extends React.Component{
 						</label>
 						<label>Category<br />
 							<select onChange={this.update('category')}>
-								<option disabled default >Select a category:</option>
+								<option selected disabled defaultValue="Arts">Select a category:</option>
 							    <option value="Arts">Arts</option>
 							    <option value="Comics & Illustration">Comics & Illustration</option>
 							    <option value="Design & Tech">Design & Tech</option>

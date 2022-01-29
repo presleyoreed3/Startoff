@@ -6,7 +6,7 @@ import { createProject } from '../../../actions/project_action'
 const mapStateToProps = state => ({
 	project: {
 		projectName: '',
-		creator_id: `${state.session.currentUser}`,
+		creatorId: `${state.session.currentUser}`,
 		description: '',
 		category: '',
 		goalAmount: '',
