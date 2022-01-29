@@ -1,4 +1,5 @@
 import React from 'react'
+import RewardInputTile from './reward_input_tile'
 
 class ProjectForm extends React.Component{
 
@@ -7,7 +8,6 @@ class ProjectForm extends React.Component{
 		this.state = this.props.project
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.formatDate = this.formatDate.bind(this)
-		console.log(this.state)
 	}
 
 	update(field){
@@ -44,11 +44,11 @@ class ProjectForm extends React.Component{
 		formData.append('project[photo]', this.state.photoFile)
 		formData.append('project[creator_id]', this.state.creatorId)
 		this.props.action(formData)
-			.then()
+		// Need to add in the redirect after successful project creation
+		//.then(() => this.props.history.push(`/projects/${this.state.entities.projects.id}`))
 	}
 
 	render(){
-		console.log(this.state)
 		return(
 			<div id="project-form">
 				<div id="form-type"><h2>{this.props.formType}</h2></div>
@@ -99,6 +99,7 @@ class ProjectForm extends React.Component{
 							<input type="file" onChange={this.handleFile.bind(this)} />
 						</label>
 						<button type="submit" value={this.props.formType}>{this.props.formType}</button>
+
 					</form>
 				</div>
 			</div>

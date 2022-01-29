@@ -24,7 +24,7 @@ class Header extends React.Component {
 
 	loginCheck(e){
 		if (this.props.currentUser){
-			// alert("project form")
+			this.props.history.push("/projects/new")
 		}else{
 			this.props.history.push("/login")
 		}
