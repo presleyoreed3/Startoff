@@ -6,12 +6,14 @@ import { createProject } from '../../../actions/project_action'
 const mapStateToProps = state => ({
 	project: {
 		projectName: '',
+		creator_id: `${state.session.currentUser}`,
 		description: '',
 		category: '',
-		goal_amout: '',
-		deadline: ''
+		goalAmount: '',
+		deadline: '',
+		photoFile: null,
 	},
-	formType: "Create Project"
+	formType: "Create Project",
 })
 
 const mapDispatchToProps = dispatch => ({
