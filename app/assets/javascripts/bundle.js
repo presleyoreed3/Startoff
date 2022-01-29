@@ -11039,9 +11039,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Category", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
         onChange: this.update('category')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        selected: true,
-        disabled: true,
-        defaultValue: "Arts"
+        defaultValue: true
       }, "Select a category:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "Arts"
       }, "Arts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {

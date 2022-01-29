@@ -84,7 +84,7 @@ class ProjectForm extends React.Component{
 						</label>
 						<label>Category<br />
 							<select onChange={this.update('category')}>
-								<option selected disabled defaultValue="Arts">Select a category:</option>
+								<option defaultValue>Select a category:</option>
 							    <option value="Arts">Arts</option>
 							    <option value="Comics & Illustration">Comics & Illustration</option>
 							    <option value="Design & Tech">Design & Tech</option>
