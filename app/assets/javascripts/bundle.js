@@ -10963,6 +10963,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
     _this.state = _this.props.project;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.formatDate = _this.formatDate.bind(_assertThisInitialized(_this));
+    _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -10970,7 +10971,6 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.setState(this.props.fetchProject(this.props.match.params.projectId));
-      console.log(this.state);
     }
   }, {
     key: "update",
@@ -10999,6 +10999,12 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
 
       today = yyyy + '-' + mm + '-' + dd;
       return today;
+    }
+  }, {
+    key: "handleKeyDown",
+    value: function handleKeyDown(e) {
+      e.target.style.height = 'inherit';
+      e.target.style.height = "".concat(e.target.scrollHeight, "px");
     }
   }, {
     key: "handleFile",
@@ -11044,6 +11050,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.projectName
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Description", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         required: true,
+        onKeyDown: this.handleKeyDown,
         placeholder: "Brief Description",
         onChange: this.update('description'),
         value: this.state.description
@@ -11058,7 +11065,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
         type: "date",
         min: this.formatDate(),
         onChange: this.update('deadline'),
-        value: this.state.deadline
+        value: this.formatDate()
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Category", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
         onChange: this.update('category')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {

@@ -8,12 +8,11 @@ class ProjectForm extends React.Component{
 		this.state = this.props.project
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.formatDate = this.formatDate.bind(this)
+		this.handleKeyDown = this.handleKeyDown.bind(this)
 	}
 
 	componentDidMount(){
 		this.setState(this.props.fetchProject(this.props.match.params.projectId))
-		console.log(this.state)
-
 	}
 
 	update(field){
@@ -34,6 +33,11 @@ class ProjectForm extends React.Component{
 		today = yyyy+'-'+mm+'-'+dd;
 		return today;
 	}
+
+	handleKeyDown(e) {
+    	e.target.style.height = 'inherit';
+    	e.target.style.height = `${e.target.scrollHeight}px`; 
+  	}
 
 	handleFile(e){
 		this.setState({photoFile: e.currentTarget.files[0]})
@@ -71,6 +75,7 @@ class ProjectForm extends React.Component{
 						</label>
 						<label>Description<br />
 							<textarea required
+								onKeyDown={this.handleKeyDown}
 								placeholder="Brief Description" 
 								onChange={this.update('description')} 
 								value={this.state.description}/>
@@ -88,7 +93,7 @@ class ProjectForm extends React.Component{
 								type="date" 
 								min={this.formatDate()} 
 								onChange={this.update('deadline')}
-								value={this.state.deadline}/>
+								value={this.formatDate()}/>
 						</label>
 						<label>Category<br />
 							<select onChange={this.update('category')}>
@@ -104,7 +109,7 @@ class ProjectForm extends React.Component{
 							</select>
 						</label>
 						<label>Upload a photo:
-							<input type="file" onChange={this.handleFile.bind(this)} />
+							<input type="file" onChange={this.handleFile.bind(this)}/>
 						</label>
 						<button type="submit" value={this.props.formType}>{this.props.formType}</button>
 
