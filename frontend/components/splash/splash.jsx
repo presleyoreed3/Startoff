@@ -70,6 +70,19 @@ class Splash extends React.Component{
 						</p>
 					</div>
 				</div>
+				<div id="prompt-buttons">
+					<div id="discover">
+						<h3>Discover a Startoff</h3>
+						<p>Discover the best of what Startoff has to offer</p>
+						<button>To Discover</button>
+					</div>
+					<div id="seperator"><hr /></div>
+					<div id="create">
+						<h3>Become a Startoff</h3>
+						<p>Start the journey to create your own startoff</p>
+						<button>To Create</button>
+					</div>
+				</div>
 			</div>
 		)
 	}

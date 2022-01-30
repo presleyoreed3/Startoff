@@ -1,3 +1,7 @@
+$button-color: #028857;
+$button-hover: #015738;
+$button-click: #013523;
+
 
 #banner-image img{
 	width: 100%;
@@ -47,3 +51,70 @@
 	margin: 10px;
 	line-height: 1.2;
 }
+
+#prompt-buttons{
+	margin-top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 200px;
+}
+
+#seperator {
+    height:100%;
+    width:0px;
+    border: 1px solid #DCDEDD;
+}
+
+#discover{
+	margin-left: 100px;
+	text-align: center;
+}
+
+#create{
+	margin-right: 100px;
+	text-align: center;
+}
+
+#discover button{
+	font-size: 14px;
+	width: 70%;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 	10px;
+	background-color: $button-color;
+	color: white;
+	border: 1px solid $button-color;
+	height: 40px;
+}
+
+#discover button:hover{
+	background-color: $button-hover;
+}
+
+#discover button:hover:active{
+	background-color: $button-click;
+}
+
+#create button{
+	font-size: 14px;
+	width: 70%;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 	10px;
+	background-color: $button-color;
+	color: white;
+	border: 1px solid $button-color;
+	height: 40px;
+}
+
+#create button:hover{
+	background-color: $button-hover;
+}
+
+#create button:hover:active{
+	background-color: $button-click;
+}
+
+
+
