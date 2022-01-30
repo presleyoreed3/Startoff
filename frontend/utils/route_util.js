@@ -33,3 +33,10 @@ export const AuthRoute = withRouter(
 		null,
 	)(Auth)
 );
+
+export const ProtectedRoute = withRouter(
+	connect(
+		mapStateToProps,
+		null,
+	)(Protected)
+)
