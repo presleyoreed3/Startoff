@@ -1,0 +1,120 @@
+$button-color: #028857;
+$button-hover: #015738;
+$button-click: #013523;
+
+
+#banner-image img{
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
+	border: 1px solid #DCDEDD;
+}
+
+.quote {
+	position: absolute;
+	top: 300px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.quote h1{
+	color: #F7F7F7;
+	text-shadow: 1px 1px #282828;
+}
+
+.quote p{
+	color: #F7F7F7;
+	text-shadow: 1px 1px #282828;
+	text-align: right;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+#info{
+	border-bottom: 1px solid #DCDEDD;
+}
+
+#top-details{
+	width: 800px;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+#top-details h1{
+	font-size: 36px;
+	margin: 20px;
+}
+
+#top-details p{
+	font-size: 24px;
+	margin: 10px;
+	line-height: 1.2;
+}
+
+#prompt-buttons{
+	margin-top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 200px;
+}
+
+#seperator {
+    height:100%;
+    width:0px;
+    border: 1px solid #DCDEDD;
+}
+
+#discover{
+	margin-left: 100px;
+	text-align: center;
+}
+
+#create{
+	margin-right: 100px;
+	text-align: center;
+}
+
+#discover button{
+	font-size: 14px;
+	width: 70%;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 	10px;
+	background-color: $button-color;
+	color: white;
+	border: 1px solid $button-color;
+	height: 40px;
+}
+
+#discover button:hover{
+	background-color: $button-hover;
+}
+
+#discover button:hover:active{
+	background-color: $button-click;
+}
+
+#create button{
+	font-size: 14px;
+	width: 70%;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 	10px;
+	background-color: $button-color;
+	color: white;
+	border: 1px solid $button-color;
+	height: 40px;
+}
+
+#create button:hover{
+	background-color: $button-hover;
+}
+
+#create button:hover:active{
+	background-color: $button-click;
+}
+
+
+

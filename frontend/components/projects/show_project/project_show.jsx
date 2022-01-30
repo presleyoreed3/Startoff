@@ -16,7 +16,6 @@ class ProjectShow extends React.Component{
 		this.clearErrors = this.clearErrors.bind(this)
 		this.checkCreator = this.checkCreator.bind(this)
 		this.confirmDelete = this.confirmDelete.bind(this)
-		console.log(this.props)
 	}
 
 	componentDidMount(){

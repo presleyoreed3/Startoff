@@ -10,6 +10,7 @@ import LoginFormContainer from './forms/login_form_container'
 import SignupFormContainer from './forms/signup_form_container'
 import ProjectsIndexContainer from './projects/index_project/projects_index_container'
 import ProjectShowContainer from './projects/show_project/project_show_container'
+import SplashContainer from './splash/splash_container'
 import Footer from './footer/footer'
 
 
@@ -24,6 +25,7 @@ const App = () => {
 				<AuthRoute path="/signup" component={SignupFormContainer}/>
 				<Route path="/projects/:projectId" component={ProjectShowContainer}/>
 				<Route path='/projects' component={ProjectsIndexContainer}/>
+				<Route path='/' component={SplashContainer} />
 			</Switch>
 			<Footer />
 		</div>	
