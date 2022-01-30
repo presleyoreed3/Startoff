@@ -11,6 +11,7 @@ class Splash extends React.Component{
 	constructor(props){
 		super(props)
 		this.randomBanner = this.randomBanner.bind(this)
+		this.randomQuote = this.randomQuote.bind(this)
 	}
 
 	randomBanner(){
@@ -19,13 +20,43 @@ class Splash extends React.Component{
 		return imageArray[imageIndex];
 	}
 
+	randomQuote(){
+		let quoteIndex = Math.floor(Math.random() * (5 + 1));
+		let quoteArray = [
+			"Only one thing is ever guaranteed, that is that you will definitely not achieve the goal if you don't take the shot.",
+			"Don't be afraid. Be focused. Be determined. Be hopeful. Be empowered.",
+			"Congratulations! Today is your day. You're off to Great Places! You're off and away.",
+			"The most difficult thing is the decision to act, the rest is merely tenacity.",
+			"The best time to plant a tree was 20 years ago. The second best time is now.",
+			"The two most important days in your life are the day you are born and the day you find out why."
+		]
+		let quoteCredit = [
+			"Wayne Gretzky",
+			"Michelle Obama",
+			"Dr. Suess",
+			"Amelia Earhart",
+			"Chinese Proverb",
+			"Mark Twain"
+		]
+
+		return(
+			<div>
+				<h1>
+					"{quoteArray[quoteIndex]}"
+				</h1>
+				<p>-{quoteCredit[quoteIndex]}</p>
+			</div>
+		)
+
+	}
+
 	render(){
 		return(
 			<div id="splash">
 				<div id="banner-image">
 					<img src={this.randomBanner()}/>
 					<div className="quote">
-						<h1>Inspirational Quote</h1>
+						{this.randomQuote()}
 					</div>
 				</div>
 				
