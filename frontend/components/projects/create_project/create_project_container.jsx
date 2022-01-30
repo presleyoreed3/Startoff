@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ProjectForm from './project_form'
-import { createProject } from '../../../actions/project_action'
+import { createProject, fetchProject } from '../../../actions/project_action'
 
 const mapStateToProps = state => ({
 	project: {
@@ -17,7 +17,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	action: project => dispatch(createProject(project))
+	action: project => dispatch(createProject(project)),
+	fetchProject: projectId => dispatch(fetchProject(projectId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectForm)

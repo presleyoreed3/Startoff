@@ -3,7 +3,7 @@ import splash1 from "../../../app/assets/images/splash-images/growth1.jpg"
 import splash2 from "../../../app/assets/images/splash-images/growth2.jpg"
 import splash3 from "../../../app/assets/images/splash-images/growth3.jpg"
 import splash4 from "../../../app/assets/images/splash-images/growth4.jpg"
-
+import { Link } from 'react-router-dom'
 
 
 class Splash extends React.Component{
@@ -74,13 +74,13 @@ class Splash extends React.Component{
 					<div id="discover">
 						<h3>Discover a Startoff</h3>
 						<p>Discover the best of what Startoff has to offer</p>
-						<button>To Discover</button>
+						<Link to="/projects"><button>To Discover</button></Link>
 					</div>
 					<div id="seperator"><hr /></div>
 					<div id="create">
 						<h3>Become a Startoff</h3>
 						<p>Start the journey to create your own startoff</p>
-						<button>To Create</button>
+						<Link to="/projects/new"><button>To Create</button></Link>
 					</div>
 				</div>
 			</div>
