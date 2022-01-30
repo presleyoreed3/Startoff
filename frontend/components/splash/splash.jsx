@@ -45,7 +45,7 @@ class Splash extends React.Component{
 					"{quoteArray[quoteIndex]}"
 				</h1>
 				<br />
-				<p>-{quoteCredit[quoteIndex]}</p>
+				<p>- {quoteCredit[quoteIndex]}</p>
 			</div>
 		)
 
