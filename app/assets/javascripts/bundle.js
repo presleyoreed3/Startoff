@@ -12035,7 +12035,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth2.jpg */ "./app/assets/images/splash-images/growth2.jpg");
+/* harmony import */ var _app_assets_images_splash_images_growth1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth1.jpg */ "./app/assets/images/splash-images/growth1.jpg");
+/* harmony import */ var _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth2.jpg */ "./app/assets/images/splash-images/growth2.jpg");
+/* harmony import */ var _app_assets_images_splash_images_growth3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth3.jpg */ "./app/assets/images/splash-images/growth3.jpg");
+/* harmony import */ var _app_assets_images_splash_images_growth4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth4.jpg */ "./app/assets/images/splash-images/growth4.jpg");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12061,18 +12064,32 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
+
 var Splash = /*#__PURE__*/function (_React$Component) {
   _inherits(Splash, _React$Component);
 
   var _super = _createSuper(Splash);
 
-  function Splash() {
+  function Splash(props) {
+    var _this;
+
     _classCallCheck(this, Splash);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.randomBanner = _this.randomBanner.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Splash, [{
+    key: "randomBanner",
+    value: function randomBanner() {
+      var imageIndex = Math.floor(Math.random() * (3 + 1));
+      var imageArray = [_app_assets_images_splash_images_growth1_jpg__WEBPACK_IMPORTED_MODULE_1__, _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_2__, _app_assets_images_splash_images_growth3_jpg__WEBPACK_IMPORTED_MODULE_3__, _app_assets_images_splash_images_growth4_jpg__WEBPACK_IMPORTED_MODULE_4__];
+      return imageArray[imageIndex];
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -12080,8 +12097,10 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "banner-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_1__
-      })));
+        src: this.randomBanner()
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "quote"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Inspirational Quote"))));
     }
   }]);
 
@@ -49653,6 +49672,17 @@ function valueEqual(a, b) {
 
 /***/ }),
 
+/***/ "./app/assets/images/splash-images/growth1.jpg":
+/*!*****************************************************!*\
+  !*** ./app/assets/images/splash-images/growth1.jpg ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "4f317e1fdad769abe04c.jpg";
+
+/***/ }),
+
 /***/ "./app/assets/images/splash-images/growth2.jpg":
 /*!*****************************************************!*\
   !*** ./app/assets/images/splash-images/growth2.jpg ***!
@@ -49661,6 +49691,28 @@ function valueEqual(a, b) {
 
 "use strict";
 module.exports = __webpack_require__.p + "19e69a96279ef1082699.jpg";
+
+/***/ }),
+
+/***/ "./app/assets/images/splash-images/growth3.jpg":
+/*!*****************************************************!*\
+  !*** ./app/assets/images/splash-images/growth3.jpg ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "8355c6481770a6a81ff5.jpg";
+
+/***/ }),
+
+/***/ "./app/assets/images/splash-images/growth4.jpg":
+/*!*****************************************************!*\
+  !*** ./app/assets/images/splash-images/growth4.jpg ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "3af6c72f8a09f86576f8.jpg";
 
 /***/ }),
 

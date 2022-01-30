@@ -4,3 +4,14 @@
 	height: 500px;
 	object-fit: cover;
 }
+
+.quote {
+	position: absolute;
+	top: 300px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.quote h1{
+	color: #F7F7F7;
+}
