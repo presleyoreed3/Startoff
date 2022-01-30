@@ -44,6 +44,7 @@ class Splash extends React.Component{
 				<h1>
 					"{quoteArray[quoteIndex]}"
 				</h1>
+				<br />
 				<p>-{quoteCredit[quoteIndex]}</p>
 			</div>
 		)
@@ -59,7 +60,16 @@ class Splash extends React.Component{
 						{this.randomQuote()}
 					</div>
 				</div>
-				
+				<div id="info">
+					<div id="top-details">
+						<h1>Startoff Right</h1>
+						<p>
+							Welcome to Startoff the best place on the internet to start your project off right.
+							At Startoff we believe that the only thing between you and the next big idea is simply getting started.
+							We are hear to help you capture your goals and turn them into beautiful outcomes. You have the idea and we will bring the money.
+						</p>
+					</div>
+				</div>
 			</div>
 		)
 	}

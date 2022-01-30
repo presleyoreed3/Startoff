@@ -14,10 +14,33 @@
 
 .quote h1{
 	color: #F7F7F7;
-	text-shadow: 2px 2px #282828;
+	text-shadow: 1px 1px #282828;
 }
 
 .quote p{
 	color: #F7F7F7;
-	text-shadow: 2px 2px #282828;
+	text-shadow: 1px 1px #282828;
+	text-align: right;
+	font-size: 20px;
+}
+
+#info{
+	margin-top: 50px;
+}
+
+#top-details{
+	width: 800px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#top-details h1{
+	font-size: 36px;
+	margin: 20px;
+}
+
+#top-details p{
+	font-size: 24px;
+	margin: 10px;
+	line-height: 1.2;
 }
