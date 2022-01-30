@@ -11685,6 +11685,8 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
     value: function checkCreator() {
       var _this2 = this;
 
+      if (!this.props.currentUser) return null;
+
       if (this.props.currentUser.id === this.props.project.creatorId) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           id: "user-edits"
@@ -12038,7 +12040,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../app/assets/images/splash-images/growth1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _app_assets_images_splash_images_growth1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth1.jpg */ "./app/assets/images/splash-images/growth1.jpg");
 /* harmony import */ var _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth2.jpg */ "./app/assets/images/splash-images/growth2.jpg");
 /* harmony import */ var _app_assets_images_splash_images_growth3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth3.jpg */ "./app/assets/images/splash-images/growth3.jpg");
 /* harmony import */ var _app_assets_images_splash_images_growth4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth4.jpg */ "./app/assets/images/splash-images/growth4.jpg");
@@ -12092,7 +12094,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
     key: "randomBanner",
     value: function randomBanner() {
       var imageIndex = Math.floor(Math.random() * (3 + 1));
-      var imageArray = [Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../app/assets/images/splash-images/growth1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_2__, _app_assets_images_splash_images_growth3_jpg__WEBPACK_IMPORTED_MODULE_3__, _app_assets_images_splash_images_growth4_jpg__WEBPACK_IMPORTED_MODULE_4__];
+      var imageArray = [_app_assets_images_splash_images_growth1_jpg__WEBPACK_IMPORTED_MODULE_1__, _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_2__, _app_assets_images_splash_images_growth3_jpg__WEBPACK_IMPORTED_MODULE_3__, _app_assets_images_splash_images_growth4_jpg__WEBPACK_IMPORTED_MODULE_4__];
       return imageArray[imageIndex];
     }
   }, {
@@ -49699,6 +49701,17 @@ function valueEqual(a, b) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (valueEqual);
 
+
+/***/ }),
+
+/***/ "./app/assets/images/splash-images/growth1.jpg":
+/*!*****************************************************!*\
+  !*** ./app/assets/images/splash-images/growth1.jpg ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "4f317e1fdad769abe04c.jpg";
 
 /***/ }),
 

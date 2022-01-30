@@ -59,6 +59,7 @@ class ProjectShow extends React.Component{
 	}
 
 	checkCreator(){
+		if (!this.props.currentUser) return null;
 		if (this.props.currentUser.id === this.props.project.creatorId){
 			return (
 				<div id="user-edits">
