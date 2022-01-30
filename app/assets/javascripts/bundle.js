@@ -11623,7 +11623,6 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
     _this.clearErrors = _this.clearErrors.bind(_assertThisInitialized(_this));
     _this.checkCreator = _this.checkCreator.bind(_assertThisInitialized(_this));
     _this.confirmDelete = _this.confirmDelete.bind(_assertThisInitialized(_this));
-    console.log(_this.props);
     return _this;
   }
 
@@ -12036,6 +12035,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../app/assets/images/splash-images/growth2.jpg */ "./app/assets/images/splash-images/growth2.jpg");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12060,6 +12060,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Splash = /*#__PURE__*/function (_React$Component) {
   _inherits(Splash, _React$Component);
 
@@ -12078,7 +12079,9 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "splash"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "banner-image"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", null)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_1__
+      })));
     }
   }]);
 
@@ -49647,6 +49650,17 @@ function valueEqual(a, b) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (valueEqual);
 
+
+/***/ }),
+
+/***/ "./app/assets/images/splash-images/growth2.jpg":
+/*!*****************************************************!*\
+  !*** ./app/assets/images/splash-images/growth2.jpg ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "19e69a96279ef1082699.jpg";
 
 /***/ }),
 
