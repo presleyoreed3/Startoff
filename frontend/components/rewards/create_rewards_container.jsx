@@ -5,7 +5,7 @@ import { createReward } from '../../actions/reward_action'
 
 const mapStateToProps = state => ({
 	reward: {
-		tier_name: '',
+		tierName: '',
 		price: '',
 		reward: '',
 		rewardDescription: ''
