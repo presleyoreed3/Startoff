@@ -1,3 +1,28 @@
+$button-color: #028857;
+$button-hover: #015738;
+$button-click: #013523;
+
+
+#tiers-container{
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+#tiers-container h3 {
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#tiers-container p {
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 600px;
+	font-size: 18px;
+	font-weight: 300;
+}
+
 
 #form h3{
 	text-align: center;
@@ -21,4 +46,25 @@
 .reward-4{
 	border-left-color: #FFD700;
 	border-left-width: 7px;
+}
+
+#tiers-container button{
+	margin: 0 auto;
+	font-size: 14px;
+	width: 40%;
+	justify-content: center;
+	margin-top: 20px;
+	margin-bottom: 	10px;
+	background-color: $button-color;
+	color: white;
+	border: 1px solid $button-color;
+	height: 50px;
+}
+
+#tiers-container button:hover{
+	background-color: $button-hover;
+}
+
+#tiers-container button:hover:active{
+	background-color: $button-click;
 }

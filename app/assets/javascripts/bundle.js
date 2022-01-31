@@ -12252,7 +12252,7 @@ var RewardForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "tiers-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Each Startoff project has 4 reward tiers for someone to back. Please add the name of this reward, what the backer will get from it, a description of the reward, and the cost to recieve this reward."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
         formType: this.props.formType,
         rewardNum: "1"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -12264,7 +12264,7 @@ var RewardForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
         formType: this.props.formType,
         rewardNum: "4"
-      }));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, this.props.formType));
     }
   }]);
 
