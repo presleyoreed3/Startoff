@@ -2,13 +2,47 @@ import React from 'react'
 
 class RewardCreateTile extends React.Component{
 
+	constructor(props){
+		super(props)
+		this.state = {
+			tierName: '',
+			price: '',
+			reward: '',
+			rewardDescription: '',
+			toggleFeedback: false,
+
+		}
+		this.feedback = this.feedback.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
+		console.log(this.props)
+	}
+
+	feedback(){
+		if (this.state.toggleFeedback){
+			return(<p>Reward saved</p>)
+		} else {
+			return null;
+		}
+	}
+
 	update(field){
 		return e => this.setState({[field]: e.currentTarget.value})
 	}
 
 	handleSubmit(e){
 		e.preventDefault()
-		this.props.action(this.state)
+		let reward = {
+			project_id: this.props.projectId,
+			tier_name: this.state.tierName,
+			price: this.state.price,
+			reward: this.state.reward,
+			reward_description: this.state.rewardDescription,
+		}
+		this.props.action(reward)
+			.then(() => this.setState({toggleFeedback: true}))
+			.then(() => setTimeout(()=> this.setState({toggleFeedback: false}), 3000))
+		
+		
 	}
 
 	render(){
@@ -20,26 +54,32 @@ class RewardCreateTile extends React.Component{
 						<input
 							type="text"
 							onChange={this.update('tierName')}
+							value={this.props.tierName}
 						/>
 					</label>
 					<label>Reward
 						<input
 							type="text"
 							onChange={this.update('reward')}
+							value={this.props.reward}
 						/>
 					</label>
 					<label>Description
 						<textarea
 							type="text"
-							onChange={this.update('description')}
+							onChange={this.update('rewardDescription')}
+							value={this.props.description}
 						/>
 					</label>
 					<label>Price ($)
 						<input
 							type="text"
 							onChange={this.update('price')}
+							value={this.props.price}
 						/>
 					</label>
+					{this.feedback()}
+					<button>Save</button>
 				</form>
 			</div>
 		)

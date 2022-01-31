@@ -16,18 +16,26 @@ class RewardForm extends React.Component{
 			<p>Each Startoff project has 4 reward tiers for someone to back. Please add the name of this reward, 
 			what the backer will get from it, a description of the reward, and the cost to recieve this reward.</p>
 				<RewardCreateTile 
+					action={this.props.action}
+					projectId={this.props.match.params.projectId}
 					formType={this.props.formType}
 					rewardNum="1"
 				/>
 				<RewardCreateTile 
+					action={this.props.action}
+					projectId={this.props.match.params.projectId}
 					formType={this.props.formType}
 					rewardNum="2"
 				/>
 				<RewardCreateTile 
+					action={this.props.action}
+					projectId={this.props.match.params.projectId}
 					formType={this.props.formType}
 					rewardNum="3"
 				/>
 				<RewardCreateTile 
+					action={this.props.action}
+					projectId={this.props.match.params.projectId}
 					formType={this.props.formType}
 					rewardNum="4"
 				/>

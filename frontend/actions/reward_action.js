@@ -4,7 +4,7 @@ export const RECEIVE_REWARDS = "RECEIVE_REWARDS";
 export const RECEIVE_REWARD = "RECEIVE_REWARD"
 
 const receiveReward = reward => ({
-	type: RECEIVE_REWARDS,
+	type: RECEIVE_REWARD,
 	reward
 })
 

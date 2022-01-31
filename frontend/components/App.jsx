@@ -7,6 +7,7 @@ import Header from './header/header_container'
 import ProjectFormContainer from './projects/create_project/create_project_container'
 import UpdateProjectFormContainer from './projects/create_project/update_project_container'
 import CreateRewardsContainer from './rewards/create_rewards_container'
+import UpdateRewardsContainer from './rewards/update_rewards_container'
 import LoginFormContainer from './forms/login_form_container'
 import SignupFormContainer from './forms/signup_form_container'
 import ProjectsIndexContainer from './projects/index_project/projects_index_container'
@@ -23,6 +24,7 @@ const App = () => {
 				<ProtectedRoute path="/projects/new" component={ProjectFormContainer}/>
 				<ProtectedRoute path="/projects/:projectId/edit" component={UpdateProjectFormContainer}/>
 				<ProtectedRoute path="/projects/:projectId/rewards/new" component={CreateRewardsContainer}/>
+				<ProtectedRoute path="/projects/:projectId/rewards/update" component={UpdateRewardsContainer}/>
 				<AuthRoute path="/login" component={LoginFormContainer}/>
 				<AuthRoute path="/signup" component={SignupFormContainer}/>
 				<Route path="/projects/:projectId" component={ProjectShowContainer}/>

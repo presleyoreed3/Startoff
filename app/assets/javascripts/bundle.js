@@ -10012,7 +10012,7 @@ var RECEIVE_REWARD = "RECEIVE_REWARD";
 
 var receiveReward = function receiveReward(reward) {
   return {
-    type: RECEIVE_REWARDS,
+    type: RECEIVE_REWARD,
     reward: reward
   };
 };
@@ -10111,18 +10111,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.js");
 /* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header/header_container */ "./frontend/components/header/header_container.jsx");
 /* harmony import */ var _projects_create_project_create_project_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./projects/create_project/create_project_container */ "./frontend/components/projects/create_project/create_project_container.jsx");
 /* harmony import */ var _projects_create_project_update_project_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./projects/create_project/update_project_container */ "./frontend/components/projects/create_project/update_project_container.jsx");
 /* harmony import */ var _rewards_create_rewards_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./rewards/create_rewards_container */ "./frontend/components/rewards/create_rewards_container.jsx");
-/* harmony import */ var _forms_login_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./forms/login_form_container */ "./frontend/components/forms/login_form_container.jsx");
-/* harmony import */ var _forms_signup_form_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./forms/signup_form_container */ "./frontend/components/forms/signup_form_container.jsx");
-/* harmony import */ var _projects_index_project_projects_index_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./projects/index_project/projects_index_container */ "./frontend/components/projects/index_project/projects_index_container.jsx");
-/* harmony import */ var _projects_show_project_project_show_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./projects/show_project/project_show_container */ "./frontend/components/projects/show_project/project_show_container.jsx");
-/* harmony import */ var _splash_splash_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./splash/splash_container */ "./frontend/components/splash/splash_container.jsx");
-/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
+/* harmony import */ var _rewards_update_rewards_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./rewards/update_rewards_container */ "./frontend/components/rewards/update_rewards_container.jsx");
+/* harmony import */ var _forms_login_form_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./forms/login_form_container */ "./frontend/components/forms/login_form_container.jsx");
+/* harmony import */ var _forms_signup_form_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./forms/signup_form_container */ "./frontend/components/forms/signup_form_container.jsx");
+/* harmony import */ var _projects_index_project_projects_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./projects/index_project/projects_index_container */ "./frontend/components/projects/index_project/projects_index_container.jsx");
+/* harmony import */ var _projects_show_project_project_show_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./projects/show_project/project_show_container */ "./frontend/components/projects/show_project/project_show_container.jsx");
+/* harmony import */ var _splash_splash_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./splash/splash_container */ "./frontend/components/splash/splash_container.jsx");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
+
 
 
 
@@ -10141,7 +10143,7 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "root-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
     path: "/projects/new",
     component: _projects_create_project_create_project_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
@@ -10150,22 +10152,25 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
     path: "/projects/:projectId/rewards/new",
     component: _rewards_create_rewards_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
+    path: "/projects/:projectId/rewards/update",
+    component: _rewards_update_rewards_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
     path: "/login",
-    component: _forms_login_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _forms_login_form_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
     path: "/signup",
-    component: _forms_signup_form_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+    component: _forms_signup_form_container__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "/projects/:projectId",
-    component: _projects_show_project_project_show_container__WEBPACK_IMPORTED_MODULE_9__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+    component: _projects_show_project_project_show_container__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "/projects",
-    component: _projects_index_project_projects_index_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+    component: _projects_index_project_projects_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     path: "/",
-    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_10__["default"]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_11__["default"], null));
+    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_11__["default"]
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_12__["default"], null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -11974,6 +11979,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _reward_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reward_item */ "./frontend/components/projects/show_project/reward_item.jsx");
 /* harmony import */ var _backing_warning__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../backing_warning */ "./frontend/components/projects/backing_warning.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12000,6 +12006,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Rewards = /*#__PURE__*/function (_React$Component) {
   _inherits(Rewards, _React$Component);
 
@@ -12021,7 +12028,9 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
       if (!this.props.currentUser) return null;
 
       if (this.props.currentUser.id === this.props.project.creatorId) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Edit Rewards");
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          to: "/projects/".concat(this.props.project.id, "/rewards/new")
+        }, "Add Rewards");
       }
     }
   }, {
@@ -12140,26 +12149,67 @@ var RewardCreateTile = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(RewardCreateTile);
 
-  function RewardCreateTile() {
+  function RewardCreateTile(props) {
+    var _this;
+
     _classCallCheck(this, RewardCreateTile);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      tierName: '',
+      price: '',
+      reward: '',
+      rewardDescription: '',
+      toggleFeedback: false
+    };
+    _this.feedback = _this.feedback.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    console.log(_this.props);
+    return _this;
   }
 
   _createClass(RewardCreateTile, [{
+    key: "feedback",
+    value: function feedback() {
+      if (this.state.toggleFeedback) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Reward saved");
+      } else {
+        return null;
+      }
+    }
+  }, {
     key: "update",
     value: function update(field) {
-      var _this = this;
+      var _this2 = this;
 
       return function (e) {
-        return _this.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this3 = this;
+
       e.preventDefault();
-      this.props.action(this.state);
+      var reward = {
+        project_id: this.props.projectId,
+        tier_name: this.state.tierName,
+        price: this.state.price,
+        reward: this.state.reward,
+        reward_description: this.state.rewardDescription
+      };
+      this.props.action(reward).then(function () {
+        return _this3.setState({
+          toggleFeedback: true
+        });
+      }).then(function () {
+        return setTimeout(function () {
+          return _this3.setState({
+            toggleFeedback: false
+          });
+        }, 3000);
+      });
     }
   }, {
     key: "render",
@@ -12172,17 +12222,21 @@ var RewardCreateTile = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Reward ", this.props.rewardNum), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Reward Name", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
-        onChange: this.update('tierName')
+        onChange: this.update('tierName'),
+        value: this.props.tierName
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Reward", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
-        onChange: this.update('reward')
+        onChange: this.update('reward'),
+        value: this.props.reward
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Description", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         type: "text",
-        onChange: this.update('description')
+        onChange: this.update('rewardDescription'),
+        value: this.props.description
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Price ($)", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
-        onChange: this.update('price')
-      }))));
+        onChange: this.update('price'),
+        value: this.props.price
+      })), this.feedback(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Save")));
     }
   }]);
 
@@ -12253,15 +12307,23 @@ var RewardForm = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "tiers-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Each Startoff project has 4 reward tiers for someone to back. Please add the name of this reward, what the backer will get from it, a description of the reward, and the cost to recieve this reward."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        action: this.props.action,
+        projectId: this.props.match.params.projectId,
         formType: this.props.formType,
         rewardNum: "1"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        action: this.props.action,
+        projectId: this.props.match.params.projectId,
         formType: this.props.formType,
         rewardNum: "2"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        action: this.props.action,
+        projectId: this.props.match.params.projectId,
         formType: this.props.formType,
         rewardNum: "3"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        action: this.props.action,
+        projectId: this.props.match.params.projectId,
         formType: this.props.formType,
         rewardNum: "4"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, this.props.formType));
@@ -12272,6 +12334,36 @@ var RewardForm = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RewardForm);
+
+/***/ }),
+
+/***/ "./frontend/components/rewards/update_rewards_container.jsx":
+/*!******************************************************************!*\
+  !*** ./frontend/components/rewards/update_rewards_container.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _rewards_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rewards_form */ "./frontend/components/rewards/rewards_form.jsx");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {};
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {};
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_rewards_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 

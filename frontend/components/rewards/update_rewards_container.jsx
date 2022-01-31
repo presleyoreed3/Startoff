@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import RewardForm from './rewards_form'
 
 const mapStateToProps = state => ({
-
 })
 
 const mapDispatchToProps = dispatch => ({

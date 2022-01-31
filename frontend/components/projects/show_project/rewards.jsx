@@ -1,6 +1,7 @@
 import React from 'react'
 import RewardItem from './reward_item'
 import BackingWarning from '../backing_warning'
+import {Link} from 'react-router-dom'
 
 class Rewards extends React.Component {
 
@@ -13,7 +14,7 @@ class Rewards extends React.Component {
 		if (!this.props.currentUser) return null;
 		if (this.props.currentUser.id === this.props.project.creatorId){
 			return(
-				<button>Edit Rewards</button>
+				<Link to={`/projects/${this.props.project.id}/rewards/new`}>Add Rewards</Link>
 			)
 		}
 	}

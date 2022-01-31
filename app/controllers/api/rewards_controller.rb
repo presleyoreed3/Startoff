@@ -3,7 +3,7 @@ class Api::RewardsController < ApplicationController
 	def create
 		@reward = Reward.new(reward_params)
 		if @reward.save
-			redirect_to api_project
+			render :show
 		else
 			render json: @reward.errors.full_messages, status: 422
 		end
