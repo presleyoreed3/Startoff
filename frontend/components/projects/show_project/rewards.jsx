@@ -6,6 +6,16 @@ class Rewards extends React.Component {
 
 	constructor(props){
 		super(props)
+		this.checkLogin = this.checkLogin.bind(this)
+	}
+
+	checkLogin(){
+		if (!this.props.currentUser) return null;
+		if (this.props.currentUser.id === this.props.project.creatorId){
+			return(
+				<button>Edit Rewards</button>
+			)
+		}
 	}
 
 	render(){
@@ -15,6 +25,7 @@ class Rewards extends React.Component {
 					<div id="rewards-header">
 						<h3>Select your reward</h3>
 						<p>Select an option below</p>
+						{this.checkLogin()}
 					</div>
 					{this.props.rewards.map((reward, idx) => (
 						<RewardItem 

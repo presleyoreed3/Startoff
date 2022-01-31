@@ -11752,6 +11752,7 @@ var ProjectShow = /*#__PURE__*/function (_React$Component) {
       }, "Startoff this project"), this.checkCreator(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         id: "errors"
       }, this.state.errors))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_warning__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rewards__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        project: this.props.project,
         rewards: this.props.project.projectRewards,
         currentUser: this.props.currentUser
       }));
@@ -11965,15 +11966,28 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Rewards);
 
   function Rewards(props) {
+    var _this;
+
     _classCallCheck(this, Rewards);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.checkLogin = _this.checkLogin.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Rewards, [{
+    key: "checkLogin",
+    value: function checkLogin() {
+      if (!this.props.currentUser) return null;
+
+      if (this.props.currentUser.id === this.props.project.creatorId) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Edit Rewards");
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "rewards-div"
@@ -11981,12 +11995,12 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
         id: "rewards"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "rewards-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Select your reward"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Select an option below")), this.props.rewards.map(function (reward, idx) {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Select your reward"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Select an option below"), this.checkLogin()), this.props.rewards.map(function (reward, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: reward.id,
           reward: reward,
           index: idx,
-          currentUser: _this.props.currentUser
+          currentUser: _this2.props.currentUser
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_backing_warning__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }

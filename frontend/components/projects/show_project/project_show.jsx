@@ -117,6 +117,7 @@ class ProjectShow extends React.Component{
 				</div>
 				<ProjectWarning />
 				<Rewards 
+					project={this.props.project}
 					rewards={this.props.project.projectRewards}
 					currentUser={this.props.currentUser}
 				/>
