@@ -13,8 +13,8 @@ class RewardCreateTile extends React.Component{
 
 	render(){
 		return(
-			<div>
-				<form id="form" onSubmit={this.handleSubmit}>
+			<div id="reward-create">
+				<form className={`reward-${this.props.rewardNum}`} id="form" onSubmit={this.handleSubmit}>
 				<h3>Reward {this.props.rewardNum}</h3>
 					<label>Reward Name
 						<input
