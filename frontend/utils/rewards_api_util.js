@@ -6,7 +6,7 @@ export const fetchProjectRewards = postId => (
 	})
 )
 
-export const createProjectRewards = reward => (
+export const createReward = reward => (
 	$.ajax({
 		method: "POST",
 		url: `/api/rewards`,
