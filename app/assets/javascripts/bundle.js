@@ -10003,7 +10003,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RECEIVE_REWARDS": () => (/* binding */ RECEIVE_REWARDS),
 /* harmony export */   "RECEIVE_REWARD": () => (/* binding */ RECEIVE_REWARD),
-/* harmony export */   "createReward": () => (/* binding */ createReward)
+/* harmony export */   "createReward": () => (/* binding */ createReward),
+/* harmony export */   "updateReward": () => (/* binding */ updateReward)
 /* harmony export */ });
 /* harmony import */ var _utils_rewards_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/rewards_api_util */ "./frontend/utils/rewards_api_util.js");
 
@@ -10020,6 +10021,13 @@ var receiveReward = function receiveReward(reward) {
 var createReward = function createReward(reward) {
   return function (dispatch) {
     return _utils_rewards_api_util__WEBPACK_IMPORTED_MODULE_0__.createReward(reward).then(function (reward) {
+      return dispatch(receiveReward(reward));
+    });
+  };
+};
+var updateReward = function updateReward(reward) {
+  return function (dispatch) {
+    return _utils_rewards_api_util__WEBPACK_IMPORTED_MODULE_0__.updateReward(reward).then(function (reward) {
       return dispatch(receiveReward(reward));
     });
   };
@@ -12038,6 +12046,12 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
   _createClass(Rewards, [{
     key: "checkLogin",
     value: function checkLogin() {
+      if (this.props.rewards.length) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          to: "/projects/".concat(this.props.project.id, "/rewards/update")
+        }, "Edit Rewards");
+      }
+
       if (!this.props.currentUser) return null;
 
       if (this.props.currentUser.id === this.props.project.creatorId) {
@@ -12177,7 +12191,6 @@ var RewardCreateTile = /*#__PURE__*/function (_React$Component) {
     };
     _this.feedback = _this.feedback.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    console.log(_this.props);
     return _this;
   }
 
@@ -12364,16 +12377,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _rewards_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rewards_form */ "./frontend/components/rewards/rewards_form.jsx");
+/* harmony import */ var _actions_reward_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/reward_action */ "./frontend/actions/reward_action.js");
 
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {};
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    action: function action(reward) {
+      return dispatch((0,_actions_reward_action__WEBPACK_IMPORTED_MODULE_3__.updateReward)(reward));
+    }
+  };
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_rewards_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
@@ -12919,7 +12938,8 @@ var deleteProject = function deleteProject(projectId) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "fetchProjectRewards": () => (/* binding */ fetchProjectRewards),
-/* harmony export */   "createReward": () => (/* binding */ createReward)
+/* harmony export */   "createReward": () => (/* binding */ createReward),
+/* harmony export */   "updateReward": () => (/* binding */ updateReward)
 /* harmony export */ });
 var fetchProjectRewards = function fetchProjectRewards(postId) {
   return $.ajax({
@@ -12930,6 +12950,15 @@ var createReward = function createReward(reward) {
   return $.ajax({
     method: "POST",
     url: "/api/rewards",
+    data: {
+      reward: reward
+    }
+  });
+};
+var updateReward = function updateReward(reward) {
+  return $.ajax({
+    method: "PATCH",
+    url: "/api/rewards/".concat(reward.id),
     data: {
       reward: reward
     }

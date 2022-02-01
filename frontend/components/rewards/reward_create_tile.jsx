@@ -14,7 +14,6 @@ class RewardCreateTile extends React.Component{
 		}
 		this.feedback = this.feedback.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
-		console.log(this.props)
 	}
 
 	feedback(){

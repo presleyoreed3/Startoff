@@ -13,3 +13,7 @@ export const createReward = reward => dispatch => (
 		.then(reward => dispatch(receiveReward(reward)))
 )
 
+export const updateReward = reward => dispatch => (
+	ApiUtils.updateReward(reward)
+		.then(reward => dispatch(receiveReward(reward)))
+)

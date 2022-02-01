@@ -9,6 +9,15 @@ class Api::RewardsController < ApplicationController
 		end
 	end
 
+	def update
+		@reward = Reward.find_by(id: params[:id])
+		if @reward.update(reward_params)
+			render :show
+		else
+			render json: @reward.errors.full_messages, status: 422
+		end
+	end
+
 	private
 
 	def reward_params

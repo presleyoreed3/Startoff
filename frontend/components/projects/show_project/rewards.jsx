@@ -11,6 +11,11 @@ class Rewards extends React.Component {
 	}
 
 	checkLogin(){
+		if (this.props.rewards.length){
+			return(
+				<Link to={`/projects/${this.props.project.id}/rewards/update`}>Edit Rewards</Link>
+			)
+		}
 		if (!this.props.currentUser) return null;
 		if (this.props.currentUser.id === this.props.project.creatorId){
 			return(
