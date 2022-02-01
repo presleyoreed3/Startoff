@@ -40,7 +40,7 @@ class RewardItem extends React.Component{
 		if (this.props.currentUser.id === this.props.project.creatorId){
 			return(
 				<div id="edit-button">
-					<Link to={`/projects/${this.props.project.id}/rewards/update`}>Edit Reward</Link>
+					<Link to={`/projects/${this.props.project.id}/rewards/update/${this.props.reward.id}`}>Edit Reward</Link>
 				</div>
 			)
 		}

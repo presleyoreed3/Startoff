@@ -10004,7 +10004,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RECEIVE_REWARDS": () => (/* binding */ RECEIVE_REWARDS),
 /* harmony export */   "RECEIVE_REWARD": () => (/* binding */ RECEIVE_REWARD),
 /* harmony export */   "createReward": () => (/* binding */ createReward),
-/* harmony export */   "updateReward": () => (/* binding */ updateReward)
+/* harmony export */   "updateReward": () => (/* binding */ updateReward),
+/* harmony export */   "fetchReward": () => (/* binding */ fetchReward)
 /* harmony export */ });
 /* harmony import */ var _utils_rewards_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/rewards_api_util */ "./frontend/utils/rewards_api_util.js");
 
@@ -10028,6 +10029,13 @@ var createReward = function createReward(reward) {
 var updateReward = function updateReward(reward) {
   return function (dispatch) {
     return _utils_rewards_api_util__WEBPACK_IMPORTED_MODULE_0__.updateReward(reward).then(function (reward) {
+      return dispatch(receiveReward(reward));
+    });
+  };
+};
+var fetchReward = function fetchReward(rewardId) {
+  return function (dispatch) {
+    return _utils_rewards_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchReward(rewardId).then(function (reward) {
       return dispatch(receiveReward(reward));
     });
   };
@@ -10161,7 +10169,7 @@ var App = function App() {
     path: "/projects/:projectId/rewards/new",
     component: _rewards_create_rewards_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
-    path: "/projects/:projectId/rewards/update",
+    path: "/projects/:projectId/rewards/update/:rewardId",
     component: _rewards_update_rewards_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
     path: "/login",
@@ -11970,7 +11978,7 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           id: "edit-button"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-          to: "/projects/".concat(this.props.project.id, "/rewards/update")
+          to: "/projects/".concat(this.props.project.id, "/rewards/update/").concat(this.props.reward.id)
         }, "Edit Reward"));
       }
     }
@@ -12145,6 +12153,79 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/rewards/edit_reward_form.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/components/rewards/edit_reward_form.jsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _reward_edit_tile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reward_edit_tile */ "./frontend/components/rewards/reward_edit_tile.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var EditRewardForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(EditRewardForm, _React$Component);
+
+  var _super = _createSuper(EditRewardForm);
+
+  function EditRewardForm(props) {
+    _classCallCheck(this, EditRewardForm);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(EditRewardForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchReward(this.props.rewardId);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (!this.props.reward) return null;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_edit_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        reward: this.props.reward,
+        action: this.props.action,
+        history: this.props.history
+      }));
+    }
+  }]);
+
+  return EditRewardForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditRewardForm);
+
+/***/ }),
+
 /***/ "./frontend/components/rewards/reward_create_tile.jsx":
 /*!************************************************************!*\
   !*** ./frontend/components/rewards/reward_create_tile.jsx ***!
@@ -12279,6 +12360,117 @@ var RewardCreateTile = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/rewards/reward_edit_tile.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/components/rewards/reward_edit_tile.jsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var EditRewardTile = /*#__PURE__*/function (_React$Component) {
+  _inherits(EditRewardTile, _React$Component);
+
+  var _super = _createSuper(EditRewardTile);
+
+  function EditRewardTile(props) {
+    var _this;
+
+    _classCallCheck(this, EditRewardTile);
+
+    _this = _super.call(this, props);
+    _this.state = _this.props.reward;
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EditRewardTile, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this3 = this;
+
+      console.log(this.props);
+      e.preventDefault();
+      this.props.action(this.state).then(function () {
+        return _this3.props.history.push("/projects/".concat(_this3.props.reward.projectId));
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "reward-create"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        className: "reward-".concat(this.props.rewardNum),
+        id: "form",
+        onSubmit: this.handleSubmit
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Reward ", this.props.rewardNum), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Reward Name", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "text",
+        onChange: this.update('tierName'),
+        value: this.state.tierName
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Reward", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "text",
+        onChange: this.update('reward'),
+        value: this.state.reward
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Description", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+        type: "text",
+        onChange: this.update('rewardDescription'),
+        value: this.state.rewardDescription
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Price ($)", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "text",
+        onChange: this.update('price'),
+        value: this.state.price
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Update Reward")));
+    }
+  }]);
+
+  return EditRewardTile;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditRewardTile);
+
+/***/ }),
+
 /***/ "./frontend/components/rewards/rewards_form.jsx":
 /*!******************************************************!*\
   !*** ./frontend/components/rewards/rewards_form.jsx ***!
@@ -12388,7 +12580,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _rewards_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rewards_form */ "./frontend/components/rewards/rewards_form.jsx");
+/* harmony import */ var _edit_reward_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit_reward_form */ "./frontend/components/rewards/edit_reward_form.jsx");
 /* harmony import */ var _actions_reward_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/reward_action */ "./frontend/actions/reward_action.js");
 
 
@@ -12396,18 +12588,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  return {};
+  return {
+    reward: state.entities.rewards[ownProps.match.params.rewardId],
+    rewardId: ownProps.match.params.rewardId
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     action: function action(reward) {
       return dispatch((0,_actions_reward_action__WEBPACK_IMPORTED_MODULE_3__.updateReward)(reward));
+    },
+    fetchReward: function fetchReward(rewardId) {
+      return dispatch((0,_actions_reward_action__WEBPACK_IMPORTED_MODULE_3__.fetchReward)(rewardId));
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_rewards_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_edit_reward_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -12950,12 +13148,19 @@ var deleteProject = function deleteProject(projectId) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "fetchProjectRewards": () => (/* binding */ fetchProjectRewards),
+/* harmony export */   "fetchReward": () => (/* binding */ fetchReward),
 /* harmony export */   "createReward": () => (/* binding */ createReward),
 /* harmony export */   "updateReward": () => (/* binding */ updateReward)
 /* harmony export */ });
 var fetchProjectRewards = function fetchProjectRewards(postId) {
   return $.ajax({
     method: "GET"
+  });
+};
+var fetchReward = function fetchReward(rewardId) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/rewards/".concat(rewardId)
   });
 };
 var createReward = function createReward(reward) {

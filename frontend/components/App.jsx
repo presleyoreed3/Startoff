@@ -24,7 +24,7 @@ const App = () => {
 				<ProtectedRoute path="/projects/new" component={ProjectFormContainer}/>
 				<ProtectedRoute path="/projects/:projectId/edit" component={UpdateProjectFormContainer}/>
 				<ProtectedRoute path="/projects/:projectId/rewards/new" component={CreateRewardsContainer}/>
-				<ProtectedRoute path="/projects/:projectId/rewards/update" component={UpdateRewardsContainer}/>
+				<ProtectedRoute path="/projects/:projectId/rewards/update/:rewardId" component={UpdateRewardsContainer}/>
 				<AuthRoute path="/login" component={LoginFormContainer}/>
 				<AuthRoute path="/signup" component={SignupFormContainer}/>
 				<Route path="/projects/:projectId" component={ProjectShowContainer}/>

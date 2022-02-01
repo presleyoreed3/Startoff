@@ -17,3 +17,8 @@ export const updateReward = reward => dispatch => (
 	ApiUtils.updateReward(reward)
 		.then(reward => dispatch(receiveReward(reward)))
 )
+
+export const fetchReward = rewardId => dispatch => {
+	return ApiUtils.fetchReward(rewardId)
+		.then(reward => dispatch(receiveReward(reward)))
+}
