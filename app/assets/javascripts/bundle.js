@@ -12073,7 +12073,7 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
     value: function checkLogin() {
       if (!this.props.currentUser) return null;
 
-      if (this.props.currentUser.id === this.props.project.creatorId) {
+      if (this.props.currentUser.id === this.props.project.creatorId && !this.props.project.projectRewards.length) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
           to: "/projects/".concat(this.props.project.id, "/rewards/new")
         }, "Add Rewards");
