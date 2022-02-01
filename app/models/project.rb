@@ -29,5 +29,6 @@ class Project < ApplicationRecord
 
 	has_many :rewards,
 		foreign_key: :project_id,
-		class_name: :Reward
+		class_name: :Reward,
+		dependent: :destroy
 end

@@ -1,4 +1,8 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEllipsisV} from '@fortawesome/free-solid-svg-icons'
+
 
 class RewardItem extends React.Component{
 
@@ -9,6 +13,7 @@ class RewardItem extends React.Component{
 		}
 		this.handleClick = this.handleClick.bind(this)
 		this.clearErrors = this.clearErrors.bind(this)
+		this.editReward = this.editReward.bind(this)
 	}
 
 	handleClick(e){
@@ -31,6 +36,16 @@ class RewardItem extends React.Component{
 		return (<p id="errors">Must be logged in to pledge</p>)
 	}
 
+	editReward(){
+		if (this.props.currentUser.id === this.props.project.creatorId){
+			return(
+				<div id="edit-button">
+					<Link to={`/projects/${this.props.project.id}/rewards/update`}>Edit Reward</Link>
+				</div>
+			)
+		}
+	}
+
 	render(){
 		return(
 			<div id="reward-tile" className={this.props.className}>
@@ -48,6 +63,7 @@ class RewardItem extends React.Component{
 					<button onClick={e => this.handleClick(e)}>Pledge ${this.props.reward.price}</button>
 					{this.state.errors}
 				</div>
+				{this.editReward()}
 			</div>
 		)
 	}

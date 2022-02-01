@@ -11887,6 +11887,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11911,6 +11913,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
+
 var RewardItem = /*#__PURE__*/function (_React$Component) {
   _inherits(RewardItem, _React$Component);
 
@@ -11927,6 +11932,7 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     _this.clearErrors = _this.clearErrors.bind(_assertThisInitialized(_this));
+    _this.editReward = _this.editReward.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -11958,6 +11964,17 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
       }, "Must be logged in to pledge");
     }
   }, {
+    key: "editReward",
+    value: function editReward() {
+      if (this.props.currentUser.id === this.props.project.creatorId) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          id: "edit-button"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+          to: "/projects/".concat(this.props.project.id, "/rewards/update")
+        }, "Edit Reward"));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -11975,7 +11992,7 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick(e) {
           return _this2.handleClick(e);
         }
-      }, "Pledge $", this.props.reward.price), this.state.errors));
+      }, "Pledge $", this.props.reward.price), this.state.errors), this.editReward());
     }
   }]);
 
@@ -12046,12 +12063,6 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
   _createClass(Rewards, [{
     key: "checkLogin",
     value: function checkLogin() {
-      if (this.props.rewards.length) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-          to: "/projects/".concat(this.props.project.id, "/rewards/update")
-        }, "Edit Rewards");
-      }
-
       if (!this.props.currentUser) return null;
 
       if (this.props.currentUser.id === this.props.project.creatorId) {
@@ -12076,7 +12087,8 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
           key: reward.id,
           reward: reward,
           index: idx,
-          currentUser: _this2.props.currentUser
+          currentUser: _this2.props.currentUser,
+          project: _this2.props.project
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_backing_warning__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
