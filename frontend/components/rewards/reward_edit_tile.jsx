@@ -14,7 +14,6 @@ class EditRewardTile extends React.Component{
 	}
 
 	handleSubmit(e){
-		console.log(this.props)
 		e.preventDefault()
 		this.props.action(this.state)
 			.then(() => this.props.history.push(`/projects/${this.props.reward.projectId}`))

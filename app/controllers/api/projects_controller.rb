@@ -11,10 +11,8 @@ class Api::ProjectsController < ApplicationController
 	end
 
 	def create
-		# debugger
 		@project = Project.new(project_params)
 		@project.current_funding = 0
-		# debugger
 		if @project.save!
 			render :show
 		else
@@ -24,7 +22,6 @@ class Api::ProjectsController < ApplicationController
 
 	def update
 		@project = Project.find_by(id: params[:project][:id])
-		debugger
 		if @project.update(project_params)
 			render :show
 		else

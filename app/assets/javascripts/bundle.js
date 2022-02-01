@@ -12429,7 +12429,6 @@ var EditRewardTile = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      console.log(this.props);
       e.preventDefault();
       this.props.action(this.state).then(function () {
         return _this3.props.history.push("/projects/".concat(_this3.props.reward.projectId));
