@@ -5,7 +5,7 @@ const CategoriesReducer = (oldState = {}, action) => {
 	const nextState = Object.assign({}, oldState);
 	switch(action.type){
 		case RECEIVE_PROJECTS:
-			return Object.assign({}, oldState, action.projects.category)
+			return Object.assign({}, oldState, action.projects)
 		default:
 			return oldState;
 	}

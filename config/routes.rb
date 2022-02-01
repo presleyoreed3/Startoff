@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :show, :create, :update, :destroy]
     resources :rewards, only: [:index, :show, :create, :update]
     resource :session, only: [:create, :destroy]
+    get "/projects/category/:categoryName", :to => "projects#index"
   end
   
 end

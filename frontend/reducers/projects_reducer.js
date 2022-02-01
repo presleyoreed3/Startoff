@@ -5,7 +5,7 @@ const ProjectsReducer = (oldState = {}, action) => {
 	const nextState = Object.assign({}, oldState);
 	switch(action.type){
 		case RECEIVE_PROJECTS:
-			return Object.assign({}, oldState, action.projects.projects)
+			return Object.assign({}, action.projects.projects)
 		case RECEIVE_PROJECT:
 			return Object.assign({}, {[action.project.id]: action.project})
 		case REMOVE_PROJECT:

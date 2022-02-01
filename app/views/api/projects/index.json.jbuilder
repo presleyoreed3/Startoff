@@ -11,10 +11,3 @@ json.projects do
 		end
 	end
 end
-
-categories_hash = Hash.new {|h, k| h[k] = []}
-@projects.each do |project|
-	categories_hash[project.category].push(project.id)
-end
-
-json.category categories_hash
