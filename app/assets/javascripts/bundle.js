@@ -13269,7 +13269,6 @@ var deleteProject = function deleteProject(projectId) {
   });
 };
 var fetchByCategory = function fetchByCategory(categoryName) {
-  debugger;
   return $.ajax({
     method: "GET",
     url: "/api/projects/category/".concat(categoryName)
