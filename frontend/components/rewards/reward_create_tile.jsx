@@ -21,7 +21,7 @@ class RewardCreateTile extends React.Component{
 		if (this.state.toggleFeedback){
 			return(<p>Reward saved</p>)
 		} else {
-			return null;
+			return(<button>Save</button>)
 		}
 	}
 
@@ -40,7 +40,6 @@ class RewardCreateTile extends React.Component{
 		}
 		this.props.action(reward)
 			.then(() => this.setState({toggleFeedback: true}))
-			.then(() => setTimeout(()=> this.setState({toggleFeedback: false}), 3000))
 		
 		
 	}
@@ -79,7 +78,6 @@ class RewardCreateTile extends React.Component{
 						/>
 					</label>
 					{this.feedback()}
-					<button>Save</button>
 				</form>
 			</div>
 		)

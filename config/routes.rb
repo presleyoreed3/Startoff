@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :rewards, only: [:index, :show, :create]
     resource :session, only: [:create, :destroy]
   end
-
+  collection do
+    get :search, to: "projects#search", as: "search"
+  end
 end

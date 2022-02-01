@@ -10951,6 +10951,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var selectProjectId = function selectProjectId(state) {
+  if (Object.values(state.entities.projects).length === 0) {
+    return null;
+  } else {
+    return Object.values(state.entities.projects)[0].id;
+  }
+};
+
 var mapStateToProps = function mapStateToProps(state) {
   return {
     project: {
@@ -10962,7 +10970,8 @@ var mapStateToProps = function mapStateToProps(state) {
       deadline: '',
       photoFile: null
     },
-    formType: "Create Project"
+    formType: "Create Project",
+    projectId: selectProjectId(state)
   };
 };
 
@@ -11041,8 +11050,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
 
   _createClass(ProjectForm, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      this.setState(this.props.fetchProject(this.props.match.params.projectId));
+    value: function componentDidMount() {// this.setState(this.props.fetchProject(this.props.match.params.projectId))
     }
   }, {
     key: "update",
@@ -11088,9 +11096,12 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this3 = this;
+
       e.preventDefault();
-      var formData = new FormData();
-      formData.append('project[id]', this.state.id);
+      e.stopPropagation();
+      var formData = new FormData(); // formData.append('project[id]', this.state.id)
+
       formData.append('project[project_name]', this.state.projectName);
       formData.append('project[description]', this.state.description);
       formData.append('project[goal_amount]', this.state.goalAmount);
@@ -11098,13 +11109,16 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       formData.append('project[category]', this.state.category);
       formData.append('project[photo]', this.state.photoFile);
       formData.append('project[creator_id]', this.state.creatorId);
-      this.props.action(formData); // Need to add in the redirect after successful project creation
-      //.then(() => this.props.history.push(`/projects/${this.state.entities.projects.id}`))
+      this.props.action(formData).then(function () {
+        return _this3.props.history.push("/projects/".concat(_this3.props.projectId));
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.project) return null;
+      var _this4 = this;
+
+      // if (!this.props.project) return null
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -11113,7 +11127,9 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
         id: "form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         id: "form",
-        onSubmit: this.handleSubmit
+        onSubmit: function onSubmit(e) {
+          return _this4.handleSubmit(e);
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Project Name", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         required: true,
         placeholder: "Project Name",
@@ -11136,8 +11152,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
         required: true,
         type: "date",
         min: this.formatDate(),
-        onChange: this.update('deadline'),
-        value: this.formatDate()
+        onChange: this.update('deadline')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Category", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
         onChange: this.update('category')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
@@ -11161,10 +11176,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       }, "Publishing"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Upload a photo:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "file",
         onChange: this.handleFile.bind(this)
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        type: "submit",
-        value: this.props.formType
-      }, this.props.formType))));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, this.props.formType))));
     }
   }]);
 
@@ -11835,7 +11847,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
     currentUser: state.entities.users[state.session.currentUser],
-    errors: state.errors.session
+    errors: state.errors.session,
+    projectId: state.entities.projects.id
   };
 };
 
@@ -12174,7 +12187,7 @@ var RewardCreateTile = /*#__PURE__*/function (_React$Component) {
       if (this.state.toggleFeedback) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Reward saved");
       } else {
-        return null;
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Save");
       }
     }
   }, {
@@ -12203,12 +12216,6 @@ var RewardCreateTile = /*#__PURE__*/function (_React$Component) {
         return _this3.setState({
           toggleFeedback: true
         });
-      }).then(function () {
-        return setTimeout(function () {
-          return _this3.setState({
-            toggleFeedback: false
-          });
-        }, 3000);
       });
     }
   }, {
@@ -12236,7 +12243,7 @@ var RewardCreateTile = /*#__PURE__*/function (_React$Component) {
         type: "text",
         onChange: this.update('price'),
         value: this.props.price
-      })), this.feedback(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Save")));
+      })), this.feedback()));
     }
   }]);
 
@@ -12304,6 +12311,8 @@ var RewardForm = /*#__PURE__*/function (_React$Component) {
   _createClass(RewardForm, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "tiers-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Each Startoff project has 4 reward tiers for someone to back. Please add the name of this reward, what the backer will get from it, a description of the reward, and the cost to recieve this reward."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reward_create_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -12326,7 +12335,11 @@ var RewardForm = /*#__PURE__*/function (_React$Component) {
         projectId: this.props.match.params.projectId,
         formType: this.props.formType,
         rewardNum: "4"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, this.props.formType));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.history.push("/projects/".concat(_this2.props.match.params.projectId));
+        }
+      }, "Done"));
     }
   }]);
 

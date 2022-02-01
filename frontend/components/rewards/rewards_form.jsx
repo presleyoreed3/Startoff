@@ -39,7 +39,7 @@ class RewardForm extends React.Component{
 					formType={this.props.formType}
 					rewardNum="4"
 				/>
-				<button>{this.props.formType}</button>
+				<button onClick={() => this.props.history.push(`/projects/${this.props.match.params.projectId}`)}>Done</button>
 			</div>
 		)
 	}

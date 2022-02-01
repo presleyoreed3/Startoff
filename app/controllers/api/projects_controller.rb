@@ -11,9 +11,11 @@ class Api::ProjectsController < ApplicationController
 	end
 
 	def create
+		# debugger
 		@project = Project.new(project_params)
 		@project.current_funding = 0
-		if @project.save
+		# debugger
+		if @project.save!
 			render :show
 		else
 			render json: @project.errors.full_messages, status: 422
