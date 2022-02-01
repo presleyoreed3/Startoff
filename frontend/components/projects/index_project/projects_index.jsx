@@ -20,6 +20,7 @@ class ProjectsIndex extends React.Component {
 						<ProjectsIndexItem
 							project={project}
 							key={project.id}
+							getCategory={this.props.fetchProjectByCategory}
 						/>
 					))}
 				</div>

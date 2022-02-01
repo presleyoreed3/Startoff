@@ -37,6 +37,7 @@ class RewardItem extends React.Component{
 	}
 
 	editReward(){
+		if (!this.props.currentUser) return null;
 		if (this.props.currentUser.id === this.props.project.creatorId){
 			return(
 				<div id="edit-button">

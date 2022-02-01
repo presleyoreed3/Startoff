@@ -11485,6 +11485,15 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
       return daysLeft;
     }
   }, {
+    key: "handleFilter",
+    value: function handleFilter(categoryName) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.props.getCategory(categoryName);
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
       var progressPercentage = "".concat(this.calcPecentage(), "%");
@@ -11590,6 +11599,8 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       if (!this.props.projects) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "project-index"
@@ -11602,7 +11613,8 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
       }, this.props.projects.map(function (project) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_project_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           project: project,
-          key: project.id
+          key: project.id,
+          getCategory: _this.props.fetchProjectByCategory
         });
       })));
     }
@@ -11645,6 +11657,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchProjects: function fetchProjects() {
       return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_3__.fetchProjects)());
+    },
+    fetchProjectByCategory: function fetchProjectByCategory(categoryName) {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_3__.fetchProjectByCategory)(categoryName));
     }
   };
 };
@@ -12071,6 +12086,8 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "editReward",
     value: function editReward() {
+      if (!this.props.currentUser) return null;
+
       if (this.props.currentUser.id === this.props.project.creatorId) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           id: "edit-button"
