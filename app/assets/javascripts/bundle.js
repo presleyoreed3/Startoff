@@ -12858,7 +12858,7 @@ var ProjectsReducer = function ProjectsReducer() {
 
   switch (action.type) {
     case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PROJECTS:
-      return Object.assign({}, oldState, action.projects);
+      return Object.assign({}, oldState, action.projects.projects);
 
     case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PROJECT:
       return Object.assign({}, _defineProperty({}, action.project.id, action.project));
