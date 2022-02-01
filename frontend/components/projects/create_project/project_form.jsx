@@ -12,7 +12,7 @@ class ProjectForm extends React.Component{
 	}
 
 	componentDidMount(){
-		this.setState(this.props.fetchProject(this.props.match.params.projectId))
+		// this.setState(this.props.fetchProject(this.props.match.params.projectId))
 	}
 
 	update(field){
@@ -45,8 +45,9 @@ class ProjectForm extends React.Component{
 
 	handleSubmit(e){
 		e.preventDefault();
+		e.stopPropagation()
 		const formData = new FormData();
-		formData.append('project[id]', this.state.id)
+		// formData.append('project[id]', this.state.id)
 		formData.append('project[project_name]', this.state.projectName)
 		formData.append('project[description]', this.state.description)
 		formData.append('project[goal_amount]', this.state.goalAmount)
@@ -55,17 +56,16 @@ class ProjectForm extends React.Component{
 		formData.append('project[photo]', this.state.photoFile)
 		formData.append('project[creator_id]', this.state.creatorId)
 		this.props.action(formData)
-		// Need to add in the redirect after successful project creation
-		//.then(() => this.props.history.push(`/projects/${this.state.entities.projects.id}`))
+			.then(() => this.props.history.push(`/projects/${this.props.projectId}`))
 	}
 
 	render(){
-		if (!this.props.project) return null
+		// if (!this.props.project) return null
 		return(
 			<div id="project-form">
 				<div id="form-type"><h2>{this.props.formType}</h2></div>
 				<div id="form-container">
-					<form id="form" onSubmit={this.handleSubmit}>
+					<form id="form" onSubmit={e => this.handleSubmit(e)}>
 						<label>Project Name<br />
 							<input required
 								placeholder="Project Name" 
@@ -93,7 +93,7 @@ class ProjectForm extends React.Component{
 								type="date" 
 								min={this.formatDate()} 
 								onChange={this.update('deadline')}
-								value={this.formatDate()}/>
+								/>
 						</label>
 						<label>Category<br />
 							<select onChange={this.update('category')}>
@@ -111,7 +111,7 @@ class ProjectForm extends React.Component{
 						<label>Upload a photo:
 							<input type="file" onChange={this.handleFile.bind(this)}/>
 						</label>
-						<button type="submit" value={this.props.formType}>{this.props.formType}</button>
+						<button>{this.props.formType}</button>
 
 					</form>
 				</div>
