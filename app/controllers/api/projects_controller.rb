@@ -46,7 +46,6 @@ class Api::ProjectsController < ApplicationController
         else
             render json: ["Sorry, we did not find any results for #{query}, try another search"], status: 404
         end
-        
     end
 
 	private

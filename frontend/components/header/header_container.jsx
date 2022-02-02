@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import Header from './header'
 import {logout} from '../../actions/session_actions'
-import {fetchProjects} from '../../actions/project_action'
+import {fetchProjects, searchForProject} from '../../actions/project_action'
 
 const mapStateToProps = state => ({
 	currentUser: state.entities.users[state.session.currentUser],
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	logout: () => dispatch(logout()),
-	fetchProjects: () => dispatch(fetchProjects())
+	fetchProjects: () => dispatch(fetchProjects()),
+	searchProject: query => dispatch(searchForProject(query))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

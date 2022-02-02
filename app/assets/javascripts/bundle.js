@@ -9926,7 +9926,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createProject": () => (/* binding */ createProject),
 /* harmony export */   "updateProject": () => (/* binding */ updateProject),
 /* harmony export */   "deleteProject": () => (/* binding */ deleteProject),
-/* harmony export */   "fetchProjectByCategory": () => (/* binding */ fetchProjectByCategory)
+/* harmony export */   "fetchProjectByCategory": () => (/* binding */ fetchProjectByCategory),
+/* harmony export */   "searchForProject": () => (/* binding */ searchForProject)
 /* harmony export */ });
 /* harmony import */ var _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/project_api_util */ "./frontend/utils/project_api_util.js");
 
@@ -9993,6 +9994,13 @@ var deleteProject = function deleteProject(projectId) {
 var fetchProjectByCategory = function fetchProjectByCategory(categoryName) {
   return function (dispatch) {
     return _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchByCategory(categoryName).then(function (projects) {
+      return dispatch(receiveProjects(projects));
+    });
+  };
+};
+var searchForProject = function searchForProject(query) {
+  return function (dispatch) {
+    return _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__.searchProject(query).then(function (projects) {
       return dispatch(receiveProjects(projects));
     });
   };
@@ -10847,7 +10855,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSearch",
     value: function handleSearch(e) {
-      console.log(this.state.search);
+      this.props.searchProject(this.state.search).then(console.log("Heres what I got?"));
     }
   }, {
     key: "update",
@@ -10923,6 +10931,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         placeholder: "Search..."
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         id: "search-submit",
+        type: "submit",
         onClick: function onClick(e) {
           return _this3.handleSearch(e);
         }
@@ -10987,6 +10996,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchProjects: function fetchProjects() {
       return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_4__.fetchProjects)());
+    },
+    searchProject: function searchProject(query) {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_4__.searchForProject)(query));
     }
   };
 };
@@ -13292,7 +13304,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createProject": () => (/* binding */ createProject),
 /* harmony export */   "updateProject": () => (/* binding */ updateProject),
 /* harmony export */   "deleteProject": () => (/* binding */ deleteProject),
-/* harmony export */   "fetchByCategory": () => (/* binding */ fetchByCategory)
+/* harmony export */   "fetchByCategory": () => (/* binding */ fetchByCategory),
+/* harmony export */   "searchProject": () => (/* binding */ searchProject)
 /* harmony export */ });
 var fetchProjects = function fetchProjects() {
   return $.ajax({
@@ -13334,6 +13347,15 @@ var fetchByCategory = function fetchByCategory(categoryName) {
   return $.ajax({
     method: "GET",
     url: "/api/projects/category/".concat(categoryName)
+  });
+};
+var searchProject = function searchProject(query) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/projects/search",
+    data: {
+      query: query
+    }
   });
 };
 

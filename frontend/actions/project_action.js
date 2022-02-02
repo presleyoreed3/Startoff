@@ -50,3 +50,10 @@ export const fetchProjectByCategory = categoryName => dispatch => {
 			return dispatch(receiveProjects(projects))
 		})
 }
+
+export const searchForProject = query => dispatch => {
+	return ApiUtils.searchProject(query)
+		.then(projects => {
+			return dispatch(receiveProjects(projects))
+		})
+}

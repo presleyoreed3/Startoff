@@ -31,7 +31,8 @@ class Header extends React.Component {
 	}
 
 	handleSearch(e){
-		console.log(this.state.search)
+		this.props.searchProject(this.state.search)
+			.then(console.log("Heres what I got?"))
 	}
 
 	update(field){
@@ -76,7 +77,7 @@ class Header extends React.Component {
 				<Link id='logo-click' to='/'><img id='startoff-logo' src={window.logoURL}></img></Link>
 				<div id="right-nav">
 					<input id="search-input" onChange={this.update('search')} type="text" name="search" placeholder="Search..."/>
-					<button id="search-submit" onClick={(e) => this.handleSearch(e)}><FontAwesomeIcon icon={faSearch}/></button>
+					<button id="search-submit" type="submit" onClick={(e) => this.handleSearch(e)}><FontAwesomeIcon icon={faSearch}/></button>
 					<a className="search" id="header-links" onClick={this.showSearch}>Search <FontAwesomeIcon icon={faSearch}/></a>
 					<NavLink id="header-links" to={action} onClick={e => this.logoutUser(text)}>{text}</NavLink>
 				</div>
