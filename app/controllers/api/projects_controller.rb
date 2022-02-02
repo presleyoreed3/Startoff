@@ -34,10 +34,20 @@ class Api::ProjectsController < ApplicationController
 		end
 	end
 
-
 	def destroy
 		Project.find(params[:id]).destroy
 	end
+
+	def search
+        query = params[:query]
+        @projects = Project.where('project_name ILIKE ? OR description ILIKE ? OR category ILIKE ?', "%#{query}%", "%#{query}%", "%#{query}%")
+        if @projects.length > 0
+            render :index
+        else
+            render json: ["Sorry, we did not find any results for #{query}, try another search"], status: 404
+        end
+        
+    end
 
 	private
 	def project_params
