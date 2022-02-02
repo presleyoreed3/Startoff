@@ -10782,6 +10782,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -10819,9 +10821,14 @@ var Header = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Header);
 
     _this = _super.call(this, props);
+    _this.state = {
+      search: ''
+    };
     _this.loginCheck = _this.loginCheck.bind(_assertThisInitialized(_this));
     _this.reIndex = _this.reIndex.bind(_assertThisInitialized(_this));
     _this.showSearch = _this.showSearch.bind(_assertThisInitialized(_this));
+    _this.handleSearch = _this.handleSearch.bind(_assertThisInitialized(_this));
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -10830,6 +10837,26 @@ var Header = /*#__PURE__*/function (_React$Component) {
     value: function showSearch() {
       var search = document.getElementById("search-input");
       search.id = "search-input-revealed";
+      var searchButton = document.getElementById("search-submit");
+      searchButton.id = "search-button-revealed";
+      var ogButton = document.getElementsByClassName("search");
+      ogButton[0].style.display = "none";
+      var div = document.getElementById("right-nav");
+      div.style.margin = "20px";
+    }
+  }, {
+    key: "handleSearch",
+    value: function handleSearch(e) {
+      console.log(this.state.search);
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
     }
   }, {
     key: "logoutUser",
@@ -10855,7 +10882,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var text;
       var action;
@@ -10878,7 +10905,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
       }, "Discover "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         id: "header-links",
         onClick: function onClick(e) {
-          return _this2.loginCheck(e);
+          return _this3.loginCheck(e);
         }
       }, "Start a Project")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
         id: "logo-click",
@@ -10890,10 +10917,19 @@ var Header = /*#__PURE__*/function (_React$Component) {
         id: "right-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         id: "search-input",
+        onChange: this.update('search'),
         type: "text",
         name: "search",
         placeholder: "Search..."
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        id: "search-submit",
+        onClick: function onClick(e) {
+          return _this3.handleSearch(e);
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faSearch
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        className: "search",
         id: "header-links",
         onClick: this.showSearch
       }, "Search ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
@@ -10902,7 +10938,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         id: "header-links",
         to: action,
         onClick: function onClick(e) {
-          return _this2.logoutUser(text);
+          return _this3.logoutUser(text);
         }
       }, text)));
     }
@@ -11408,9 +11444,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  return {
-    projects: state.entities.categories[ownProps.match.params.categoryName]
-  };
+  return {};
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {

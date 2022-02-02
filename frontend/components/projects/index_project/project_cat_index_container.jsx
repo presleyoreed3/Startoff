@@ -4,7 +4,7 @@ import ProjectsIndex from './projects_index'
 import { fetchProjects } from '../../../actions/project_action'
 
 const mapStateToProps = (state, ownProps) => ({
-	projects: state.entities.categories[ownProps.match.params.categoryName]
+
 })
 
 const mapDispatchToProps = dispatch => ({

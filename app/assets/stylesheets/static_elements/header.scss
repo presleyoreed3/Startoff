@@ -28,6 +28,7 @@
 
 #right-nav{
 	margin: 30px;
+	margin-bottom: 0px;
 }
 
 #search-input-revealed{
@@ -39,6 +40,42 @@
 	width: 300px;
 }
 
+#search-input-revealed:focus{
+	outline: none;
+}
+
 #search-input{
 	display: none;
+}
+
+#search-submit{
+	display: none;
+}
+
+#search-button-revealed{
+	display: inline-block;
+}
+
+$button-color: #028857;
+$button-hover: #015738;
+$button-click: #013523;
+
+button{
+	display: inline-block;
+	cursor: pointer;
+	font-size: 18px;
+	width: 50px;
+	// justify-content: center;
+	background-color: $button-color;
+	color: white;
+	border: 1px solid $button-color;
+	height: 32px;
+}
+
+button:hover{
+	background-color: $button-hover;
+}
+
+button:active{
+	background-color: $button-click;
 }

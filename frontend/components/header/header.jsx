@@ -9,14 +9,33 @@ class Header extends React.Component {
 
 	constructor(props){
 		super(props)
+		this.state = {
+			search: ''
+		}
 		this.loginCheck = this.loginCheck.bind(this)
 		this.reIndex = this.reIndex.bind(this)
 		this.showSearch = this.showSearch.bind(this)
+		this.handleSearch = this.handleSearch.bind(this)
+		this.update = this.update.bind(this)
 	}
 
 	showSearch(){
 		let search = document.getElementById("search-input");
 		search.id = "search-input-revealed"
+		let searchButton = document.getElementById("search-submit");
+		searchButton.id = "search-button-revealed"
+		let ogButton = document.getElementsByClassName("search");
+		ogButton[0].style.display = "none"
+		let div = document.getElementById("right-nav")
+		div.style.margin = "20px"
+	}
+
+	handleSearch(e){
+		console.log(this.state.search)
+	}
+
+	update(field){
+		return e => this.setState({[field]: e.currentTarget.value})
 	}
 
 	logoutUser(currentText){
@@ -56,8 +75,9 @@ class Header extends React.Component {
 				</div>
 				<Link id='logo-click' to='/'><img id='startoff-logo' src={window.logoURL}></img></Link>
 				<div id="right-nav">
-					<input id="search-input" type="text" name="search" placeholder="Search..."/>
-					<a id="header-links" onClick={this.showSearch}>Search <FontAwesomeIcon icon={faSearch}/></a>
+					<input id="search-input" onChange={this.update('search')} type="text" name="search" placeholder="Search..."/>
+					<button id="search-submit" onClick={(e) => this.handleSearch(e)}><FontAwesomeIcon icon={faSearch}/></button>
+					<a className="search" id="header-links" onClick={this.showSearch}>Search <FontAwesomeIcon icon={faSearch}/></a>
 					<NavLink id="header-links" to={action} onClick={e => this.logoutUser(text)}>{text}</NavLink>
 				</div>
 			</header>
