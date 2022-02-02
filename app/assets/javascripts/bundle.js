@@ -10818,6 +10818,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.loginCheck = _this.loginCheck.bind(_assertThisInitialized(_this));
+    _this.reIndex = _this.reIndex.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -10842,6 +10843,11 @@ var Header = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "reIndex",
+    value: function reIndex() {
+      this.props.fetchProjects().then(this.props.history.push("/projects"));
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -10861,9 +10867,9 @@ var Header = /*#__PURE__*/function (_React$Component) {
         className: "header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "left-nav"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         id: "header-links",
-        to: "/projects"
+        onClick: this.reIndex
       }, "Discover "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         id: "header-links",
         onClick: function onClick(e) {
@@ -10915,6 +10921,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header */ "./frontend/components/header/header.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_project_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/project_action */ "./frontend/actions/project_action.js");
+
 
 
 
@@ -10922,7 +10930,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.entities.users[state.session.currentUser],
+    projects: state.entities.projects
   };
 };
 
@@ -10930,6 +10939,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     logout: function logout() {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__.logout)());
+    },
+    fetchProjects: function fetchProjects() {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_4__.fetchProjects)());
     }
   };
 };
