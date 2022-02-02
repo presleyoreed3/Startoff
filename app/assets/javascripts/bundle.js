@@ -10268,7 +10268,6 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "footer-category"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -11483,15 +11482,6 @@ var ProjectsIndexItem = /*#__PURE__*/function (_React$Component) {
       }
 
       return daysLeft;
-    }
-  }, {
-    key: "handleFilter",
-    value: function handleFilter(categoryName) {
-      var _this2 = this;
-
-      return function (e) {
-        return _this2.props.getCategory(categoryName);
-      };
     }
   }, {
     key: "render",

@@ -30,10 +30,6 @@ class ProjectsIndexItem extends React.Component {
 		return daysLeft;
 	}
 
-	handleFilter(categoryName){
-		return e => this.props.getCategory(categoryName)
-	}
-
 	render(){
 		let progressPercentage = `${this.calcPecentage()}%`
 		let daysLeft = this.calcDays();
@@ -57,7 +53,7 @@ class ProjectsIndexItem extends React.Component {
 						<p id="days-left">{daysLeft}</p>
 					</div>
 					<div id="category">
-						<p >{this.props.project.category}</p>
+						<p>{this.props.project.category}</p>
 					</div>
 				</div>
 			</Link>	

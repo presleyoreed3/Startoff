@@ -72,3 +72,5 @@ class RewardItem extends React.Component{
 }
 
 export default RewardItem
+
+
