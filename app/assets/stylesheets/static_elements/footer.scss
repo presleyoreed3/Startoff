@@ -14,6 +14,19 @@ footer{
 	border: 1px solid #DCDEDD;
 }
 
+#footer-category p {
+	text-decoration: underline;
+}
+
+#footer-category p:hover {
+	cursor: pointer;
+	color: #028857;
+}
+
+#footer-category p:active{
+	color: #015D3D;
+}
+
 #footer-nav{
 	justify-content: space-evenly;
 	height: 50px;

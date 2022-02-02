@@ -9925,7 +9925,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "fetchProject": () => (/* binding */ fetchProject),
 /* harmony export */   "createProject": () => (/* binding */ createProject),
 /* harmony export */   "updateProject": () => (/* binding */ updateProject),
-/* harmony export */   "deleteProject": () => (/* binding */ deleteProject)
+/* harmony export */   "deleteProject": () => (/* binding */ deleteProject),
+/* harmony export */   "fetchProjectByCategory": () => (/* binding */ fetchProjectByCategory)
 /* harmony export */ });
 /* harmony import */ var _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/project_api_util */ "./frontend/utils/project_api_util.js");
 
@@ -9986,6 +9987,13 @@ var deleteProject = function deleteProject(projectId) {
   return function (dispatch) {
     return _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__.deleteProject(projectId).then(function () {
       return dispatch(removeProject(projectId));
+    });
+  };
+};
+var fetchProjectByCategory = function fetchProjectByCategory(categoryName) {
+  return function (dispatch) {
+    return _utils_project_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchByCategory(categoryName).then(function (projects) {
+      return dispatch(receiveProjects(projects));
     });
   };
 };
@@ -10127,7 +10135,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.js");
 /* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header/header_container */ "./frontend/components/header/header_container.jsx");
 /* harmony import */ var _projects_create_project_create_project_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./projects/create_project/create_project_container */ "./frontend/components/projects/create_project/create_project_container.jsx");
@@ -10136,19 +10144,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rewards_update_rewards_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./rewards/update_rewards_container */ "./frontend/components/rewards/update_rewards_container.jsx");
 /* harmony import */ var _forms_login_form_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./forms/login_form_container */ "./frontend/components/forms/login_form_container.jsx");
 /* harmony import */ var _forms_signup_form_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./forms/signup_form_container */ "./frontend/components/forms/signup_form_container.jsx");
-/* harmony import */ var _projects_index_project_projects_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./projects/index_project/projects_index_container */ "./frontend/components/projects/index_project/projects_index_container.jsx");
-/* harmony import */ var _projects_show_project_project_show_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./projects/show_project/project_show_container */ "./frontend/components/projects/show_project/project_show_container.jsx");
-/* harmony import */ var _splash_splash_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./splash/splash_container */ "./frontend/components/splash/splash_container.jsx");
-/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
+/* harmony import */ var _projects_index_project_project_cat_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./projects/index_project/project_cat_index_container */ "./frontend/components/projects/index_project/project_cat_index_container.jsx");
+/* harmony import */ var _projects_index_project_projects_index_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./projects/index_project/projects_index_container */ "./frontend/components/projects/index_project/projects_index_container.jsx");
+/* harmony import */ var _projects_show_project_project_show_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./projects/show_project/project_show_container */ "./frontend/components/projects/show_project/project_show_container.jsx");
+/* harmony import */ var _splash_splash_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./splash/splash_container */ "./frontend/components/splash/splash_container.jsx");
+/* harmony import */ var _footer_footer_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./footer/footer_container */ "./frontend/components/footer/footer_container.jsx");
 
 
 
 
+ // Protected Routes
 
 
 
 
+ // Auth Routes
 
+
+ // Noraml Routes
 
 
 
@@ -10159,7 +10172,7 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "root-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
     path: "/projects/new",
     component: _projects_create_project_create_project_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
@@ -10177,16 +10190,16 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
     path: "/signup",
     component: _forms_signup_form_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/projects/:projectId",
-    component: _projects_show_project_project_show_container__WEBPACK_IMPORTED_MODULE_10__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+    component: _projects_show_project_project_show_container__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/projects",
-    component: _projects_index_project_projects_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+    component: _projects_index_project_projects_index_container__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/",
-    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_11__["default"]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_12__["default"], null));
+    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_12__["default"]
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer_footer_container__WEBPACK_IMPORTED_MODULE_13__["default"], null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -10244,26 +10257,35 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Footer, [{
+    key: "handleFilter",
+    value: function handleFilter(categoryName) {
+      var _this = this;
+
+      return function (e) {
+        return _this.props.fetchProjectByCategory(categoryName);
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "footer-category"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
-      }, "Arts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
-      }, "Comics & Illustration"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
-      }, "Design & Tech"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
-      }, "Film"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
-      }, "Food & Craft"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
-      }, "Games"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
-      }, "Music"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "#"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        onClick: this.handleFilter("Arts")
+      }, "Arts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        onClick: this.handleFilter("Comics & Illustration")
+      }, "Comics & Illustration"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        onClick: this.handleFilter("Design & Tech")
+      }, "Design & Tech"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        onClick: this.handleFilter("Film")
+      }, "Film"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        onClick: this.handleFilter("Food & Craft")
+      }, "Food & Craft"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        onClick: this.handleFilter("Games")
+      }, "Games"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        onClick: this.handleFilter("Music")
+      }, "Music"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        onClick: this.handleFilter("Publishing")
       }, "Publishing")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "footer-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -10291,6 +10313,42 @@ var Footer = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
+
+/***/ }),
+
+/***/ "./frontend/components/footer/footer_container.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/footer/footer_container.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer */ "./frontend/components/footer/footer.jsx");
+/* harmony import */ var _actions_project_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/project_action */ "./frontend/actions/project_action.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {};
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchProjectByCategory: function fetchProjectByCategory(categoryName) {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_3__.fetchProjectByCategory)(categoryName));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_footer__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -10760,6 +10818,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.loginCheck = _this.loginCheck.bind(_assertThisInitialized(_this));
+    _this.reIndex = _this.reIndex.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -10784,6 +10843,11 @@ var Header = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "reIndex",
+    value: function reIndex() {
+      this.props.fetchProjects().then(this.props.history.push("/projects"));
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -10803,9 +10867,9 @@ var Header = /*#__PURE__*/function (_React$Component) {
         className: "header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "left-nav"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         id: "header-links",
-        to: "/projects"
+        onClick: this.reIndex
       }, "Discover "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         id: "header-links",
         onClick: function onClick(e) {
@@ -10857,6 +10921,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header */ "./frontend/components/header/header.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_project_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/project_action */ "./frontend/actions/project_action.js");
+
 
 
 
@@ -10864,7 +10930,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.entities.users[state.session.currentUser],
+    projects: state.entities.projects
   };
 };
 
@@ -10872,6 +10939,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     logout: function logout() {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__.logout)());
+    },
+    fetchProjects: function fetchProjects() {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_4__.fetchProjects)());
     }
   };
 };
@@ -11308,6 +11378,44 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/projects/index_project/project_cat_index_container.jsx":
+/*!************************************************************************************!*\
+  !*** ./frontend/components/projects/index_project/project_cat_index_container.jsx ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _projects_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects_index */ "./frontend/components/projects/index_project/projects_index.jsx");
+/* harmony import */ var _actions_project_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/project_action */ "./frontend/actions/project_action.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    projects: state.entities.categories[ownProps.match.params.categoryName]
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchProjects: function fetchProjects() {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_3__.fetchProjects)());
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_projects_index__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/projects/index_project/project_index_item.jsx":
 /*!***************************************************************************!*\
   !*** ./frontend/components/projects/index_project/project_index_item.jsx ***!
@@ -11493,6 +11601,8 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       if (!this.props.projects) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "project-index"
@@ -11505,7 +11615,8 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
       }, this.props.projects.map(function (project) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_project_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           project: project,
-          key: project.id
+          key: project.id,
+          getCategory: _this.props.fetchProjectByCategory
         });
       })));
     }
@@ -11548,6 +11659,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchProjects: function fetchProjects() {
       return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_3__.fetchProjects)());
+    },
+    fetchProjectByCategory: function fetchProjectByCategory(categoryName) {
+      return dispatch((0,_actions_project_action__WEBPACK_IMPORTED_MODULE_3__.fetchProjectByCategory)(categoryName));
     }
   };
 };
@@ -11974,6 +12088,8 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "editReward",
     value: function editReward() {
+      if (!this.props.currentUser) return null;
+
       if (this.props.currentUser.id === this.props.project.creatorId) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           id: "edit-button"
@@ -12784,6 +12900,39 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/reducers/categories_reducer.js":
+/*!*************************************************!*\
+  !*** ./frontend/reducers/categories_reducer.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_project_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/project_action */ "./frontend/actions/project_action.js");
+
+
+var CategoriesReducer = function CategoriesReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+  var nextState = Object.assign({}, oldState);
+
+  switch (action.type) {
+    case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PROJECTS:
+      return Object.assign({}, oldState, action.projects);
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoriesReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -12795,18 +12944,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _projects_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects_reducer */ "./frontend/reducers/projects_reducer.js");
 /* harmony import */ var _rewards_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rewards_reducer */ "./frontend/reducers/rewards_reducer.js");
+/* harmony import */ var _categories_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./categories_reducer */ "./frontend/reducers/categories_reducer.js");
 
 
 
 
-var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
+
+var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_4__.combineReducers)({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
   projects: _projects_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  rewards: _rewards_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  rewards: _rewards_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  categories: _categories_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entitiesReducer);
 
@@ -12858,7 +13010,7 @@ var ProjectsReducer = function ProjectsReducer() {
 
   switch (action.type) {
     case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PROJECTS:
-      return Object.assign({}, oldState, action.projects);
+      return Object.assign({}, action.projects.projects);
 
     case _actions_project_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PROJECT:
       return Object.assign({}, _defineProperty({}, action.project.id, action.project));
@@ -13096,7 +13248,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "fetchProject": () => (/* binding */ fetchProject),
 /* harmony export */   "createProject": () => (/* binding */ createProject),
 /* harmony export */   "updateProject": () => (/* binding */ updateProject),
-/* harmony export */   "deleteProject": () => (/* binding */ deleteProject)
+/* harmony export */   "deleteProject": () => (/* binding */ deleteProject),
+/* harmony export */   "fetchByCategory": () => (/* binding */ fetchByCategory)
 /* harmony export */ });
 var fetchProjects = function fetchProjects() {
   return $.ajax({
@@ -13132,6 +13285,12 @@ var deleteProject = function deleteProject(projectId) {
   return $.ajax({
     method: "DELETE",
     url: "/api/projects/".concat(projectId)
+  });
+};
+var fetchByCategory = function fetchByCategory(categoryName) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/projects/category/".concat(categoryName)
   });
 };
 

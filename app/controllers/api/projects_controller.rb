@@ -1,8 +1,13 @@
 class Api::ProjectsController < ApplicationController
 
 	def index
-		@projects = Project.all()
-		render :index
+		if params[:categoryName]
+			@projects = Project.where(category: params[:categoryName])
+			render :index
+		else
+			@projects = Project.all()
+			render :index
+		end
 	end
 
 	def show

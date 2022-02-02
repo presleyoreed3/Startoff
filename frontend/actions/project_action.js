@@ -43,3 +43,10 @@ export const deleteProject = projectId => dispatch => (
 	ApiUtils.deleteProject(projectId)
 		.then(() => dispatch(removeProject(projectId)))
 )
+
+export const fetchProjectByCategory = categoryName => dispatch => {
+	return ApiUtils.fetchByCategory(categoryName)
+		.then(projects => {
+			return dispatch(receiveProjects(projects))
+		})
+}

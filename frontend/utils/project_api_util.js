@@ -39,3 +39,10 @@ export const deleteProject = projectId => (
 		url: `/api/projects/${projectId}`
 	})
 )
+
+export const fetchByCategory = categoryName => {
+	return $.ajax({
+		method: "GET",
+		url: `/api/projects/category/${categoryName}`
+	})
+}

@@ -4,18 +4,23 @@ import logo from '../../../app/assets/images/startoff-logo.png';
 
 class Footer extends React.Component {
 
+
+	handleFilter(categoryName){
+		return e => this.props.fetchProjectByCategory(categoryName)
+	}
+
 	render(){
 		return(
 			<footer>
 				<div id='footer-category'>
-					<a href="#">Arts</a>
-					<a href="#">Comics & Illustration</a>
-					<a href="#">Design & Tech</a>
-					<a href="#">Film</a>
-					<a href="#">Food & Craft</a>
-					<a href="#">Games</a>
-					<a href="#">Music</a>
-					<a href="#">Publishing</a>
+					<p onClick={this.handleFilter("Arts")}>Arts</p>
+					<p onClick={this.handleFilter("Comics & Illustration")}>Comics & Illustration</p>
+					<p onClick={this.handleFilter("Design & Tech")}>Design & Tech</p>
+					<p onClick={this.handleFilter("Film")}>Film</p>
+					<p onClick={this.handleFilter("Food & Craft")}>Food & Craft</p>
+					<p onClick={this.handleFilter("Games")}>Games</p>
+					<p onClick={this.handleFilter("Music")}>Music</p>
+					<p onClick={this.handleFilter("Publishing")}>Publishing</p>
 				</div>
 				<div id="footer-nav">
 					<div id="footer-logo">

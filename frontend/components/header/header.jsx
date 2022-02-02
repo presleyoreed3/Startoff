@@ -10,6 +10,7 @@ class Header extends React.Component {
 	constructor(props){
 		super(props)
 		this.loginCheck = this.loginCheck.bind(this)
+		this.reIndex = this.reIndex.bind(this)
 	}
 
 	showSearch(){
@@ -30,6 +31,11 @@ class Header extends React.Component {
 		}
 	}
 
+	reIndex(){
+		this.props.fetchProjects()
+			.then(this.props.history.push("/projects"))
+	}
+
 	render(){
 		let text;
 		let action;
@@ -43,7 +49,7 @@ class Header extends React.Component {
 		return (
 			<header className="header">
 				<div id="left-nav">
-					<NavLink id="header-links" to="/projects">Discover </NavLink>
+					<a id="header-links" onClick={this.reIndex}>Discover </a>
 					<a id="header-links" onClick={e => this.loginCheck(e)} >Start a Project</a>
 				</div>
 				<Link id='logo-click' to='/'><img id='startoff-logo' src={window.logoURL}></img></Link>
