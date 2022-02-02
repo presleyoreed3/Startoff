@@ -12066,8 +12066,7 @@ var RewardItem = /*#__PURE__*/function (_React$Component) {
           errors: this.renderErrors()
         });
         setTimeout(this.clearErrors, 3000);
-      } else {//Add ability to increment the total funding count
-        //Also have the association that you are backing the project
+      } else {// Increment value
       }
     }
   }, {
@@ -12212,7 +12211,8 @@ var Rewards = /*#__PURE__*/function (_React$Component) {
           reward: reward,
           index: idx,
           currentUser: _this2.props.currentUser,
-          project: _this2.props.project
+          project: _this2.props.project,
+          updateProject: _this2.props.updateProject
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_backing_warning__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }

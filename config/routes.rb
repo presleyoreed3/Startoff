@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :rewards, only: [:index, :show, :create, :update]
     resource :session, only: [:create, :destroy]
     get "/projects/category/:categoryName", :to => "projects#index"
+    get :search, to: "products#search", as: "search"
   end
   
 end

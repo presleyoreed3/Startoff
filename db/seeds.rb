@@ -192,7 +192,7 @@ rewards = Reward.create([
 	{project_id: 18, tier_name: "The Jar Set", price: 60, reward: "4 Pickling Jars", reward_description: "Get a set of 4 pickling jars to allow for multiple pickling parties all at once"},
 	{project_id: 18, tier_name: "The Jar Cupboard", price: 150, reward: "1 Cupboard + 4 Pickling Jars", reward_description: "Get a full wooden cupboard to store either your empty or full pickling jars out of the way of the rest of your kitchen"},
 	{project_id: 19, tier_name: "Tip", price: 1, reward: "My eternal gratitude", reward_description: "Thank you so much for helping in any way"},
-	{project_id: 19, tier_name: "Baby Set", price: 35, reward: "1 Pin and 1 Ball", reward_description: ""},
+	{project_id: 19, tier_name: "Baby Set", price: 35, reward: "1 Pin and 1 Ball", reward_description: "Basically this is a set for children but they will still have fun with it I'm sure." },
 	{project_id: 19, tier_name: "Adult's Set", price: 85, reward: "6 Pins and 1 Ball", reward_description: "Full set of 6 pins and 1 ball. Use with your friends in the park and see who can get the most pins in a single bowl"},
 	{project_id: 19, tier_name: "Champion's Set", price: 200, reward: "10 Pins and 2 Balls", reward_description: "A jumbo set for the true giant bowlers among you. Can you get a strike? How about a turkey? Next would the a perfect game? Good luck!"},
 	{project_id: 20, tier_name: "Tip", price: 1, reward: "My eternal gratitude", reward_description: "Thank you so much for helping in any way"},
