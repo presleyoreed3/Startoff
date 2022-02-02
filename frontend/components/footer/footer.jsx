@@ -4,6 +4,7 @@ import logo from '../../../app/assets/images/startoff-logo.png';
 
 class Footer extends React.Component {
 
+
 	handleFilter(categoryName){
 		return e => this.props.fetchProjectByCategory(categoryName)
 	}
