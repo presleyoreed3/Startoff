@@ -1,12 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import logo from '../../../app/assets/images/startoff-logo.png';
+import {withRouter} from 'react-router'
+
 
 class Footer extends React.Component {
+
+	constructor(props){
+		super(props)
+	}
 
 
 	handleFilter(categoryName){
 		return e => this.props.fetchProjectByCategory(categoryName)
+			.then(this.props.history.replace("/projects"))
 	}
 
 	render(){
@@ -44,4 +51,4 @@ class Footer extends React.Component {
 
 }
 
-export default Footer
+export default withRouter(Footer)

@@ -11,10 +11,12 @@ class Header extends React.Component {
 		super(props)
 		this.loginCheck = this.loginCheck.bind(this)
 		this.reIndex = this.reIndex.bind(this)
+		this.showSearch = this.showSearch.bind(this)
 	}
 
 	showSearch(){
-		//Method to populate the search modal
+		let search = document.getElementById("search-input");
+		search.id = "search-input-revealed"
 	}
 
 	logoutUser(currentText){
@@ -54,15 +56,15 @@ class Header extends React.Component {
 				</div>
 				<Link id='logo-click' to='/'><img id='startoff-logo' src={window.logoURL}></img></Link>
 				<div id="right-nav">
-					<NavLink id="header-links" to="#" onClick={this.showSearch()}>Search <FontAwesomeIcon icon={faSearch}/></NavLink>
+					<input id="search-input" type="text" name="search" placeholder="Search..."/>
+					<a id="header-links" onClick={this.showSearch}>Search <FontAwesomeIcon icon={faSearch}/></a>
 					<NavLink id="header-links" to={action} onClick={e => this.logoutUser(text)}>{text}</NavLink>
 				</div>
-
 			</header>
 		)
 	}
-
-
 }
 
 export default withRouter(Header);
+
+

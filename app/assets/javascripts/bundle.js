@@ -10219,6 +10219,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _app_assets_images_startoff_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../app/assets/images/startoff-logo.png */ "./app/assets/images/startoff-logo.png");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10245,15 +10246,16 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Footer = /*#__PURE__*/function (_React$Component) {
   _inherits(Footer, _React$Component);
 
   var _super = _createSuper(Footer);
 
-  function Footer() {
+  function Footer(props) {
     _classCallCheck(this, Footer);
 
-    return _super.apply(this, arguments);
+    return _super.call(this, props);
   }
 
   _createClass(Footer, [{
@@ -10262,7 +10264,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       return function (e) {
-        return _this.props.fetchProjectByCategory(categoryName);
+        return _this.props.fetchProjectByCategory(categoryName).then(_this.props.history.replace("/projects"));
       };
     }
   }, {
@@ -10312,7 +10314,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
   return Footer;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_2__.withRouter)(Footer));
 
 /***/ }),
 
@@ -10819,12 +10821,15 @@ var Header = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.loginCheck = _this.loginCheck.bind(_assertThisInitialized(_this));
     _this.reIndex = _this.reIndex.bind(_assertThisInitialized(_this));
+    _this.showSearch = _this.showSearch.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Header, [{
     key: "showSearch",
-    value: function showSearch() {//Method to populate the search modal
+    value: function showSearch() {
+      var search = document.getElementById("search-input");
+      search.id = "search-input-revealed";
     }
   }, {
     key: "logoutUser",
@@ -10883,10 +10888,14 @@ var Header = /*#__PURE__*/function (_React$Component) {
         src: window.logoURL
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "right-nav"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        id: "search-input",
+        type: "text",
+        name: "search",
+        placeholder: "Search..."
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         id: "header-links",
-        to: "#",
-        onClick: this.showSearch()
+        onClick: this.showSearch
       }, "Search ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faSearch
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {

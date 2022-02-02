@@ -4,7 +4,7 @@ import Footer from './footer'
 import {fetchProjectByCategory} from '../../actions/project_action'
 
 const mapStateToProps = state => ({
-
+	
 })
 
 const mapDispatchToProps = dispatch => ({

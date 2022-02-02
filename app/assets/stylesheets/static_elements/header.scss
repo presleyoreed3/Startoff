@@ -29,3 +29,16 @@
 #right-nav{
 	margin: 30px;
 }
+
+#search-input-revealed{
+	display: inline-block;
+	border: none;
+	box-sizing: border-box;
+	border-bottom: 1px solid #09CE78;
+	height: 28px;
+	width: 300px;
+}
+
+#search-input{
+	display: none;
+}
