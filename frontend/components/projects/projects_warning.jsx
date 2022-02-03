@@ -11,15 +11,15 @@ class ProjectWarning extends React.Component{
 			<div id="warning-container">
 				<div id="warnings">
 					<div id="map">
-						<img src={mapIcon}/>
+						<img src={window.map}/>
 						<p>Staroff connects creators with backers to fund projects.</p>
 					</div>
 					<div id="chat">
-						<img src={chatIcon}/>
+						<img src={window.chat}/>
 						<p>Rewards aren’t guaranteed, but creators must regularly update backers.</p>
 					</div>
 					<div id="horn">
-						<img src={hornIcon}/>
+						<img src={window.horn}/>
 						<p>You’re only charged if the project meets its funding goal by the campaign deadline.</p>
 					</div>
 				</div>

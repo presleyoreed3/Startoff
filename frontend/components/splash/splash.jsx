@@ -16,7 +16,7 @@ class Splash extends React.Component{
 
 	randomBanner(){
 		let imageIndex = Math.floor(Math.random() * (3 + 1));
-		let imageArray = [splash1, splash2, splash3, splash4]
+		let imageArray = [window.splash1, window.splash2, window.splash3, window.splash4]
 		return imageArray[imageIndex];
 	}
 

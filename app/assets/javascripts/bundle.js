@@ -11222,7 +11222,7 @@ var BackingWarning = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "backing-warning"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: _app_assets_images_warnings_no_guarantee_png__WEBPACK_IMPORTED_MODULE_1__
+        src: window.warning
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Your pledge will support an ambitious creative project that has yet to be developed. There\u2019s a risk that, despite a creator\u2019s best efforts, your reward will not be fulfilled, and we urge you to consider this risk prior to pledging. Startoff is not responsible for project claims or reward fulfillment."));
     }
   }]);
@@ -11952,15 +11952,15 @@ var ProjectWarning = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "map"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: _app_assets_images_warnings_map_png__WEBPACK_IMPORTED_MODULE_1__
+        src: window.map
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Staroff connects creators with backers to fund projects.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "chat"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: _app_assets_images_warnings_chat_png__WEBPACK_IMPORTED_MODULE_2__
+        src: window.chat
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Rewards aren\u2019t guaranteed, but creators must regularly update backers.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "horn"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: _app_assets_images_warnings_horn_png__WEBPACK_IMPORTED_MODULE_3__
+        src: window.horn
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "You\u2019re only charged if the project meets its funding goal by the campaign deadline."))));
     }
   }]);
@@ -13220,7 +13220,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
     key: "randomBanner",
     value: function randomBanner() {
       var imageIndex = Math.floor(Math.random() * (3 + 1));
-      var imageArray = [_app_assets_images_splash_images_growth1_jpg__WEBPACK_IMPORTED_MODULE_1__, _app_assets_images_splash_images_growth2_jpg__WEBPACK_IMPORTED_MODULE_2__, _app_assets_images_splash_images_growth3_jpg__WEBPACK_IMPORTED_MODULE_3__, _app_assets_images_splash_images_growth4_jpg__WEBPACK_IMPORTED_MODULE_4__];
+      var imageArray = [window.splash1, window.splash2, window.splash3, window.splash4];
       return imageArray[imageIndex];
     }
   }, {
