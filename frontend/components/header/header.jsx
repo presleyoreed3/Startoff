@@ -31,8 +31,7 @@ class Header extends React.Component {
 	}
 
 	handleSearch(e){
-		this.props.searchProject(this.state.search)
-			.then(this.props.history.push("/projects/search/"))
+		this.props.history.push(`/projects/search/${this.state.search}`)
 	}
 
 	update(field){

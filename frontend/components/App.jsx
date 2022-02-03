@@ -32,7 +32,7 @@ const App = () => {
 				<ProtectedRoute path="/projects/:projectId/rewards/update/:rewardId" component={UpdateRewardsContainer}/>
 				<AuthRoute path="/login" component={LoginFormContainer}/>
 				<AuthRoute path="/signup" component={SignupFormContainer}/>
-				<Route path="/projects/search/" component={SearchContainer}/>
+				<Route path="/projects/search/:query" component={SearchContainer}/>
 				<Route path="/projects/:projectId" component={ProjectShowContainer}/>
 				<Route path='/projects' component={ProjectsIndexContainer}/>
 				<Route path='/' component={SplashContainer} />
