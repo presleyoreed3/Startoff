@@ -11820,10 +11820,16 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(ProjectsIndex);
 
-  function ProjectsIndex() {
+  function ProjectsIndex(props) {
+    var _this;
+
     _classCallCheck(this, ProjectsIndex);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      isLoading: true
+    };
+    return _this;
   }
 
   _createClass(ProjectsIndex, [{
@@ -11834,12 +11840,14 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       if (!this.props.projects) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "project-index"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "spinner"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-counter"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Explore ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: "count"
@@ -11849,7 +11857,7 @@ var ProjectsIndex = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_project_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           project: project,
           key: project.id,
-          getCategory: _this.props.fetchProjectByCategory
+          getCategory: _this2.props.fetchProjectByCategory
         });
       })));
     }
