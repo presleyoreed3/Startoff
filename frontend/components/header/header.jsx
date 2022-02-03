@@ -32,7 +32,7 @@ class Header extends React.Component {
 
 	handleSearch(e){
 		this.props.searchProject(this.state.search)
-			.then(console.log("Heres what I got?"))
+			.then(this.props.history.push("/projects/search/"))
 	}
 
 	update(field){
