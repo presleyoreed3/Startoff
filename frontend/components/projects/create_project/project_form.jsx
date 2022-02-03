@@ -11,10 +11,6 @@ class ProjectForm extends React.Component{
 		this.handleKeyDown = this.handleKeyDown.bind(this)
 	}
 
-	componentDidMount(){
-		// this.setState(this.props.fetchProject(this.props.match.params.projectId))
-	}
-
 	update(field){
 		return e => this.setState({[field]: e.currentTarget.value})
 	}
@@ -47,7 +43,6 @@ class ProjectForm extends React.Component{
 		e.preventDefault();
 		e.stopPropagation()
 		const formData = new FormData();
-		// formData.append('project[id]', this.state.id)
 		formData.append('project[project_name]', this.state.projectName)
 		formData.append('project[description]', this.state.description)
 		formData.append('project[goal_amount]', this.state.goalAmount)
@@ -55,6 +50,11 @@ class ProjectForm extends React.Component{
 		formData.append('project[category]', this.state.category)
 		formData.append('project[photo]', this.state.photoFile)
 		formData.append('project[creator_id]', this.state.creatorId)
+		if (this.props.formType === "Update Project"){
+			formData.append('project[id]', this.state.id)
+			this.props.action(formData)
+				.then(() => this.props.history.push(`/projects/${this.props.project.id}`))
+		}
 		this.props.action(formData)
 			.then(() => this.props.history.push(`/projects/${this.props.projectId}`))
 	}

@@ -11352,10 +11352,6 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(ProjectForm, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {// this.setState(this.props.fetchProject(this.props.match.params.projectId))
-    }
-  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -11403,8 +11399,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
 
       e.preventDefault();
       e.stopPropagation();
-      var formData = new FormData(); // formData.append('project[id]', this.state.id)
-
+      var formData = new FormData();
       formData.append('project[project_name]', this.state.projectName);
       formData.append('project[description]', this.state.description);
       formData.append('project[goal_amount]', this.state.goalAmount);
@@ -11412,6 +11407,14 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       formData.append('project[category]', this.state.category);
       formData.append('project[photo]', this.state.photoFile);
       formData.append('project[creator_id]', this.state.creatorId);
+
+      if (this.props.formType === "Update Project") {
+        formData.append('project[id]', this.state.id);
+        this.props.action(formData).then(function () {
+          return _this3.props.history.push("/projects/".concat(_this3.props.project.id));
+        });
+      }
+
       this.props.action(formData).then(function () {
         return _this3.props.history.push("/projects/".concat(_this3.props.projectId));
       });
