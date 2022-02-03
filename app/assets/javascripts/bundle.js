@@ -12888,6 +12888,9 @@ var Search = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      this.setState({
+        errors: []
+      });
       this.props.searchProject(this.props.match.params.query).fail(function () {
         return _this2.setState({
           errors: _this2.props.errors
@@ -12897,8 +12900,17 @@ var Search = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
+      var _this3 = this;
+
       if (this.props.match.params.query !== prevProps.match.params.query) {
-        this.props.searchProject(this.props.match.params.query);
+        this.setState({
+          errors: []
+        });
+        this.props.searchProject(this.props.match.params.query).fail(function () {
+          return _this3.setState({
+            errors: _this3.props.errors
+          });
+        });
       }
     }
   }, {
@@ -12915,7 +12927,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       if (!this.props.filteredProjects) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -12930,7 +12942,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_index_project_project_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           project: project,
           key: project.id,
-          getCategory: _this3.props.fetchProjectByCategory
+          getCategory: _this4.props.fetchProjectByCategory
         });
       })));
     }

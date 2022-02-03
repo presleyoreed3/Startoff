@@ -12,13 +12,16 @@ class Search extends React.Component{
 	}
 
 	componentDidMount(){
+		this.setState({errors: []})
 		this.props.searchProject(this.props.match.params.query)
 			.fail(() => this.setState({errors: this.props.errors}))
 	}
 
 	componentDidUpdate(prevProps){
 		if (this.props.match.params.query !== prevProps.match.params.query){
+			this.setState({errors: []})
 			this.props.searchProject(this.props.match.params.query)
+				.fail(() => this.setState({errors: this.props.errors}))
 		}
 	}
 
