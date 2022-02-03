@@ -1,4 +1,8 @@
 #spinner{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     border: 16px solid #ffffff;
     border-top: 16px solid #09CE78;
     height: 120px;
