@@ -46,3 +46,11 @@ export const fetchByCategory = categoryName => {
 		url: `/api/projects/category/${categoryName}`
 	})
 }
+
+export const searchProject = query => {
+	return $.ajax({
+		method: "GET",
+		url: `/api/projects/search`,
+		data: {query}
+	})
+}

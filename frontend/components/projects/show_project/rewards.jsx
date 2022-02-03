@@ -35,6 +35,7 @@ class Rewards extends React.Component {
 							index={idx}
 							currentUser={this.props.currentUser}
 							project={this.props.project}
+							updateProject={this.props.updateProject}
 						/>
 					))}
 				</div>

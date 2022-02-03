@@ -21,8 +21,7 @@ class RewardItem extends React.Component{
 			this.setState({errors: this.renderErrors()})
 			setTimeout(this.clearErrors, 3000)
 		}else{
-			//Add ability to increment the total funding count
-			//Also have the association that you are backing the project
+			// Increment value
 		}
 		
 	}
