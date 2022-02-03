@@ -13,7 +13,7 @@ class Footer extends React.Component {
 
 	handleFilter(categoryName){
 		return e => this.props.fetchProjectByCategory(categoryName)
-			.then(this.props.history.replace("/projects"))
+			.then(this.props.history.replace(`/projects/category/${categoryName}`))
 	}
 
 	render(){

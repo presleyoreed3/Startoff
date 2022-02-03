@@ -16,6 +16,7 @@ import SignupFormContainer from './forms/signup_form_container'
 import ProjectCategoryContainer from './projects/index_project/project_cat_index_container'
 import ProjectsIndexContainer from './projects/index_project/projects_index_container'
 import SearchContainer from './search/search_container'
+import CategoryContainter from './category/category_container'
 import ProjectShowContainer from './projects/show_project/project_show_container'
 import SplashContainer from './splash/splash_container'
 import Footer from './footer/footer_container'
@@ -33,6 +34,7 @@ const App = () => {
 				<AuthRoute path="/login" component={LoginFormContainer}/>
 				<AuthRoute path="/signup" component={SignupFormContainer}/>
 				<Route path="/projects/search/:query" component={SearchContainer}/>
+				<Route path="/projects/category/:categoryName" component={CategoryContainter} />
 				<Route path="/projects/:projectId" component={ProjectShowContainer}/>
 				<Route path='/projects' component={ProjectsIndexContainer}/>
 				<Route path='/' component={SplashContainer} />
