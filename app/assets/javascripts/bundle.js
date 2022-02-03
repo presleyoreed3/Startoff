@@ -11348,6 +11348,7 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.formatDate = _this.formatDate.bind(_assertThisInitialized(_this));
     _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_this));
+    _this.showLoading = _this.showLoading.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -11393,6 +11394,14 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "showLoading",
+    value: function showLoading() {
+      var spinner = document.getElementById("spinner");
+      spinner.style.display = "block";
+      var opaque = document.getElementById("opaque");
+      opaque.style.display = "block";
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       var _this3 = this;
@@ -11409,12 +11418,14 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       formData.append('project[creator_id]', this.state.creatorId);
 
       if (this.props.formType === "Update Project") {
+        this.showLoading();
         formData.append('project[id]', this.state.id);
         this.props.action(formData).then(function () {
           return _this3.props.history.push("/projects/".concat(_this3.props.project.id));
         });
       }
 
+      this.showLoading();
       this.props.action(formData).then(function () {
         return _this3.props.history.push("/projects/".concat(_this3.props.projectId));
       });
@@ -11428,6 +11439,10 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "spinner"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "opaque"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "form-type"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.formType)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "form-container"

@@ -9,6 +9,7 @@ class ProjectForm extends React.Component{
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.formatDate = this.formatDate.bind(this)
 		this.handleKeyDown = this.handleKeyDown.bind(this)
+		this.showLoading = this.showLoading.bind(this)
 	}
 
 	update(field){
@@ -39,6 +40,13 @@ class ProjectForm extends React.Component{
 		this.setState({photoFile: e.currentTarget.files[0]})
 	}
 
+	showLoading(){
+		let spinner = document.getElementById("spinner");
+		spinner.style.display = "block"
+		let opaque = document.getElementById("opaque")
+		opaque.style.display = "block"
+	}
+
 	handleSubmit(e){
 		e.preventDefault();
 		e.stopPropagation()
@@ -51,10 +59,12 @@ class ProjectForm extends React.Component{
 		formData.append('project[photo]', this.state.photoFile)
 		formData.append('project[creator_id]', this.state.creatorId)
 		if (this.props.formType === "Update Project"){
+			this.showLoading()
 			formData.append('project[id]', this.state.id)
 			this.props.action(formData)
 				.then(() => this.props.history.push(`/projects/${this.props.project.id}`))
 		}
+		this.showLoading()
 		this.props.action(formData)
 			.then(() => this.props.history.push(`/projects/${this.props.projectId}`))
 	}
@@ -63,6 +73,8 @@ class ProjectForm extends React.Component{
 		// if (!this.props.project) return null
 		return(
 			<div id="project-form">
+				<div id="spinner"></div>
+				<div id="opaque"></div>
 				<div id="form-type"><h2>{this.props.formType}</h2></div>
 				<div id="form-container">
 					<form id="form" onSubmit={e => this.handleSubmit(e)}>
