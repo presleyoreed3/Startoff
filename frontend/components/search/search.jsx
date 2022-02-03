@@ -28,30 +28,43 @@ class Search extends React.Component{
 	renderErrors(){
 		if (this.state.errors.length){
 			return (this.state.errors.map((error, idx) => {
-				return(<p key={idx}>{error}</p>)
+				return(<div id="errors" key={idx}>{error}</div>)
 			}))
 		}
+
 	}
 
 	render(){
 		if (!this.props.filteredProjects) return null;
-		return(
-			<div className="project-index">
-				<div id="project-counter">
-					<h1>Explore <span id="count">{this.props.filteredProjects.length} Projects</span></h1>
+		if (this.state.errors.length){
+			return(
+				<div className="project-index">
+					<div id="project-counter">
+						<h1>Explore <span id="count">{this.props.filteredProjects.length} Projects</span></h1>
+					</div>
+					<div id="projects-index">
+						{this.renderErrors()}
+					</div>
 				</div>
-				<div id="projects-index">
-					{this.renderErrors()}
-					{this.props.filteredProjects.map(project => (
-						<ProjectsIndexItem
-							project={project}
-							key={project.id}
-							getCategory={this.props.fetchProjectByCategory}
-						/>
-					))}
+			)
+		}else {
+			return(
+				<div className="project-index">
+					<div id="project-counter">
+						<h1>Explore <span id="count">{this.props.filteredProjects.length} Projects</span></h1>
+					</div>
+					<div id="projects-index">
+						{this.props.filteredProjects.map(project => (
+							<ProjectsIndexItem
+								project={project}
+								key={project.id}
+								getCategory={this.props.fetchProjectByCategory}
+							/>
+						))}
+					</div>
 				</div>
-			</div>
-		)
+			)
+		}
 	}
 
 }

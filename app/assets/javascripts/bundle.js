@@ -13064,7 +13064,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
     value: function renderErrors() {
       if (this.state.errors.length) {
         return this.state.errors.map(function (error, idx) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            id: "errors",
             key: idx
           }, error);
         });
@@ -13076,21 +13077,34 @@ var Search = /*#__PURE__*/function (_React$Component) {
       var _this4 = this;
 
       if (!this.props.filteredProjects) return null;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "project-index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "project-counter"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Explore ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        id: "count"
-      }, this.props.filteredProjects.length, " Projects"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "projects-index"
-      }, this.renderErrors(), this.props.filteredProjects.map(function (project) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_index_project_project_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          project: project,
-          key: project.id,
-          getCategory: _this4.props.fetchProjectByCategory
-        });
-      })));
+
+      if (this.state.errors.length) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "project-index"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          id: "project-counter"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Explore ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          id: "count"
+        }, this.props.filteredProjects.length, " Projects"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          id: "projects-index"
+        }, this.renderErrors()));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "project-index"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          id: "project-counter"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Explore ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          id: "count"
+        }, this.props.filteredProjects.length, " Projects"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          id: "projects-index"
+        }, this.props.filteredProjects.map(function (project) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_projects_index_project_project_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            project: project,
+            key: project.id,
+            getCategory: _this4.props.fetchProjectByCategory
+          });
+        })));
+      }
     }
   }]);
 

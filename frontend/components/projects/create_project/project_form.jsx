@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import RewardInputTile from './reward_input_tile'
 
 class ProjectForm extends React.Component{
