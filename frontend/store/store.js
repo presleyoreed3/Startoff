@@ -11,7 +11,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
 };
 
 const configureStore = (preloadedState = {}) => (
-    createStore(rootReducer, preloadedState, middleware)
+    createStore(RootReducer, preloadedState, middleware)
 );
 
 export default configureStore;
