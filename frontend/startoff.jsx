@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import  Root  from './components/root'
 import configureStore from './store/store'
 //Testing
-import {fetchUsers, fetchUser} from './utils/user_api_util'
-import {fetchProjects} from './utils/project_api_util'
+// import {fetchUsers, fetchUser} from './utils/user_api_util'
+// import {fetchProjects} from './utils/project_api_util'
 //Testing
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	//Testing
-	window.getState = store.getState
-	window.dispatch = store.dispatch
-	window.fetchUsers = fetchUsers
-	window.fetchUser = fetchUser
-	window.fetchProjects = fetchProjects
+	// window.getState = store.getState
+	// window.dispatch = store.dispatch
+	// window.fetchUsers = fetchUsers
+	// window.fetchUser = fetchUser
+	// window.fetchProjects = fetchProjects
 	//Testing
 
 	ReactDOM.render(<Root store={store}/>, root)

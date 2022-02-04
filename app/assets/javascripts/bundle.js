@@ -13685,10 +13685,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var middleware;
+
+if (true) {
+  middleware = (0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], (redux_logger__WEBPACK_IMPORTED_MODULE_0___default()));
+} else {}
+
+;
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], (redux_logger__WEBPACK_IMPORTED_MODULE_0___default())));
+  return (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(rootReducer, preloadedState, middleware);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
@@ -13909,33 +13916,6 @@ var logout = function logout() {
   return $.ajax({
     method: "DELETE",
     url: "/api/session"
-  });
-};
-
-/***/ }),
-
-/***/ "./frontend/utils/user_api_util.js":
-/*!*****************************************!*\
-  !*** ./frontend/utils/user_api_util.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "fetchUsers": () => (/* binding */ fetchUsers),
-/* harmony export */   "fetchUser": () => (/* binding */ fetchUser)
-/* harmony export */ });
-var fetchUsers = function fetchUsers() {
-  return $.ajax({
-    method: "GET",
-    url: "/api/users"
-  });
-};
-var fetchUser = function fetchUser(userId) {
-  return $.ajax({
-    method: "GET",
-    url: "/api/users/".concat(userId)
   });
 };
 
@@ -51414,17 +51394,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
-/* harmony import */ var _utils_user_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/user_api_util */ "./frontend/utils/user_api_util.js");
-/* harmony import */ var _utils_project_api_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/project_api_util */ "./frontend/utils/project_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
  //Testing
-
-
- //Testing
+// import {fetchUsers, fetchUser} from './utils/user_api_util'
+// import {fetchProjects} from './utils/project_api_util'
+//Testing
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('root'); //Bootstrap the user
@@ -51445,13 +51423,13 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     store = (0,_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
   } //Testing
+  // window.getState = store.getState
+  // window.dispatch = store.dispatch
+  // window.fetchUsers = fetchUsers
+  // window.fetchUser = fetchUser
+  // window.fetchProjects = fetchProjects
+  //Testing
 
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.fetchUsers = _utils_user_api_util__WEBPACK_IMPORTED_MODULE_4__.fetchUsers;
-  window.fetchUser = _utils_user_api_util__WEBPACK_IMPORTED_MODULE_4__.fetchUser;
-  window.fetchProjects = _utils_project_api_util__WEBPACK_IMPORTED_MODULE_5__.fetchProjects; //Testing
 
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
