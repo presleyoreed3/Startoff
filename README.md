@@ -26,14 +26,14 @@ A clone of the popular crowdfunding site Kickstarter. The core functionality and
 ### Indexing Projects
 * One on the main features of the application was having the index page of all of the projects to be able to explore and see all the projects that exist on the site. Because of the structure of the tiles on the index, I needed to format the data and send forward a lot of the data that would be on the show page. One clever implementation feature was to have a dynamic progress bar to show how far along in the funding the project was. In order to do this I had do the math on the fly and then dynamically scale the SCSS code to match the tile containers. 
 ```js
-	processPercentage(){
-		let currentAmount = this.props.project.currentFunding;
-		let goalAmount = this.props.project.goalAmount;
-		return Math.floor((currentAmount/goalAmount) * 100);
-	}
+processPercentage(){
+	let currentAmount = this.props.project.currentFunding;
+	let goalAmount = this.props.project.goalAmount;
+	return Math.floor((currentAmount/goalAmount) * 100);
+}
 ```
 ```CSS
-	<div id="progress-bar"><div id="progress" style={{width: progressPercentage}}></div></div>
+<div id="progress-bar"><div id="progress" style={{width: progressPercentage}}></div></div>
 ```
 ![Index](./readme_images/index.gif)
 
