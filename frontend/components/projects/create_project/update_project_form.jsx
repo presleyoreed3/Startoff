@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react'
 import RewardInputTile from './reward_input_tile'
 
-class ProjectForm extends React.Component{
+class UpdateProjectForm extends React.Component{
 
 	constructor(props){
 		super(props)
@@ -10,6 +10,11 @@ class ProjectForm extends React.Component{
 		this.formatDate = this.formatDate.bind(this)
 		this.handleKeyDown = this.handleKeyDown.bind(this)
 		this.showLoading = this.showLoading.bind(this)
+	}
+
+	componentDidMount(){
+		this.props.fetchProject(this.props.match.params.projectId)
+		this.setState({project: this.props.project})
 	}
 
 	update(field){
@@ -48,6 +53,7 @@ class ProjectForm extends React.Component{
 	}
 
 	handleSubmit(e){
+		console.log(this.props.project.id)
 		e.preventDefault();
 		e.stopPropagation()
 		const formData = new FormData();
@@ -58,13 +64,16 @@ class ProjectForm extends React.Component{
 		formData.append('project[category]', this.state.category)
 		formData.append('project[photo]', this.state.photoFile)
 		formData.append('project[creator_id]', this.state.creatorId)
-		this.showLoading()
-		this.props.action(formData)
-			.then(() => this.props.history.push(`/projects/${this.props.projectId}`))
+		if (this.props.formType === "Update Project"){
+			this.showLoading()
+			formData.append('project[id]', this.props.project.id)
+			this.props.action(formData)
+				.then(() => this.props.history.push(`/projects/${this.props.project.id}`))
+		}
 	}
 
 	render(){
-		// if (!this.props.project) return null
+		if (!this.props.project) return null;
 		return(
 			<div id="project-form">
 				<div id="spinner"></div>
@@ -77,14 +86,14 @@ class ProjectForm extends React.Component{
 								placeholder="Project Name" 
 								type="text" 
 								onChange={this.update('projectName')}
-								/>
+								value={this.state.projectName}/>
 						</label>
 						<label>Description<br />
 							<textarea required
 								onKeyDown={this.handleKeyDown}
 								placeholder="Brief Description" 
 								onChange={this.update('description')} 
-								/>
+								value={this.state.description}/>
 						</label>
 						
 						<label>Goal Amount<br />
@@ -92,13 +101,14 @@ class ProjectForm extends React.Component{
 								placeholder="Goal Amount" 
 								type="text" 
 								onChange={this.update('goalAmount')}
-								/>
+								value={this.state.goalAmount}/>
 						</label>
 						<label>End Date<br />
 							<input required
 								type="date" 
 								min={this.formatDate()} 
 								onChange={this.update('deadline')}
+								value={this.state.deadline}
 								/>
 						</label>
 						<label>Category<br />
@@ -127,4 +137,4 @@ class ProjectForm extends React.Component{
 
 }
 
-export default ProjectForm
+export default UpdateProjectForm
