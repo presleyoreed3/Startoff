@@ -10625,6 +10625,9 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         password: 'demo-user'
       };
       var user = Object.assign({}, this.state, demoObject);
+      this.setState({
+        errors: []
+      });
       this.props.processForm(user);
     }
   }, {
@@ -11426,7 +11429,6 @@ var ProjectForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      // if (!this.props.project) return null
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "project-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -11722,7 +11724,6 @@ var UpdateProjectForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      console.log(this.props.project.id);
       e.preventDefault();
       e.stopPropagation();
       var formData = new FormData();

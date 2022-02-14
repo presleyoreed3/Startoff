@@ -39,6 +39,7 @@ class LoginForm extends React.Component{
 			password: 'demo-user'
 		}
 		const user = Object.assign({}, this.state, demoObject)
+		this.setState({errors: []})
 		this.props.processForm(user)
 	}
 
