@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import ProjectForm from './project_form'
+import UpdateProjectForm from './update_project_form'
 import { fetchProject, updateProject } from '../../../actions/project_action'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
 	fetchProject: projectId => dispatch(fetchProject(projectId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectForm)
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateProjectForm)
