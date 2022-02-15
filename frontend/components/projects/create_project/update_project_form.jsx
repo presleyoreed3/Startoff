@@ -53,7 +53,6 @@ class UpdateProjectForm extends React.Component{
 	}
 
 	handleSubmit(e){
-		console.log(this.props.project.id)
 		e.preventDefault();
 		e.stopPropagation()
 		const formData = new FormData();

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEllipsisV} from '@fortawesome/free-solid-svg-icons'
 
@@ -21,7 +21,9 @@ class RewardItem extends React.Component{
 			this.setState({errors: this.renderErrors()})
 			setTimeout(this.clearErrors, 3000)
 		}else{
-			// Increment value
+			if (confirm("Startoff is for demonstration purposes only. \nThank you for supporting this creator.\nClick 'Okay' to go back to the discover page or 'Cancel' to continue viewing this project.")){
+				this.props.history.push("/projects")
+			}
 		}
 		
 	}
@@ -70,6 +72,6 @@ class RewardItem extends React.Component{
 
 }
 
-export default RewardItem
+export default withRouter(RewardItem);
 
 

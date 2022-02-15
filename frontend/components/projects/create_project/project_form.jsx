@@ -64,7 +64,6 @@ class ProjectForm extends React.Component{
 	}
 
 	render(){
-		// if (!this.props.project) return null
 		return(
 			<div id="project-form">
 				<div id="spinner"></div>
