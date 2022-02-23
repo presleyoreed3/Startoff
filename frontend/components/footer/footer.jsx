@@ -37,11 +37,11 @@ class Footer extends React.Component {
 					
 					<div id='footer-info'>
 						<h3>About</h3>
-						<a href="mailto:presleyoreed3@gmail.com?subject=Let's talk about a Job!">Email me</a>
-						<a href="https://github.com/presleyoreed3">GitHub</a>
-						<a href="https://www.linkedin.com/in/presleyoreed3/">LinkedIn</a>
-						<a href="www.presleyoreed.com">Personal Site</a>
-						<a href="https://angel.co/u/presley-reed-iii">AngelList</a>
+						<a href="mailto:presleyoreed3@gmail.com?subject=Let's talk about a Job!" target="_blank">Email me</a>
+						<a href="https://github.com/presleyoreed3" target="_blank">GitHub</a>
+						<a href="https://www.linkedin.com/in/presleyoreed3/" target="_blank">LinkedIn</a>
+						<a href="www.presleyoreed.com" target="_blank">Personal Site</a>
+						<a href="https://angel.co/u/presley-reed-iii" target="_blank">AngelList</a>
 					</div>
 
 				</div>
