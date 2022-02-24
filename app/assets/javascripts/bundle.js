@@ -10467,15 +10467,20 @@ var Footer = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\xA9 Presley Reed III 2022")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "footer-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "About"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "mailto:presleyoreed3@gmail.com?subject=Let's talk about a Job!"
+        href: "mailto:presleyoreed3@gmail.com?subject=Let's talk about a Job!",
+        target: "_blank"
       }, "Email me"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "https://github.com/presleyoreed3"
+        href: "https://github.com/presleyoreed3",
+        target: "_blank"
       }, "GitHub"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "https://www.linkedin.com/in/presleyoreed3/"
+        href: "https://www.linkedin.com/in/presleyoreed3/",
+        target: "_blank"
       }, "LinkedIn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "www.presleyoreed.com"
+        href: "www.presleyoreed.com",
+        target: "_blank"
       }, "Personal Site"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "https://angel.co/u/presley-reed-iii"
+        href: "https://angel.co/u/presley-reed-iii",
+        target: "_blank"
       }, "AngelList"))));
     }
   }]);
@@ -10645,7 +10650,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       }, this.renderErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         placeholder: "Email",
         value: this.state.email,
-        type: "text",
+        type: "email",
         onChange: this.update('email')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         placeholder: "Password",
@@ -10868,7 +10873,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         placeholder: "Email",
         value: this.state.email,
-        type: "text",
+        type: "email",
         onChange: this.update('email')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         placeholder: "Password",
