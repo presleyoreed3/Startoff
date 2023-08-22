@@ -1,1 +1,0 @@
-json.(creator_name, :id, :full_name)
